@@ -1,2 +1,1 @@
-# CapitalYou-Card
-# CapitalYou-Card
+# CapitalYou-Card project
