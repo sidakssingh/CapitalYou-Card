@@ -1,0 +1,1822 @@
+user_id,date,merchant,amount,location,category
+U001,1/1/2025,DoorDash,349.37,"Seattle, WA",Dining
+U001,1/1/2025,Sweetgreen,287.35,"New York, NY",Dining
+U001,1/1/2025,Netflix,294.16,"Los Gatos, CA",Subscriptions
+U001,1/2/2025,Netflix,381.06,"Los Gatos, CA",Subscriptions
+U001,1/3/2025,Kroger,287.13,"Plano, TX",Groceries
+U001,1/3/2025,Spotify,6.22,"New York, NY",Subscriptions
+U001,1/4/2025,Netflix,271.14,"Los Gatos, CA",Subscriptions
+U001,1/4/2025,Starbucks,192.67,"Austin, TX",Dining
+U001,1/4/2025,Uber,306.19,"New York, NY",Transportation
+U001,1/5/2025,Shell,148.88,"Dallas, TX",Gas
+U001,1/6/2025,DoorDash,48.33,"Seattle, WA",Dining
+U001,1/6/2025,Chipotle,205.84,"Austin, TX",Dining
+U001,1/7/2025,Apple,214.24,"Cupertino, CA",Electronics
+U001,1/7/2025,Delta Airlines,387.05,"Atlanta, GA",Travel
+U001,1/7/2025,Delta Airlines,215.79,"Atlanta, GA",Travel
+U001,1/8/2025,Costco,237.18,"Plano, TX",Groceries
+U001,1/8/2025,Exxon,134.53,"Dallas, TX",Gas
+U001,1/9/2025,Exxon,337.38,"Dallas, TX",Gas
+U001,1/10/2025,United Airlines,135.83,"Chicago, IL",Travel
+U001,1/11/2025,Sweetgreen,150.87,"New York, NY",Dining
+U001,1/12/2025,H-E-B,398.73,"Austin, TX",Groceries
+U001,1/13/2025,Airbnb,396.76,"San Francisco, CA",Travel
+U001,1/13/2025,Amazon,350.56,"Seattle, WA",Online Shopping
+U001,1/14/2025,Nike,39.41,"Beaverton, OR",Retail
+U001,1/15/2025,Netflix,267.9,"Los Gatos, CA",Subscriptions
+U001,1/15/2025,Walmart,324.1,"Bentonville, AR",Retail
+U001,1/15/2025,Chipotle,7.02,"Austin, TX",Dining
+U001,1/16/2025,Chipotle,130.17,"Austin, TX",Dining
+U001,1/16/2025,Nike,314.26,"Beaverton, OR",Retail
+U001,1/16/2025,Lyft,283.44,"San Francisco, CA",Transportation
+U001,1/17/2025,Netflix,304.67,"Los Gatos, CA",Subscriptions
+U001,1/17/2025,Nike,245.3,"Beaverton, OR",Retail
+U001,1/17/2025,Netflix,12.91,"Los Gatos, CA",Subscriptions
+U001,1/18/2025,Uber,25.1,"New York, NY",Transportation
+U001,1/18/2025,Kroger,298.65,"Plano, TX",Groceries
+U001,1/19/2025,Shell,255.66,"Dallas, TX",Gas
+U001,1/19/2025,Uber,266.36,"New York, NY",Transportation
+U001,1/20/2025,Chipotle,92.43,"Austin, TX",Dining
+U001,1/20/2025,Netflix,186.2,"Los Gatos, CA",Subscriptions
+U001,1/21/2025,Sweetgreen,187.07,"New York, NY",Dining
+U001,1/22/2025,Airbnb,322.29,"San Francisco, CA",Travel
+U001,1/23/2025,Amazon,211.17,"Seattle, WA",Online Shopping
+U001,1/23/2025,Sweetgreen,234.72,"New York, NY",Dining
+U001,1/23/2025,Kroger,340.09,"Plano, TX",Groceries
+U001,1/24/2025,Chipotle,325.38,"Austin, TX",Dining
+U001,1/24/2025,DoorDash,307.1,"Seattle, WA",Dining
+U001,1/25/2025,Lyft,64.76,"San Francisco, CA",Transportation
+U001,1/26/2025,United Airlines,156.77,"Chicago, IL",Travel
+U001,1/26/2025,Walmart,95.87,"Bentonville, AR",Retail
+U001,1/27/2025,Nike,31.31,"Beaverton, OR",Retail
+U001,1/28/2025,United Airlines,41.4,"Chicago, IL",Travel
+U001,1/28/2025,Nike,92.98,"Beaverton, OR",Retail
+U001,1/28/2025,Nike,48,"Beaverton, OR",Retail
+U001,1/29/2025,Amazon,74.49,"Seattle, WA",Online Shopping
+U001,1/29/2025,Uber,369.9,"New York, NY",Transportation
+U001,1/29/2025,United Airlines,244.12,"Chicago, IL",Travel
+U001,1/30/2025,Amazon,337.93,"Seattle, WA",Online Shopping
+U001,1/30/2025,H-E-B,328.28,"Austin, TX",Groceries
+U001,1/31/2025,H-E-B,207.38,"Austin, TX",Groceries
+U001,2/1/2025,Nike,73.5,"Beaverton, OR",Retail
+U001,2/1/2025,Exxon,245.16,"Dallas, TX",Gas
+U001,2/2/2025,Exxon,194.09,"Dallas, TX",Gas
+U001,2/2/2025,Apple,305.93,"Cupertino, CA",Electronics
+U001,2/3/2025,Target,124.35,"Minneapolis, MN",Retail
+U001,2/3/2025,Shell,44.55,"Dallas, TX",Gas
+U001,2/3/2025,Costco,48.59,"Plano, TX",Groceries
+U001,2/4/2025,Starbucks,375.72,"Austin, TX",Dining
+U001,2/4/2025,Amazon,203.41,"Seattle, WA",Online Shopping
+U001,2/5/2025,Starbucks,213.57,"Austin, TX",Dining
+U001,2/6/2025,Nike,119.69,"Beaverton, OR",Retail
+U001,2/6/2025,Spotify,315.38,"New York, NY",Subscriptions
+U001,2/7/2025,Delta Airlines,130.37,"Atlanta, GA",Travel
+U001,2/8/2025,Apple,322.87,"Cupertino, CA",Electronics
+U001,2/9/2025,Netflix,61.25,"Los Gatos, CA",Subscriptions
+U001,2/9/2025,Delta Airlines,80.5,"Atlanta, GA",Travel
+U001,2/10/2025,Exxon,49.36,"Dallas, TX",Gas
+U001,2/10/2025,Lyft,301.81,"San Francisco, CA",Transportation
+U001,2/10/2025,Kroger,373.65,"Plano, TX",Groceries
+U001,2/11/2025,Uber,349.89,"New York, NY",Transportation
+U001,2/11/2025,Spotify,302.24,"New York, NY",Subscriptions
+U001,2/12/2025,Exxon,353.86,"Dallas, TX",Gas
+U001,2/12/2025,Delta Airlines,211.66,"Atlanta, GA",Travel
+U001,2/13/2025,Starbucks,164.43,"Austin, TX",Dining
+U001,2/13/2025,Uber,147.8,"New York, NY",Transportation
+U001,2/13/2025,Airbnb,77.93,"San Francisco, CA",Travel
+U001,2/14/2025,Amazon,51.3,"Seattle, WA",Online Shopping
+U001,2/15/2025,Target,372.13,"Minneapolis, MN",Retail
+U001,2/15/2025,Chipotle,174.03,"Austin, TX",Dining
+U001,2/15/2025,H-E-B,364.29,"Austin, TX",Groceries
+U001,2/16/2025,DoorDash,69.39,"Seattle, WA",Dining
+U001,2/16/2025,Spotify,238.89,"New York, NY",Subscriptions
+U001,2/17/2025,Netflix,116.58,"Los Gatos, CA",Subscriptions
+U001,2/18/2025,Sweetgreen,275.93,"New York, NY",Dining
+U001,2/19/2025,Target,94.98,"Minneapolis, MN",Retail
+U001,2/20/2025,Apple,261.53,"Cupertino, CA",Electronics
+U001,2/21/2025,Netflix,300.58,"Los Gatos, CA",Subscriptions
+U001,2/21/2025,Delta Airlines,171.2,"Atlanta, GA",Travel
+U001,2/21/2025,Uber,212.11,"New York, NY",Transportation
+U001,2/22/2025,Spotify,390.42,"New York, NY",Subscriptions
+U001,2/22/2025,Apple,193.07,"Cupertino, CA",Electronics
+U001,2/23/2025,H-E-B,36.41,"Austin, TX",Groceries
+U001,2/23/2025,Uber,122.39,"New York, NY",Transportation
+U001,2/24/2025,Costco,339.55,"Plano, TX",Groceries
+U001,2/24/2025,Amazon,275.17,"Seattle, WA",Online Shopping
+U001,2/25/2025,Amazon,356.97,"Seattle, WA",Online Shopping
+U001,2/25/2025,Chipotle,265.71,"Austin, TX",Dining
+U001,2/25/2025,Airbnb,316.13,"San Francisco, CA",Travel
+U001,2/26/2025,Kroger,374.25,"Plano, TX",Groceries
+U001,2/26/2025,Starbucks,248.09,"Austin, TX",Dining
+U001,2/27/2025,Nike,136.15,"Beaverton, OR",Retail
+U001,2/27/2025,Amazon,258.64,"Seattle, WA",Online Shopping
+U001,2/27/2025,Chipotle,276.02,"Austin, TX",Dining
+U001,2/28/2025,Amazon,168.4,"Seattle, WA",Online Shopping
+U001,3/1/2025,Delta Airlines,94.1,"Atlanta, GA",Travel
+U001,3/2/2025,Amazon,328.51,"Seattle, WA",Online Shopping
+U001,3/2/2025,Lyft,58.03,"San Francisco, CA",Transportation
+U001,3/3/2025,Lyft,130.15,"San Francisco, CA",Transportation
+U001,3/3/2025,Netflix,341.03,"Los Gatos, CA",Subscriptions
+U001,3/3/2025,Walmart,109.82,"Bentonville, AR",Retail
+U001,3/4/2025,Airbnb,156.5,"San Francisco, CA",Travel
+U001,3/4/2025,Exxon,71.02,"Dallas, TX",Gas
+U001,3/5/2025,Chipotle,74.19,"Austin, TX",Dining
+U001,3/5/2025,Kroger,117.6,"Plano, TX",Groceries
+U001,3/5/2025,Apple,144.51,"Cupertino, CA",Electronics
+U001,3/6/2025,Uber,128.01,"New York, NY",Transportation
+U001,3/6/2025,Netflix,43.28,"Los Gatos, CA",Subscriptions
+U001,3/6/2025,Netflix,172.92,"Los Gatos, CA",Subscriptions
+U001,3/7/2025,Apple,357.17,"Cupertino, CA",Electronics
+U001,3/7/2025,Amazon,362.2,"Seattle, WA",Online Shopping
+U001,3/8/2025,Netflix,151.79,"Los Gatos, CA",Subscriptions
+U001,3/9/2025,Walmart,31,"Bentonville, AR",Retail
+U001,3/9/2025,Nike,347.7,"Beaverton, OR",Retail
+U001,3/10/2025,Kroger,221.99,"Plano, TX",Groceries
+U001,3/10/2025,Costco,202.39,"Plano, TX",Groceries
+U001,3/10/2025,Apple,247.26,"Cupertino, CA",Electronics
+U001,3/11/2025,Shell,362.31,"Dallas, TX",Gas
+U001,3/11/2025,Starbucks,61.4,"Austin, TX",Dining
+U001,3/11/2025,Uber,211.1,"New York, NY",Transportation
+U001,3/12/2025,Netflix,55.17,"Los Gatos, CA",Subscriptions
+U001,3/13/2025,H-E-B,202.59,"Austin, TX",Groceries
+U001,3/13/2025,Lyft,62.85,"San Francisco, CA",Transportation
+U001,3/13/2025,Starbucks,164.95,"Austin, TX",Dining
+U001,3/14/2025,Spotify,57.34,"New York, NY",Subscriptions
+U001,3/14/2025,Starbucks,352.07,"Austin, TX",Dining
+U001,3/15/2025,Uber,275.56,"New York, NY",Transportation
+U001,3/15/2025,Uber,333.68,"New York, NY",Transportation
+U001,3/16/2025,Chipotle,319.67,"Austin, TX",Dining
+U001,3/16/2025,Shell,201.31,"Dallas, TX",Gas
+U001,3/17/2025,Costco,8.56,"Plano, TX",Groceries
+U001,3/18/2025,Spotify,315.75,"New York, NY",Subscriptions
+U001,3/18/2025,Nike,341.62,"Beaverton, OR",Retail
+U001,3/19/2025,H-E-B,151,"Austin, TX",Groceries
+U001,3/20/2025,Delta Airlines,228.38,"Atlanta, GA",Travel
+U001,3/20/2025,Spotify,200.51,"New York, NY",Subscriptions
+U001,3/21/2025,Exxon,239.45,"Dallas, TX",Gas
+U001,3/22/2025,Starbucks,235.77,"Austin, TX",Dining
+U001,3/22/2025,Spotify,360.51,"New York, NY",Subscriptions
+U001,3/23/2025,Costco,241.17,"Plano, TX",Groceries
+U001,3/23/2025,Exxon,111.26,"Dallas, TX",Gas
+U001,3/24/2025,Target,107.34,"Minneapolis, MN",Retail
+U001,3/24/2025,Target,332.18,"Minneapolis, MN",Retail
+U001,3/25/2025,Shell,360.72,"Dallas, TX",Gas
+U001,3/26/2025,Delta Airlines,261.08,"Atlanta, GA",Travel
+U001,3/26/2025,United Airlines,32.7,"Chicago, IL",Travel
+U001,3/27/2025,Nike,133.79,"Beaverton, OR",Retail
+U001,3/27/2025,Walmart,92.56,"Bentonville, AR",Retail
+U001,3/28/2025,Target,354.45,"Minneapolis, MN",Retail
+U001,3/28/2025,Walmart,296.28,"Bentonville, AR",Retail
+U001,3/29/2025,DoorDash,356.39,"Seattle, WA",Dining
+U001,3/29/2025,Nike,332.22,"Beaverton, OR",Retail
+U001,3/29/2025,DoorDash,93.76,"Seattle, WA",Dining
+U001,3/30/2025,Apple,315.28,"Cupertino, CA",Electronics
+U001,3/31/2025,Delta Airlines,92.84,"Atlanta, GA",Travel
+U001,4/1/2025,United Airlines,335.4,"Chicago, IL",Travel
+U001,4/2/2025,Walmart,187.59,"Bentonville, AR",Retail
+U001,4/2/2025,Costco,292.86,"Plano, TX",Groceries
+U001,4/2/2025,United Airlines,175.18,"Chicago, IL",Travel
+U001,4/3/2025,DoorDash,47.51,"Seattle, WA",Dining
+U001,4/4/2025,Exxon,38.15,"Dallas, TX",Gas
+U001,4/5/2025,Airbnb,82.17,"San Francisco, CA",Travel
+U001,4/5/2025,Shell,151.68,"Dallas, TX",Gas
+U001,4/5/2025,Spotify,396.05,"New York, NY",Subscriptions
+U001,4/6/2025,Amazon,85.99,"Seattle, WA",Online Shopping
+U001,4/7/2025,H-E-B,51.52,"Austin, TX",Groceries
+U001,4/7/2025,Spotify,325.51,"New York, NY",Subscriptions
+U001,4/8/2025,Amazon,41.74,"Seattle, WA",Online Shopping
+U001,4/8/2025,Apple,39.17,"Cupertino, CA",Electronics
+U001,4/9/2025,Apple,130.65,"Cupertino, CA",Electronics
+U001,4/9/2025,Chipotle,111.38,"Austin, TX",Dining
+U001,4/9/2025,Amazon,114.91,"Seattle, WA",Online Shopping
+U001,4/10/2025,Amazon,53.78,"Seattle, WA",Online Shopping
+U001,4/11/2025,Kroger,315.53,"Plano, TX",Groceries
+U001,4/11/2025,Lyft,389.44,"San Francisco, CA",Transportation
+U001,4/11/2025,Netflix,167.44,"Los Gatos, CA",Subscriptions
+U001,4/12/2025,DoorDash,268.11,"Seattle, WA",Dining
+U001,4/12/2025,Kroger,185.55,"Plano, TX",Groceries
+U001,4/13/2025,Chipotle,242.99,"Austin, TX",Dining
+U001,4/13/2025,Chipotle,29.81,"Austin, TX",Dining
+U001,4/14/2025,Spotify,14.25,"New York, NY",Subscriptions
+U001,4/14/2025,Walmart,202.31,"Bentonville, AR",Retail
+U001,4/15/2025,Chipotle,124.57,"Austin, TX",Dining
+U001,4/15/2025,Costco,399.91,"Plano, TX",Groceries
+U001,4/16/2025,Spotify,374.79,"New York, NY",Subscriptions
+U001,4/16/2025,Apple,107.18,"Cupertino, CA",Electronics
+U001,4/17/2025,Chipotle,25.56,"Austin, TX",Dining
+U001,4/17/2025,Sweetgreen,186.15,"New York, NY",Dining
+U001,4/17/2025,Amazon,254.21,"Seattle, WA",Online Shopping
+U001,4/18/2025,Lyft,62.49,"San Francisco, CA",Transportation
+U001,4/18/2025,Chipotle,112.17,"Austin, TX",Dining
+U001,4/19/2025,Chipotle,143.33,"Austin, TX",Dining
+U001,4/19/2025,Amazon,331.89,"Seattle, WA",Online Shopping
+U001,4/19/2025,Sweetgreen,42.93,"New York, NY",Dining
+U001,4/20/2025,Kroger,67.85,"Plano, TX",Groceries
+U001,4/21/2025,Amazon,8.59,"Seattle, WA",Online Shopping
+U001,4/21/2025,Netflix,240.74,"Los Gatos, CA",Subscriptions
+U001,4/21/2025,DoorDash,397.27,"Seattle, WA",Dining
+U001,4/22/2025,Starbucks,382.5,"Austin, TX",Dining
+U001,4/23/2025,Apple,174.91,"Cupertino, CA",Electronics
+U001,4/23/2025,Nike,367.93,"Beaverton, OR",Retail
+U001,4/24/2025,Starbucks,113.33,"Austin, TX",Dining
+U001,4/25/2025,Exxon,70.95,"Dallas, TX",Gas
+U001,4/25/2025,Apple,223.23,"Cupertino, CA",Electronics
+U001,4/25/2025,Delta Airlines,322.75,"Atlanta, GA",Travel
+U001,4/26/2025,Chipotle,195.4,"Austin, TX",Dining
+U001,4/27/2025,Starbucks,273.21,"Austin, TX",Dining
+U001,4/27/2025,Target,36.29,"Minneapolis, MN",Retail
+U001,4/28/2025,Spotify,152.41,"New York, NY",Subscriptions
+U001,4/29/2025,Spotify,32.78,"New York, NY",Subscriptions
+U001,4/29/2025,Nike,105.74,"Beaverton, OR",Retail
+U001,4/29/2025,Walmart,368.33,"Bentonville, AR",Retail
+U001,4/30/2025,Spotify,183.71,"New York, NY",Subscriptions
+U001,4/30/2025,Chipotle,131.86,"Austin, TX",Dining
+U001,4/30/2025,Airbnb,169.16,"San Francisco, CA",Travel
+U001,5/1/2025,Netflix,96.73,"Los Gatos, CA",Subscriptions
+U001,5/2/2025,Uber,32.79,"New York, NY",Transportation
+U001,5/3/2025,Airbnb,312.97,"San Francisco, CA",Travel
+U001,5/3/2025,Lyft,299.97,"San Francisco, CA",Transportation
+U001,5/3/2025,Shell,193.65,"Dallas, TX",Gas
+U001,5/4/2025,Uber,39.53,"New York, NY",Transportation
+U001,5/4/2025,Costco,118.53,"Plano, TX",Groceries
+U001,5/5/2025,Lyft,74.09,"San Francisco, CA",Transportation
+U001,5/5/2025,Uber,264.96,"New York, NY",Transportation
+U001,5/6/2025,Starbucks,347.54,"Austin, TX",Dining
+U001,5/6/2025,Uber,153.99,"New York, NY",Transportation
+U001,5/7/2025,Costco,233.17,"Plano, TX",Groceries
+U001,5/7/2025,Starbucks,275.06,"Austin, TX",Dining
+U001,5/7/2025,Exxon,173.81,"Dallas, TX",Gas
+U001,5/8/2025,United Airlines,279.05,"Chicago, IL",Travel
+U001,5/9/2025,Walmart,235.8,"Bentonville, AR",Retail
+U001,5/9/2025,Exxon,174.84,"Dallas, TX",Gas
+U001,5/10/2025,Exxon,130.58,"Dallas, TX",Gas
+U001,5/10/2025,Nike,339.32,"Beaverton, OR",Retail
+U001,5/10/2025,Sweetgreen,306.46,"New York, NY",Dining
+U001,5/11/2025,Apple,113.96,"Cupertino, CA",Electronics
+U001,5/12/2025,Delta Airlines,28.51,"Atlanta, GA",Travel
+U001,5/12/2025,Lyft,292.47,"San Francisco, CA",Transportation
+U001,5/12/2025,DoorDash,139.29,"Seattle, WA",Dining
+U001,5/13/2025,Chipotle,62.74,"Austin, TX",Dining
+U001,5/13/2025,Apple,309.76,"Cupertino, CA",Electronics
+U001,5/13/2025,Airbnb,285.75,"San Francisco, CA",Travel
+U001,5/14/2025,Apple,274.84,"Cupertino, CA",Electronics
+U001,5/14/2025,Starbucks,362.38,"Austin, TX",Dining
+U001,5/15/2025,Kroger,167.41,"Plano, TX",Groceries
+U001,5/15/2025,Walmart,48.33,"Bentonville, AR",Retail
+U001,5/15/2025,Apple,104.35,"Cupertino, CA",Electronics
+U001,5/16/2025,Exxon,291.7,"Dallas, TX",Gas
+U001,5/17/2025,Uber,358.72,"New York, NY",Transportation
+U001,5/17/2025,H-E-B,59.6,"Austin, TX",Groceries
+U001,5/18/2025,Uber,157.18,"New York, NY",Transportation
+U001,5/19/2025,Nike,79.37,"Beaverton, OR",Retail
+U001,5/19/2025,Shell,290.36,"Dallas, TX",Gas
+U001,5/19/2025,Starbucks,238.51,"Austin, TX",Dining
+U001,5/20/2025,Shell,157.79,"Dallas, TX",Gas
+U001,5/21/2025,Airbnb,343.43,"San Francisco, CA",Travel
+U001,5/21/2025,Lyft,202.76,"San Francisco, CA",Transportation
+U001,5/21/2025,Walmart,294.14,"Bentonville, AR",Retail
+U001,5/22/2025,Airbnb,290.69,"San Francisco, CA",Travel
+U001,5/22/2025,Shell,88.45,"Dallas, TX",Gas
+U001,5/22/2025,Sweetgreen,385.51,"New York, NY",Dining
+U001,5/23/2025,Nike,14.24,"Beaverton, OR",Retail
+U001,5/23/2025,Kroger,33.49,"Plano, TX",Groceries
+U001,5/24/2025,Delta Airlines,296.26,"Atlanta, GA",Travel
+U001,5/24/2025,DoorDash,241.41,"Seattle, WA",Dining
+U001,5/25/2025,Apple,136.97,"Cupertino, CA",Electronics
+U001,5/25/2025,Nike,387.31,"Beaverton, OR",Retail
+U001,5/25/2025,Chipotle,112.86,"Austin, TX",Dining
+U001,5/26/2025,DoorDash,101.08,"Seattle, WA",Dining
+U001,5/27/2025,H-E-B,131.2,"Austin, TX",Groceries
+U001,5/28/2025,DoorDash,126.93,"Seattle, WA",Dining
+U001,5/29/2025,Uber,79.43,"New York, NY",Transportation
+U001,5/29/2025,Kroger,375.12,"Plano, TX",Groceries
+U001,5/30/2025,Kroger,362,"Plano, TX",Groceries
+U001,5/30/2025,Kroger,138.84,"Plano, TX",Groceries
+U001,5/31/2025,Walmart,104.38,"Bentonville, AR",Retail
+U001,5/31/2025,Walmart,356.63,"Bentonville, AR",Retail
+U001,5/31/2025,Target,85.2,"Minneapolis, MN",Retail
+U001,6/1/2025,Target,238.04,"Minneapolis, MN",Retail
+U001,6/1/2025,Delta Airlines,324.71,"Atlanta, GA",Travel
+U001,6/1/2025,Apple,65.07,"Cupertino, CA",Electronics
+U001,6/2/2025,Costco,136.12,"Plano, TX",Groceries
+U001,6/2/2025,Starbucks,396.13,"Austin, TX",Dining
+U001,6/3/2025,Airbnb,18.86,"San Francisco, CA",Travel
+U001,6/4/2025,Delta Airlines,159.14,"Atlanta, GA",Travel
+U001,6/4/2025,Delta Airlines,388.87,"Atlanta, GA",Travel
+U001,6/5/2025,DoorDash,210.56,"Seattle, WA",Dining
+U001,6/5/2025,Nike,363.35,"Beaverton, OR",Retail
+U001,6/6/2025,Kroger,68.3,"Plano, TX",Groceries
+U001,6/6/2025,Lyft,316.55,"San Francisco, CA",Transportation
+U001,6/6/2025,Target,169.91,"Minneapolis, MN",Retail
+U001,6/7/2025,DoorDash,275.57,"Seattle, WA",Dining
+U001,6/7/2025,Kroger,51.7,"Plano, TX",Groceries
+U001,6/8/2025,Lyft,214.16,"San Francisco, CA",Transportation
+U001,6/8/2025,Apple,311.72,"Cupertino, CA",Electronics
+U001,6/8/2025,Starbucks,80.35,"Austin, TX",Dining
+U001,6/9/2025,Sweetgreen,160.38,"New York, NY",Dining
+U001,6/9/2025,Chipotle,67.77,"Austin, TX",Dining
+U001,6/9/2025,Airbnb,34.44,"San Francisco, CA",Travel
+U001,6/10/2025,Costco,152.23,"Plano, TX",Groceries
+U001,6/11/2025,Delta Airlines,68.08,"Atlanta, GA",Travel
+U001,6/11/2025,Uber,369.06,"New York, NY",Transportation
+U001,6/11/2025,Shell,16.78,"Dallas, TX",Gas
+U001,6/12/2025,Uber,98.11,"New York, NY",Transportation
+U001,6/12/2025,H-E-B,117.82,"Austin, TX",Groceries
+U001,6/12/2025,Spotify,81.98,"New York, NY",Subscriptions
+U001,6/13/2025,Airbnb,85.67,"San Francisco, CA",Travel
+U001,6/14/2025,Starbucks,119.41,"Austin, TX",Dining
+U001,6/15/2025,Costco,21.75,"Plano, TX",Groceries
+U001,6/16/2025,Nike,229.97,"Beaverton, OR",Retail
+U001,6/16/2025,United Airlines,114.76,"Chicago, IL",Travel
+U001,6/16/2025,Starbucks,240.74,"Austin, TX",Dining
+U001,6/17/2025,Kroger,197.35,"Plano, TX",Groceries
+U001,6/18/2025,Costco,21.26,"Plano, TX",Groceries
+U001,6/18/2025,United Airlines,114.99,"Chicago, IL",Travel
+U001,6/18/2025,Lyft,129.76,"San Francisco, CA",Transportation
+U001,6/19/2025,Netflix,92.31,"Los Gatos, CA",Subscriptions
+U001,6/19/2025,United Airlines,393.81,"Chicago, IL",Travel
+U001,6/20/2025,Apple,179.11,"Cupertino, CA",Electronics
+U001,6/20/2025,Spotify,217.3,"New York, NY",Subscriptions
+U001,6/20/2025,Chipotle,14.82,"Austin, TX",Dining
+U001,6/21/2025,Starbucks,162.28,"Austin, TX",Dining
+U001,6/21/2025,Sweetgreen,199.08,"New York, NY",Dining
+U001,6/21/2025,Chipotle,397.88,"Austin, TX",Dining
+U001,6/22/2025,Nike,166.72,"Beaverton, OR",Retail
+U001,6/22/2025,Uber,231.29,"New York, NY",Transportation
+U001,6/23/2025,Amazon,209.66,"Seattle, WA",Online Shopping
+U001,6/24/2025,DoorDash,136.83,"Seattle, WA",Dining
+U001,6/24/2025,Amazon,298.32,"Seattle, WA",Online Shopping
+U001,6/24/2025,Walmart,89.95,"Bentonville, AR",Retail
+U001,6/25/2025,Sweetgreen,204.06,"New York, NY",Dining
+U001,6/25/2025,Shell,263.14,"Dallas, TX",Gas
+U001,6/26/2025,Uber,326.92,"New York, NY",Transportation
+U001,6/26/2025,United Airlines,100.53,"Chicago, IL",Travel
+U001,6/26/2025,Spotify,370.85,"New York, NY",Subscriptions
+U001,6/27/2025,Shell,138.65,"Dallas, TX",Gas
+U001,6/27/2025,Starbucks,330.48,"Austin, TX",Dining
+U001,6/28/2025,Lyft,289.82,"San Francisco, CA",Transportation
+U001,6/29/2025,DoorDash,101.97,"Seattle, WA",Dining
+U002,1/1/2025,Amazon,147.17,"Seattle, WA",Online Shopping
+U002,1/1/2025,Walmart,394.13,"Bentonville, AR",Retail
+U002,1/2/2025,Amazon,288.88,"Seattle, WA",Online Shopping
+U002,1/3/2025,United Airlines,363.8,"Chicago, IL",Travel
+U002,1/3/2025,Exxon,174.92,"Dallas, TX",Gas
+U002,1/4/2025,Kroger,34.72,"Plano, TX",Groceries
+U002,1/5/2025,Sweetgreen,367.63,"New York, NY",Dining
+U002,1/5/2025,Uber,114.17,"New York, NY",Transportation
+U002,1/6/2025,Costco,90.95,"Plano, TX",Groceries
+U002,1/7/2025,Target,361.99,"Minneapolis, MN",Retail
+U002,1/7/2025,DoorDash,386.57,"Seattle, WA",Dining
+U002,1/8/2025,Target,265.88,"Minneapolis, MN",Retail
+U002,1/9/2025,Chipotle,339.84,"Austin, TX",Dining
+U002,1/9/2025,Costco,83.09,"Plano, TX",Groceries
+U002,1/10/2025,Chipotle,169.61,"Austin, TX",Dining
+U002,1/10/2025,Kroger,9.26,"Plano, TX",Groceries
+U002,1/10/2025,Target,64.92,"Minneapolis, MN",Retail
+U002,1/11/2025,Kroger,252.63,"Plano, TX",Groceries
+U002,1/11/2025,Costco,234.95,"Plano, TX",Groceries
+U002,1/12/2025,Exxon,367.22,"Dallas, TX",Gas
+U002,1/12/2025,United Airlines,80.15,"Chicago, IL",Travel
+U002,1/12/2025,Lyft,121.55,"San Francisco, CA",Transportation
+U002,1/13/2025,United Airlines,175.29,"Chicago, IL",Travel
+U002,1/14/2025,Apple,315.3,"Cupertino, CA",Electronics
+U002,1/15/2025,Kroger,214.76,"Plano, TX",Groceries
+U002,1/15/2025,Shell,384.98,"Dallas, TX",Gas
+U002,1/16/2025,Airbnb,322.86,"San Francisco, CA",Travel
+U002,1/16/2025,Target,315.97,"Minneapolis, MN",Retail
+U002,1/17/2025,Amazon,390.16,"Seattle, WA",Online Shopping
+U002,1/18/2025,Spotify,162.53,"New York, NY",Subscriptions
+U002,1/18/2025,Nike,325.47,"Beaverton, OR",Retail
+U002,1/18/2025,Nike,198.52,"Beaverton, OR",Retail
+U002,1/19/2025,Delta Airlines,69.32,"Atlanta, GA",Travel
+U002,1/19/2025,Starbucks,172.17,"Austin, TX",Dining
+U002,1/20/2025,Shell,100.53,"Dallas, TX",Gas
+U002,1/21/2025,Target,333.07,"Minneapolis, MN",Retail
+U002,1/22/2025,Exxon,70.35,"Dallas, TX",Gas
+U002,1/22/2025,Apple,230.33,"Cupertino, CA",Electronics
+U002,1/22/2025,Airbnb,269.12,"San Francisco, CA",Travel
+U002,1/23/2025,Nike,105.1,"Beaverton, OR",Retail
+U002,1/23/2025,Uber,357.56,"New York, NY",Transportation
+U002,1/24/2025,H-E-B,249.75,"Austin, TX",Groceries
+U002,1/25/2025,Walmart,261.97,"Bentonville, AR",Retail
+U002,1/26/2025,Kroger,311.06,"Plano, TX",Groceries
+U002,1/26/2025,Nike,27.62,"Beaverton, OR",Retail
+U002,1/27/2025,Amazon,155.46,"Seattle, WA",Online Shopping
+U002,1/28/2025,Chipotle,152.99,"Austin, TX",Dining
+U002,1/29/2025,Exxon,137.8,"Dallas, TX",Gas
+U002,1/30/2025,Walmart,349.53,"Bentonville, AR",Retail
+U002,1/30/2025,Nike,365.98,"Beaverton, OR",Retail
+U002,1/30/2025,Shell,86.4,"Dallas, TX",Gas
+U002,1/31/2025,Delta Airlines,202.29,"Atlanta, GA",Travel
+U002,1/31/2025,Walmart,352.22,"Bentonville, AR",Retail
+U002,2/1/2025,Kroger,43.05,"Plano, TX",Groceries
+U002,2/1/2025,Sweetgreen,304.82,"New York, NY",Dining
+U002,2/2/2025,Shell,231.89,"Dallas, TX",Gas
+U002,2/2/2025,Target,392.84,"Minneapolis, MN",Retail
+U002,2/3/2025,DoorDash,184.61,"Seattle, WA",Dining
+U002,2/3/2025,Netflix,162.19,"Los Gatos, CA",Subscriptions
+U002,2/4/2025,Shell,187.57,"Dallas, TX",Gas
+U002,2/4/2025,Shell,139.11,"Dallas, TX",Gas
+U002,2/4/2025,Sweetgreen,160.31,"New York, NY",Dining
+U002,2/5/2025,DoorDash,61.7,"Seattle, WA",Dining
+U002,2/6/2025,United Airlines,370.55,"Chicago, IL",Travel
+U002,2/7/2025,Exxon,49.94,"Dallas, TX",Gas
+U002,2/7/2025,Shell,8.44,"Dallas, TX",Gas
+U002,2/7/2025,Lyft,122.89,"San Francisco, CA",Transportation
+U002,2/8/2025,DoorDash,219.33,"Seattle, WA",Dining
+U002,2/8/2025,Lyft,25.61,"San Francisco, CA",Transportation
+U002,2/9/2025,United Airlines,236.06,"Chicago, IL",Travel
+U002,2/9/2025,United Airlines,76.2,"Chicago, IL",Travel
+U002,2/10/2025,Nike,309.21,"Beaverton, OR",Retail
+U002,2/10/2025,Amazon,356.45,"Seattle, WA",Online Shopping
+U002,2/10/2025,United Airlines,300.73,"Chicago, IL",Travel
+U002,2/11/2025,Exxon,132,"Dallas, TX",Gas
+U002,2/11/2025,Apple,70.91,"Cupertino, CA",Electronics
+U002,2/11/2025,Delta Airlines,247.2,"Atlanta, GA",Travel
+U002,2/12/2025,Netflix,238.41,"Los Gatos, CA",Subscriptions
+U002,2/12/2025,Apple,353.64,"Cupertino, CA",Electronics
+U002,2/12/2025,DoorDash,134.2,"Seattle, WA",Dining
+U002,2/13/2025,Amazon,172.31,"Seattle, WA",Online Shopping
+U002,2/13/2025,Apple,60.74,"Cupertino, CA",Electronics
+U002,2/13/2025,United Airlines,280.65,"Chicago, IL",Travel
+U002,2/14/2025,Shell,48.73,"Dallas, TX",Gas
+U002,2/14/2025,Costco,179.24,"Plano, TX",Groceries
+U002,2/14/2025,Exxon,33.03,"Dallas, TX",Gas
+U002,2/15/2025,Apple,207.93,"Cupertino, CA",Electronics
+U002,2/15/2025,Starbucks,122.58,"Austin, TX",Dining
+U002,2/15/2025,United Airlines,343.96,"Chicago, IL",Travel
+U002,2/16/2025,DoorDash,371.29,"Seattle, WA",Dining
+U002,2/16/2025,Walmart,347.35,"Bentonville, AR",Retail
+U002,2/16/2025,Lyft,259.04,"San Francisco, CA",Transportation
+U002,2/17/2025,Uber,162.6,"New York, NY",Transportation
+U002,2/17/2025,Amazon,51.46,"Seattle, WA",Online Shopping
+U002,2/18/2025,Sweetgreen,149.23,"New York, NY",Dining
+U002,2/18/2025,Uber,24.18,"New York, NY",Transportation
+U002,2/18/2025,Netflix,328.16,"Los Gatos, CA",Subscriptions
+U002,2/19/2025,Spotify,16,"New York, NY",Subscriptions
+U002,2/20/2025,H-E-B,305.62,"Austin, TX",Groceries
+U002,2/20/2025,H-E-B,151.78,"Austin, TX",Groceries
+U002,2/21/2025,Netflix,253.03,"Los Gatos, CA",Subscriptions
+U002,2/22/2025,DoorDash,82.92,"Seattle, WA",Dining
+U002,2/22/2025,Uber,302.19,"New York, NY",Transportation
+U002,2/23/2025,Lyft,147.45,"San Francisco, CA",Transportation
+U002,2/23/2025,Lyft,32.57,"San Francisco, CA",Transportation
+U002,2/24/2025,DoorDash,245.23,"Seattle, WA",Dining
+U002,2/24/2025,Lyft,289.11,"San Francisco, CA",Transportation
+U002,2/25/2025,United Airlines,32.02,"Chicago, IL",Travel
+U002,2/25/2025,Target,33.61,"Minneapolis, MN",Retail
+U002,2/26/2025,Spotify,227.36,"New York, NY",Subscriptions
+U002,2/26/2025,Kroger,226.54,"Plano, TX",Groceries
+U002,2/27/2025,Walmart,341.72,"Bentonville, AR",Retail
+U002,2/28/2025,Lyft,14.87,"San Francisco, CA",Transportation
+U002,2/28/2025,Starbucks,132.72,"Austin, TX",Dining
+U002,2/28/2025,Netflix,170.15,"Los Gatos, CA",Subscriptions
+U002,3/1/2025,Amazon,16.76,"Seattle, WA",Online Shopping
+U002,3/1/2025,Target,86.23,"Minneapolis, MN",Retail
+U002,3/1/2025,Airbnb,186.18,"San Francisco, CA",Travel
+U002,3/2/2025,Starbucks,169.38,"Austin, TX",Dining
+U002,3/3/2025,Lyft,107.39,"San Francisco, CA",Transportation
+U002,3/3/2025,Uber,399.52,"New York, NY",Transportation
+U002,3/4/2025,Netflix,150.98,"Los Gatos, CA",Subscriptions
+U002,3/5/2025,Walmart,242.18,"Bentonville, AR",Retail
+U002,3/5/2025,Exxon,172.63,"Dallas, TX",Gas
+U002,3/5/2025,Exxon,286.22,"Dallas, TX",Gas
+U002,3/6/2025,Lyft,125.85,"San Francisco, CA",Transportation
+U002,3/6/2025,Lyft,94.54,"San Francisco, CA",Transportation
+U002,3/6/2025,Chipotle,62.19,"Austin, TX",Dining
+U002,3/7/2025,DoorDash,67.76,"Seattle, WA",Dining
+U002,3/7/2025,Starbucks,368.08,"Austin, TX",Dining
+U002,3/7/2025,H-E-B,88.26,"Austin, TX",Groceries
+U002,3/8/2025,Target,347.46,"Minneapolis, MN",Retail
+U002,3/8/2025,United Airlines,119.39,"Chicago, IL",Travel
+U002,3/8/2025,H-E-B,268.37,"Austin, TX",Groceries
+U002,3/9/2025,Netflix,211.87,"Los Gatos, CA",Subscriptions
+U002,3/9/2025,Airbnb,250.25,"San Francisco, CA",Travel
+U002,3/10/2025,Uber,311.92,"New York, NY",Transportation
+U002,3/10/2025,Amazon,295.41,"Seattle, WA",Online Shopping
+U002,3/10/2025,Walmart,176.85,"Bentonville, AR",Retail
+U002,3/11/2025,Costco,261.78,"Plano, TX",Groceries
+U002,3/12/2025,Exxon,308.2,"Dallas, TX",Gas
+U002,3/13/2025,Nike,18.05,"Beaverton, OR",Retail
+U002,3/14/2025,Costco,41.7,"Plano, TX",Groceries
+U002,3/15/2025,Exxon,202.08,"Dallas, TX",Gas
+U002,3/15/2025,Exxon,28.29,"Dallas, TX",Gas
+U002,3/15/2025,Sweetgreen,226.49,"New York, NY",Dining
+U002,3/16/2025,DoorDash,372.98,"Seattle, WA",Dining
+U002,3/16/2025,Apple,71.34,"Cupertino, CA",Electronics
+U002,3/17/2025,Spotify,226.14,"New York, NY",Subscriptions
+U002,3/17/2025,Kroger,241.29,"Plano, TX",Groceries
+U002,3/17/2025,H-E-B,202.18,"Austin, TX",Groceries
+U002,3/18/2025,H-E-B,320.45,"Austin, TX",Groceries
+U002,3/18/2025,Shell,269.19,"Dallas, TX",Gas
+U002,3/19/2025,Costco,297.08,"Plano, TX",Groceries
+U002,3/19/2025,Airbnb,184.64,"San Francisco, CA",Travel
+U002,3/20/2025,Uber,52.42,"New York, NY",Transportation
+U002,3/21/2025,Uber,149.01,"New York, NY",Transportation
+U002,3/21/2025,Apple,35.66,"Cupertino, CA",Electronics
+U002,3/21/2025,Lyft,311.56,"San Francisco, CA",Transportation
+U002,3/22/2025,Costco,282.93,"Plano, TX",Groceries
+U002,3/22/2025,Exxon,268.95,"Dallas, TX",Gas
+U002,3/23/2025,United Airlines,101.19,"Chicago, IL",Travel
+U002,3/23/2025,Walmart,158.18,"Bentonville, AR",Retail
+U002,3/24/2025,Uber,106.12,"New York, NY",Transportation
+U002,3/24/2025,Delta Airlines,227.37,"Atlanta, GA",Travel
+U002,3/25/2025,Target,103.08,"Minneapolis, MN",Retail
+U002,3/25/2025,Uber,134.6,"New York, NY",Transportation
+U002,3/26/2025,Kroger,192.08,"Plano, TX",Groceries
+U002,3/27/2025,Netflix,51.97,"Los Gatos, CA",Subscriptions
+U002,3/27/2025,H-E-B,391.36,"Austin, TX",Groceries
+U002,3/27/2025,Spotify,327.13,"New York, NY",Subscriptions
+U002,3/28/2025,Apple,329.29,"Cupertino, CA",Electronics
+U002,3/29/2025,DoorDash,91.84,"Seattle, WA",Dining
+U002,3/29/2025,Uber,324.18,"New York, NY",Transportation
+U002,3/29/2025,Chipotle,118.96,"Austin, TX",Dining
+U002,3/30/2025,Chipotle,236.94,"Austin, TX",Dining
+U002,3/31/2025,Target,97.89,"Minneapolis, MN",Retail
+U002,3/31/2025,Starbucks,182.63,"Austin, TX",Dining
+U002,3/31/2025,Target,313.97,"Minneapolis, MN",Retail
+U002,4/1/2025,Netflix,33.44,"Los Gatos, CA",Subscriptions
+U002,4/1/2025,Costco,41,"Plano, TX",Groceries
+U002,4/1/2025,Delta Airlines,249.07,"Atlanta, GA",Travel
+U002,4/2/2025,Airbnb,121.21,"San Francisco, CA",Travel
+U002,4/3/2025,Exxon,315.14,"Dallas, TX",Gas
+U002,4/4/2025,Starbucks,31.74,"Austin, TX",Dining
+U002,4/4/2025,United Airlines,191.29,"Chicago, IL",Travel
+U002,4/4/2025,Kroger,280.18,"Plano, TX",Groceries
+U002,4/5/2025,Lyft,79.89,"San Francisco, CA",Transportation
+U002,4/5/2025,Exxon,81.32,"Dallas, TX",Gas
+U002,4/6/2025,Sweetgreen,80.76,"New York, NY",Dining
+U002,4/6/2025,Costco,233.61,"Plano, TX",Groceries
+U002,4/7/2025,Target,132.9,"Minneapolis, MN",Retail
+U002,4/8/2025,Nike,72.82,"Beaverton, OR",Retail
+U002,4/9/2025,Walmart,206.56,"Bentonville, AR",Retail
+U002,4/9/2025,Netflix,249.95,"Los Gatos, CA",Subscriptions
+U002,4/10/2025,Uber,303.19,"New York, NY",Transportation
+U002,4/10/2025,Airbnb,299.94,"San Francisco, CA",Travel
+U002,4/10/2025,Airbnb,206.67,"San Francisco, CA",Travel
+U002,4/11/2025,Lyft,140.89,"San Francisco, CA",Transportation
+U002,4/11/2025,Shell,130.24,"Dallas, TX",Gas
+U002,4/12/2025,Uber,125.92,"New York, NY",Transportation
+U002,4/13/2025,United Airlines,358.32,"Chicago, IL",Travel
+U002,4/13/2025,Nike,294.28,"Beaverton, OR",Retail
+U002,4/13/2025,Starbucks,63.6,"Austin, TX",Dining
+U002,4/14/2025,Sweetgreen,282.33,"New York, NY",Dining
+U002,4/15/2025,H-E-B,333.02,"Austin, TX",Groceries
+U002,4/15/2025,Airbnb,319.07,"San Francisco, CA",Travel
+U002,4/15/2025,Amazon,354.21,"Seattle, WA",Online Shopping
+U002,4/16/2025,Target,329.91,"Minneapolis, MN",Retail
+U002,4/16/2025,Nike,244.65,"Beaverton, OR",Retail
+U002,4/17/2025,Costco,327.95,"Plano, TX",Groceries
+U002,4/17/2025,H-E-B,34.04,"Austin, TX",Groceries
+U002,4/18/2025,Chipotle,323.61,"Austin, TX",Dining
+U002,4/18/2025,Spotify,285.09,"New York, NY",Subscriptions
+U002,4/18/2025,Uber,182.57,"New York, NY",Transportation
+U002,4/19/2025,Sweetgreen,238.47,"New York, NY",Dining
+U002,4/19/2025,Lyft,229.62,"San Francisco, CA",Transportation
+U002,4/20/2025,Apple,11.43,"Cupertino, CA",Electronics
+U002,4/21/2025,Delta Airlines,65.37,"Atlanta, GA",Travel
+U002,4/22/2025,DoorDash,166.86,"Seattle, WA",Dining
+U002,4/23/2025,Target,235.17,"Minneapolis, MN",Retail
+U002,4/23/2025,Sweetgreen,18.97,"New York, NY",Dining
+U002,4/23/2025,Nike,61.77,"Beaverton, OR",Retail
+U002,4/24/2025,Amazon,11.95,"Seattle, WA",Online Shopping
+U002,4/24/2025,Kroger,177.27,"Plano, TX",Groceries
+U002,4/25/2025,Target,340.38,"Minneapolis, MN",Retail
+U002,4/25/2025,Airbnb,241.43,"San Francisco, CA",Travel
+U002,4/25/2025,Netflix,279.91,"Los Gatos, CA",Subscriptions
+U002,4/26/2025,Nike,148,"Beaverton, OR",Retail
+U002,4/26/2025,Lyft,300.14,"San Francisco, CA",Transportation
+U002,4/26/2025,Kroger,92.77,"Plano, TX",Groceries
+U002,4/27/2025,DoorDash,172.62,"Seattle, WA",Dining
+U002,4/27/2025,Exxon,240.55,"Dallas, TX",Gas
+U002,4/28/2025,Lyft,133.35,"San Francisco, CA",Transportation
+U002,4/28/2025,Chipotle,207.22,"Austin, TX",Dining
+U002,4/28/2025,Target,300.29,"Minneapolis, MN",Retail
+U002,4/29/2025,Walmart,151.51,"Bentonville, AR",Retail
+U002,4/29/2025,Amazon,356.92,"Seattle, WA",Online Shopping
+U002,4/30/2025,DoorDash,255.69,"Seattle, WA",Dining
+U002,4/30/2025,H-E-B,329.24,"Austin, TX",Groceries
+U002,4/30/2025,Sweetgreen,109.21,"New York, NY",Dining
+U002,5/1/2025,Exxon,328.72,"Dallas, TX",Gas
+U002,5/2/2025,Nike,226.59,"Beaverton, OR",Retail
+U002,5/2/2025,Spotify,393.06,"New York, NY",Subscriptions
+U002,5/2/2025,H-E-B,11.82,"Austin, TX",Groceries
+U002,5/3/2025,Netflix,364.79,"Los Gatos, CA",Subscriptions
+U002,5/3/2025,Exxon,156.04,"Dallas, TX",Gas
+U002,5/3/2025,Costco,133.54,"Plano, TX",Groceries
+U002,5/4/2025,Nike,34.26,"Beaverton, OR",Retail
+U002,5/5/2025,Apple,357.31,"Cupertino, CA",Electronics
+U002,5/5/2025,Exxon,83.86,"Dallas, TX",Gas
+U002,5/5/2025,Airbnb,39.34,"San Francisco, CA",Travel
+U002,5/6/2025,Uber,340.79,"New York, NY",Transportation
+U002,5/6/2025,Shell,387.13,"Dallas, TX",Gas
+U002,5/7/2025,Starbucks,382.98,"Austin, TX",Dining
+U002,5/8/2025,United Airlines,269.46,"Chicago, IL",Travel
+U002,5/9/2025,Amazon,250.36,"Seattle, WA",Online Shopping
+U002,5/10/2025,Netflix,327.43,"Los Gatos, CA",Subscriptions
+U002,5/11/2025,Airbnb,19.01,"San Francisco, CA",Travel
+U002,5/12/2025,H-E-B,162.88,"Austin, TX",Groceries
+U002,5/12/2025,Sweetgreen,82.42,"New York, NY",Dining
+U002,5/13/2025,Shell,180.43,"Dallas, TX",Gas
+U002,5/13/2025,Sweetgreen,273.08,"New York, NY",Dining
+U002,5/13/2025,Lyft,320.5,"San Francisco, CA",Transportation
+U002,5/14/2025,DoorDash,345.76,"Seattle, WA",Dining
+U002,5/14/2025,Chipotle,90.15,"Austin, TX",Dining
+U002,5/15/2025,Apple,213.38,"Cupertino, CA",Electronics
+U002,5/16/2025,Starbucks,185.46,"Austin, TX",Dining
+U002,5/16/2025,Apple,55.3,"Cupertino, CA",Electronics
+U002,5/17/2025,Apple,315.63,"Cupertino, CA",Electronics
+U002,5/17/2025,Target,73.35,"Minneapolis, MN",Retail
+U002,5/18/2025,Spotify,399.19,"New York, NY",Subscriptions
+U002,5/18/2025,Lyft,221.94,"San Francisco, CA",Transportation
+U002,5/19/2025,Shell,294.23,"Dallas, TX",Gas
+U002,5/19/2025,Spotify,92.45,"New York, NY",Subscriptions
+U002,5/20/2025,Costco,206.93,"Plano, TX",Groceries
+U002,5/20/2025,United Airlines,366.92,"Chicago, IL",Travel
+U002,5/20/2025,DoorDash,380.7,"Seattle, WA",Dining
+U002,5/21/2025,Chipotle,108.25,"Austin, TX",Dining
+U002,5/22/2025,DoorDash,136.93,"Seattle, WA",Dining
+U002,5/23/2025,Starbucks,227.94,"Austin, TX",Dining
+U002,5/24/2025,Netflix,360.37,"Los Gatos, CA",Subscriptions
+U002,5/24/2025,Amazon,68.31,"Seattle, WA",Online Shopping
+U002,5/24/2025,Chipotle,40.27,"Austin, TX",Dining
+U002,5/25/2025,Kroger,325.93,"Plano, TX",Groceries
+U002,5/25/2025,H-E-B,358.29,"Austin, TX",Groceries
+U002,5/26/2025,Starbucks,306.12,"Austin, TX",Dining
+U002,5/26/2025,Uber,378.72,"New York, NY",Transportation
+U002,5/27/2025,Starbucks,108.25,"Austin, TX",Dining
+U002,5/27/2025,Sweetgreen,119.75,"New York, NY",Dining
+U002,5/27/2025,Delta Airlines,6.96,"Atlanta, GA",Travel
+U002,5/28/2025,United Airlines,275.42,"Chicago, IL",Travel
+U002,5/28/2025,Lyft,222.94,"San Francisco, CA",Transportation
+U002,5/28/2025,Starbucks,157.33,"Austin, TX",Dining
+U002,5/29/2025,DoorDash,308.82,"Seattle, WA",Dining
+U002,5/30/2025,Nike,311.31,"Beaverton, OR",Retail
+U002,5/30/2025,DoorDash,304.54,"Seattle, WA",Dining
+U002,5/31/2025,Delta Airlines,199.11,"Atlanta, GA",Travel
+U002,5/31/2025,Kroger,295.2,"Plano, TX",Groceries
+U002,6/1/2025,H-E-B,337.57,"Austin, TX",Groceries
+U002,6/1/2025,H-E-B,251.09,"Austin, TX",Groceries
+U002,6/1/2025,Airbnb,317.5,"San Francisco, CA",Travel
+U002,6/2/2025,Kroger,184.46,"Plano, TX",Groceries
+U002,6/2/2025,Starbucks,276.69,"Austin, TX",Dining
+U002,6/2/2025,Spotify,383.39,"New York, NY",Subscriptions
+U002,6/3/2025,Kroger,394.25,"Plano, TX",Groceries
+U002,6/3/2025,Delta Airlines,345.61,"Atlanta, GA",Travel
+U002,6/4/2025,DoorDash,121.86,"Seattle, WA",Dining
+U002,6/4/2025,Delta Airlines,291.7,"Atlanta, GA",Travel
+U002,6/4/2025,Lyft,88.91,"San Francisco, CA",Transportation
+U002,6/5/2025,Exxon,277.76,"Dallas, TX",Gas
+U002,6/5/2025,Lyft,15.08,"San Francisco, CA",Transportation
+U002,6/6/2025,Walmart,250.63,"Bentonville, AR",Retail
+U002,6/6/2025,Netflix,42.04,"Los Gatos, CA",Subscriptions
+U002,6/6/2025,Amazon,15.98,"Seattle, WA",Online Shopping
+U002,6/7/2025,Amazon,321.67,"Seattle, WA",Online Shopping
+U002,6/7/2025,Apple,55.59,"Cupertino, CA",Electronics
+U002,6/8/2025,Sweetgreen,320.99,"New York, NY",Dining
+U002,6/8/2025,Walmart,133.22,"Bentonville, AR",Retail
+U002,6/8/2025,Apple,182.95,"Cupertino, CA",Electronics
+U002,6/9/2025,Shell,9.76,"Dallas, TX",Gas
+U002,6/10/2025,Walmart,28.97,"Bentonville, AR",Retail
+U002,6/10/2025,Exxon,260.81,"Dallas, TX",Gas
+U002,6/11/2025,Nike,238.43,"Beaverton, OR",Retail
+U002,6/11/2025,Target,237.77,"Minneapolis, MN",Retail
+U002,6/12/2025,Airbnb,76.05,"San Francisco, CA",Travel
+U002,6/12/2025,Lyft,390.42,"San Francisco, CA",Transportation
+U002,6/13/2025,Starbucks,326.43,"Austin, TX",Dining
+U002,6/13/2025,Netflix,100.19,"Los Gatos, CA",Subscriptions
+U002,6/14/2025,Costco,102.58,"Plano, TX",Groceries
+U002,6/15/2025,Netflix,29.97,"Los Gatos, CA",Subscriptions
+U002,6/15/2025,Airbnb,390.06,"San Francisco, CA",Travel
+U002,6/16/2025,Apple,202.61,"Cupertino, CA",Electronics
+U002,6/16/2025,Netflix,252.53,"Los Gatos, CA",Subscriptions
+U002,6/16/2025,Delta Airlines,161.03,"Atlanta, GA",Travel
+U002,6/17/2025,Chipotle,80.61,"Austin, TX",Dining
+U002,6/17/2025,DoorDash,111.01,"Seattle, WA",Dining
+U002,6/18/2025,Exxon,138.2,"Dallas, TX",Gas
+U002,6/19/2025,Amazon,333.48,"Seattle, WA",Online Shopping
+U002,6/20/2025,United Airlines,349.84,"Chicago, IL",Travel
+U002,6/20/2025,Kroger,105.21,"Plano, TX",Groceries
+U002,6/20/2025,Shell,62.32,"Dallas, TX",Gas
+U002,6/21/2025,Amazon,121.66,"Seattle, WA",Online Shopping
+U002,6/21/2025,Starbucks,380.67,"Austin, TX",Dining
+U002,6/21/2025,Exxon,245.53,"Dallas, TX",Gas
+U002,6/22/2025,Sweetgreen,313.64,"New York, NY",Dining
+U002,6/23/2025,Nike,229.99,"Beaverton, OR",Retail
+U002,6/23/2025,Shell,325.66,"Dallas, TX",Gas
+U002,6/23/2025,United Airlines,278.75,"Chicago, IL",Travel
+U002,6/24/2025,Walmart,312.36,"Bentonville, AR",Retail
+U002,6/24/2025,Apple,55.82,"Cupertino, CA",Electronics
+U002,6/24/2025,United Airlines,296.37,"Chicago, IL",Travel
+U002,6/25/2025,Kroger,186.46,"Plano, TX",Groceries
+U002,6/25/2025,Nike,169.58,"Beaverton, OR",Retail
+U002,6/26/2025,Starbucks,381.19,"Austin, TX",Dining
+U002,6/27/2025,Nike,261.01,"Beaverton, OR",Retail
+U002,6/28/2025,United Airlines,252.36,"Chicago, IL",Travel
+U002,6/28/2025,Lyft,247.78,"San Francisco, CA",Transportation
+U002,6/29/2025,Delta Airlines,188.81,"Atlanta, GA",Travel
+U003,1/1/2025,Lyft,327.37,"San Francisco, CA",Transportation
+U003,1/1/2025,H-E-B,385.87,"Austin, TX",Groceries
+U003,1/1/2025,Delta Airlines,318.46,"Atlanta, GA",Travel
+U003,1/2/2025,Spotify,384.43,"New York, NY",Subscriptions
+U003,1/2/2025,United Airlines,24.5,"Chicago, IL",Travel
+U003,1/2/2025,Airbnb,396.34,"San Francisco, CA",Travel
+U003,1/3/2025,Sweetgreen,279.99,"New York, NY",Dining
+U003,1/4/2025,Starbucks,20.64,"Austin, TX",Dining
+U003,1/4/2025,Kroger,348.67,"Plano, TX",Groceries
+U003,1/5/2025,Spotify,59.42,"New York, NY",Subscriptions
+U003,1/5/2025,Kroger,48.94,"Plano, TX",Groceries
+U003,1/5/2025,Shell,250.42,"Dallas, TX",Gas
+U003,1/6/2025,H-E-B,368.08,"Austin, TX",Groceries
+U003,1/6/2025,Kroger,383.19,"Plano, TX",Groceries
+U003,1/6/2025,DoorDash,361.24,"Seattle, WA",Dining
+U003,1/7/2025,Shell,77.28,"Dallas, TX",Gas
+U003,1/7/2025,Nike,388.94,"Beaverton, OR",Retail
+U003,1/8/2025,Delta Airlines,11.56,"Atlanta, GA",Travel
+U003,1/9/2025,Sweetgreen,183.54,"New York, NY",Dining
+U003,1/9/2025,Costco,148.9,"Plano, TX",Groceries
+U003,1/9/2025,Apple,338.66,"Cupertino, CA",Electronics
+U003,1/10/2025,Delta Airlines,24.39,"Atlanta, GA",Travel
+U003,1/10/2025,Starbucks,140.66,"Austin, TX",Dining
+U003,1/11/2025,Chipotle,84.59,"Austin, TX",Dining
+U003,1/11/2025,Kroger,235.55,"Plano, TX",Groceries
+U003,1/11/2025,Nike,362.89,"Beaverton, OR",Retail
+U003,1/12/2025,Starbucks,350.1,"Austin, TX",Dining
+U003,1/12/2025,Airbnb,205.31,"San Francisco, CA",Travel
+U003,1/12/2025,Sweetgreen,87.97,"New York, NY",Dining
+U003,1/13/2025,Shell,104.46,"Dallas, TX",Gas
+U003,1/13/2025,Target,288.05,"Minneapolis, MN",Retail
+U003,1/14/2025,Starbucks,290.96,"Austin, TX",Dining
+U003,1/14/2025,Spotify,30.82,"New York, NY",Subscriptions
+U003,1/14/2025,Spotify,176.84,"New York, NY",Subscriptions
+U003,1/15/2025,Delta Airlines,183.17,"Atlanta, GA",Travel
+U003,1/15/2025,DoorDash,222.22,"Seattle, WA",Dining
+U003,1/16/2025,Netflix,259.89,"Los Gatos, CA",Subscriptions
+U003,1/16/2025,H-E-B,392.35,"Austin, TX",Groceries
+U003,1/16/2025,Lyft,167.42,"San Francisco, CA",Transportation
+U003,1/17/2025,Nike,50.88,"Beaverton, OR",Retail
+U003,1/17/2025,Chipotle,335.44,"Austin, TX",Dining
+U003,1/17/2025,Apple,154.13,"Cupertino, CA",Electronics
+U003,1/18/2025,Kroger,294.27,"Plano, TX",Groceries
+U003,1/18/2025,Kroger,238.37,"Plano, TX",Groceries
+U003,1/18/2025,Chipotle,371.22,"Austin, TX",Dining
+U003,1/19/2025,Uber,197.12,"New York, NY",Transportation
+U003,1/19/2025,Sweetgreen,65.82,"New York, NY",Dining
+U003,1/20/2025,Starbucks,123.54,"Austin, TX",Dining
+U003,1/21/2025,Sweetgreen,14.62,"New York, NY",Dining
+U003,1/21/2025,Exxon,226.91,"Dallas, TX",Gas
+U003,1/22/2025,Kroger,131.85,"Plano, TX",Groceries
+U003,1/22/2025,Chipotle,241.72,"Austin, TX",Dining
+U003,1/22/2025,Netflix,266.96,"Los Gatos, CA",Subscriptions
+U003,1/23/2025,Apple,157.34,"Cupertino, CA",Electronics
+U003,1/23/2025,DoorDash,122.31,"Seattle, WA",Dining
+U003,1/23/2025,Netflix,61.63,"Los Gatos, CA",Subscriptions
+U003,1/24/2025,DoorDash,362.5,"Seattle, WA",Dining
+U003,1/25/2025,Airbnb,350.4,"San Francisco, CA",Travel
+U003,1/26/2025,Airbnb,131.32,"San Francisco, CA",Travel
+U003,1/27/2025,Starbucks,254.6,"Austin, TX",Dining
+U003,1/27/2025,Exxon,149.41,"Dallas, TX",Gas
+U003,1/28/2025,Exxon,237.19,"Dallas, TX",Gas
+U003,1/28/2025,Uber,133.52,"New York, NY",Transportation
+U003,1/28/2025,Costco,285.34,"Plano, TX",Groceries
+U003,1/29/2025,Costco,295.32,"Plano, TX",Groceries
+U003,1/29/2025,Starbucks,125.88,"Austin, TX",Dining
+U003,1/29/2025,Spotify,113.76,"New York, NY",Subscriptions
+U003,1/30/2025,Target,325.59,"Minneapolis, MN",Retail
+U003,1/31/2025,Walmart,399.09,"Bentonville, AR",Retail
+U003,1/31/2025,Lyft,13.7,"San Francisco, CA",Transportation
+U003,1/31/2025,Lyft,355.51,"San Francisco, CA",Transportation
+U003,2/1/2025,H-E-B,282.86,"Austin, TX",Groceries
+U003,2/1/2025,Nike,98.71,"Beaverton, OR",Retail
+U003,2/1/2025,Costco,350.94,"Plano, TX",Groceries
+U003,2/2/2025,Nike,381.39,"Beaverton, OR",Retail
+U003,2/3/2025,Amazon,133.45,"Seattle, WA",Online Shopping
+U003,2/3/2025,Sweetgreen,31.73,"New York, NY",Dining
+U003,2/4/2025,Lyft,165.95,"San Francisco, CA",Transportation
+U003,2/4/2025,Netflix,293.86,"Los Gatos, CA",Subscriptions
+U003,2/5/2025,Uber,7.11,"New York, NY",Transportation
+U003,2/5/2025,DoorDash,301.32,"Seattle, WA",Dining
+U003,2/5/2025,Walmart,64.49,"Bentonville, AR",Retail
+U003,2/6/2025,Uber,160.13,"New York, NY",Transportation
+U003,2/6/2025,United Airlines,335.59,"Chicago, IL",Travel
+U003,2/6/2025,Airbnb,308.78,"San Francisco, CA",Travel
+U003,2/7/2025,Sweetgreen,337.01,"New York, NY",Dining
+U003,2/8/2025,Airbnb,313.47,"San Francisco, CA",Travel
+U003,2/8/2025,Starbucks,16.7,"Austin, TX",Dining
+U003,2/9/2025,Sweetgreen,331.62,"New York, NY",Dining
+U003,2/10/2025,Amazon,21.86,"Seattle, WA",Online Shopping
+U003,2/11/2025,Lyft,101.27,"San Francisco, CA",Transportation
+U003,2/11/2025,Nike,179.8,"Beaverton, OR",Retail
+U003,2/12/2025,Exxon,83.63,"Dallas, TX",Gas
+U003,2/12/2025,Exxon,150.95,"Dallas, TX",Gas
+U003,2/13/2025,Apple,336.1,"Cupertino, CA",Electronics
+U003,2/13/2025,Kroger,150.79,"Plano, TX",Groceries
+U003,2/14/2025,Delta Airlines,309.16,"Atlanta, GA",Travel
+U003,2/14/2025,Spotify,285.66,"New York, NY",Subscriptions
+U003,2/14/2025,Apple,349.74,"Cupertino, CA",Electronics
+U003,2/15/2025,Spotify,113.47,"New York, NY",Subscriptions
+U003,2/15/2025,DoorDash,389.32,"Seattle, WA",Dining
+U003,2/16/2025,Target,227.29,"Minneapolis, MN",Retail
+U003,2/17/2025,Spotify,291.84,"New York, NY",Subscriptions
+U003,2/18/2025,H-E-B,7.57,"Austin, TX",Groceries
+U003,2/18/2025,Sweetgreen,133.99,"New York, NY",Dining
+U003,2/19/2025,Kroger,206.69,"Plano, TX",Groceries
+U003,2/20/2025,Shell,237.94,"Dallas, TX",Gas
+U003,2/20/2025,H-E-B,109.45,"Austin, TX",Groceries
+U003,2/21/2025,Sweetgreen,193.92,"New York, NY",Dining
+U003,2/21/2025,Spotify,289.36,"New York, NY",Subscriptions
+U003,2/22/2025,Costco,63.67,"Plano, TX",Groceries
+U003,2/23/2025,Amazon,274.22,"Seattle, WA",Online Shopping
+U003,2/23/2025,Target,152.67,"Minneapolis, MN",Retail
+U003,2/24/2025,Walmart,149.62,"Bentonville, AR",Retail
+U003,2/25/2025,Exxon,284.67,"Dallas, TX",Gas
+U003,2/26/2025,Lyft,277.04,"San Francisco, CA",Transportation
+U003,2/27/2025,Lyft,23.19,"San Francisco, CA",Transportation
+U003,2/27/2025,Nike,82.04,"Beaverton, OR",Retail
+U003,2/27/2025,United Airlines,212.23,"Chicago, IL",Travel
+U003,2/28/2025,United Airlines,68.64,"Chicago, IL",Travel
+U003,3/1/2025,Nike,279.07,"Beaverton, OR",Retail
+U003,3/1/2025,Airbnb,355.46,"San Francisco, CA",Travel
+U003,3/2/2025,Kroger,393.64,"Plano, TX",Groceries
+U003,3/2/2025,Shell,11.25,"Dallas, TX",Gas
+U003,3/2/2025,Shell,222.8,"Dallas, TX",Gas
+U003,3/3/2025,Uber,25.32,"New York, NY",Transportation
+U003,3/3/2025,DoorDash,108.42,"Seattle, WA",Dining
+U003,3/3/2025,Nike,323.82,"Beaverton, OR",Retail
+U003,3/4/2025,Exxon,208.78,"Dallas, TX",Gas
+U003,3/5/2025,Delta Airlines,88.31,"Atlanta, GA",Travel
+U003,3/5/2025,Kroger,39.47,"Plano, TX",Groceries
+U003,3/5/2025,Uber,124.55,"New York, NY",Transportation
+U003,3/6/2025,Shell,132.54,"Dallas, TX",Gas
+U003,3/7/2025,Netflix,326.45,"Los Gatos, CA",Subscriptions
+U003,3/7/2025,Airbnb,317.93,"San Francisco, CA",Travel
+U003,3/8/2025,Delta Airlines,50.44,"Atlanta, GA",Travel
+U003,3/8/2025,Nike,70.73,"Beaverton, OR",Retail
+U003,3/8/2025,Target,17.68,"Minneapolis, MN",Retail
+U003,3/9/2025,Sweetgreen,76.5,"New York, NY",Dining
+U003,3/10/2025,Chipotle,131.97,"Austin, TX",Dining
+U003,3/10/2025,Uber,55.84,"New York, NY",Transportation
+U003,3/10/2025,Amazon,255.75,"Seattle, WA",Online Shopping
+U003,3/11/2025,Apple,368.79,"Cupertino, CA",Electronics
+U003,3/11/2025,Netflix,271.85,"Los Gatos, CA",Subscriptions
+U003,3/11/2025,United Airlines,375.67,"Chicago, IL",Travel
+U003,3/12/2025,Walmart,399.05,"Bentonville, AR",Retail
+U003,3/12/2025,Walmart,368.38,"Bentonville, AR",Retail
+U003,3/13/2025,Lyft,382.7,"San Francisco, CA",Transportation
+U003,3/13/2025,Amazon,211.66,"Seattle, WA",Online Shopping
+U003,3/14/2025,Walmart,47.2,"Bentonville, AR",Retail
+U003,3/14/2025,Nike,253.47,"Beaverton, OR",Retail
+U003,3/14/2025,Amazon,225.55,"Seattle, WA",Online Shopping
+U003,3/15/2025,Apple,315.4,"Cupertino, CA",Electronics
+U003,3/15/2025,Exxon,172.25,"Dallas, TX",Gas
+U003,3/15/2025,Kroger,258.2,"Plano, TX",Groceries
+U003,3/16/2025,H-E-B,28.36,"Austin, TX",Groceries
+U003,3/16/2025,Kroger,213.08,"Plano, TX",Groceries
+U003,3/17/2025,Costco,167.5,"Plano, TX",Groceries
+U003,3/17/2025,Apple,77.08,"Cupertino, CA",Electronics
+U003,3/17/2025,Spotify,269.09,"New York, NY",Subscriptions
+U003,3/18/2025,DoorDash,256.08,"Seattle, WA",Dining
+U003,3/18/2025,DoorDash,67.02,"Seattle, WA",Dining
+U003,3/18/2025,Walmart,140.57,"Bentonville, AR",Retail
+U003,3/19/2025,Apple,111.39,"Cupertino, CA",Electronics
+U003,3/19/2025,DoorDash,174.5,"Seattle, WA",Dining
+U003,3/19/2025,Starbucks,259.82,"Austin, TX",Dining
+U003,3/20/2025,Starbucks,321.73,"Austin, TX",Dining
+U003,3/21/2025,Lyft,180.88,"San Francisco, CA",Transportation
+U003,3/21/2025,Uber,247.8,"New York, NY",Transportation
+U003,3/21/2025,Shell,228.81,"Dallas, TX",Gas
+U003,3/22/2025,Delta Airlines,16.27,"Atlanta, GA",Travel
+U003,3/22/2025,Netflix,387.68,"Los Gatos, CA",Subscriptions
+U003,3/23/2025,United Airlines,206.23,"Chicago, IL",Travel
+U003,3/23/2025,Costco,158.55,"Plano, TX",Groceries
+U003,3/23/2025,Apple,169.9,"Cupertino, CA",Electronics
+U003,3/24/2025,Walmart,300.33,"Bentonville, AR",Retail
+U003,3/24/2025,Starbucks,216,"Austin, TX",Dining
+U003,3/24/2025,Amazon,381.1,"Seattle, WA",Online Shopping
+U003,3/25/2025,Airbnb,215.22,"San Francisco, CA",Travel
+U003,3/25/2025,United Airlines,6.82,"Chicago, IL",Travel
+U003,3/26/2025,Airbnb,222.48,"San Francisco, CA",Travel
+U003,3/27/2025,Starbucks,331.76,"Austin, TX",Dining
+U003,3/28/2025,Sweetgreen,40.4,"New York, NY",Dining
+U003,3/28/2025,Airbnb,179.74,"San Francisco, CA",Travel
+U003,3/29/2025,Apple,334.56,"Cupertino, CA",Electronics
+U003,3/29/2025,Apple,337.51,"Cupertino, CA",Electronics
+U003,3/29/2025,Starbucks,186.77,"Austin, TX",Dining
+U003,3/30/2025,Kroger,67.11,"Plano, TX",Groceries
+U003,3/30/2025,Walmart,121.11,"Bentonville, AR",Retail
+U003,3/31/2025,Apple,40.36,"Cupertino, CA",Electronics
+U003,3/31/2025,Starbucks,43.97,"Austin, TX",Dining
+U003,4/1/2025,Walmart,223.66,"Bentonville, AR",Retail
+U003,4/1/2025,United Airlines,170.4,"Chicago, IL",Travel
+U003,4/2/2025,Chipotle,121.94,"Austin, TX",Dining
+U003,4/2/2025,Spotify,22.82,"New York, NY",Subscriptions
+U003,4/2/2025,Walmart,378.5,"Bentonville, AR",Retail
+U003,4/3/2025,Shell,223.75,"Dallas, TX",Gas
+U003,4/3/2025,DoorDash,72.74,"Seattle, WA",Dining
+U003,4/4/2025,United Airlines,147.56,"Chicago, IL",Travel
+U003,4/4/2025,Apple,22.36,"Cupertino, CA",Electronics
+U003,4/5/2025,Shell,72.14,"Dallas, TX",Gas
+U003,4/5/2025,Netflix,11.79,"Los Gatos, CA",Subscriptions
+U003,4/6/2025,Sweetgreen,291.23,"New York, NY",Dining
+U003,4/6/2025,Amazon,239.75,"Seattle, WA",Online Shopping
+U003,4/6/2025,Exxon,235.29,"Dallas, TX",Gas
+U003,4/7/2025,Costco,315.31,"Plano, TX",Groceries
+U003,4/8/2025,Lyft,364.95,"San Francisco, CA",Transportation
+U003,4/9/2025,Walmart,369.46,"Bentonville, AR",Retail
+U003,4/10/2025,Lyft,261.62,"San Francisco, CA",Transportation
+U003,4/11/2025,Sweetgreen,20.97,"New York, NY",Dining
+U003,4/11/2025,Target,134.06,"Minneapolis, MN",Retail
+U003,4/12/2025,Spotify,271.03,"New York, NY",Subscriptions
+U003,4/12/2025,Sweetgreen,350.78,"New York, NY",Dining
+U003,4/12/2025,Shell,329.48,"Dallas, TX",Gas
+U003,4/13/2025,Amazon,119.69,"Seattle, WA",Online Shopping
+U003,4/13/2025,Airbnb,146.98,"San Francisco, CA",Travel
+U003,4/14/2025,Airbnb,138.93,"San Francisco, CA",Travel
+U003,4/15/2025,United Airlines,117.92,"Chicago, IL",Travel
+U003,4/15/2025,Sweetgreen,171.88,"New York, NY",Dining
+U003,4/15/2025,Delta Airlines,195.87,"Atlanta, GA",Travel
+U003,4/16/2025,Target,165.44,"Minneapolis, MN",Retail
+U003,4/16/2025,DoorDash,176.77,"Seattle, WA",Dining
+U003,4/16/2025,Walmart,240.56,"Bentonville, AR",Retail
+U003,4/17/2025,Starbucks,283.41,"Austin, TX",Dining
+U003,4/17/2025,Spotify,117.54,"New York, NY",Subscriptions
+U003,4/18/2025,Amazon,147.36,"Seattle, WA",Online Shopping
+U003,4/18/2025,Spotify,182.12,"New York, NY",Subscriptions
+U003,4/19/2025,Target,314.56,"Minneapolis, MN",Retail
+U003,4/19/2025,DoorDash,70.88,"Seattle, WA",Dining
+U003,4/20/2025,Nike,46.89,"Beaverton, OR",Retail
+U003,4/21/2025,Netflix,222.85,"Los Gatos, CA",Subscriptions
+U003,4/21/2025,Sweetgreen,253.7,"New York, NY",Dining
+U003,4/21/2025,Lyft,145.61,"San Francisco, CA",Transportation
+U003,4/22/2025,Airbnb,280.26,"San Francisco, CA",Travel
+U003,4/22/2025,Sweetgreen,74.4,"New York, NY",Dining
+U003,4/22/2025,Target,327.5,"Minneapolis, MN",Retail
+U003,4/23/2025,Sweetgreen,297.1,"New York, NY",Dining
+U003,4/23/2025,Shell,179.35,"Dallas, TX",Gas
+U003,4/24/2025,Shell,60.94,"Dallas, TX",Gas
+U003,4/24/2025,Kroger,283.61,"Plano, TX",Groceries
+U003,4/25/2025,Amazon,231.94,"Seattle, WA",Online Shopping
+U003,4/25/2025,Apple,162.64,"Cupertino, CA",Electronics
+U003,4/26/2025,Airbnb,141.26,"San Francisco, CA",Travel
+U003,4/27/2025,Airbnb,128.15,"San Francisco, CA",Travel
+U003,4/27/2025,Airbnb,314.39,"San Francisco, CA",Travel
+U003,4/28/2025,Target,124.3,"Minneapolis, MN",Retail
+U003,4/28/2025,Spotify,354.55,"New York, NY",Subscriptions
+U003,4/29/2025,Starbucks,265.4,"Austin, TX",Dining
+U003,4/30/2025,Nike,87.46,"Beaverton, OR",Retail
+U003,4/30/2025,Nike,346.2,"Beaverton, OR",Retail
+U003,4/30/2025,Kroger,308.29,"Plano, TX",Groceries
+U003,5/1/2025,Shell,76.06,"Dallas, TX",Gas
+U003,5/2/2025,Netflix,312.68,"Los Gatos, CA",Subscriptions
+U003,5/2/2025,H-E-B,304.99,"Austin, TX",Groceries
+U003,5/2/2025,Kroger,363.1,"Plano, TX",Groceries
+U003,5/3/2025,Costco,109.36,"Plano, TX",Groceries
+U003,5/4/2025,Chipotle,365.83,"Austin, TX",Dining
+U003,5/5/2025,Exxon,135.35,"Dallas, TX",Gas
+U003,5/5/2025,Spotify,48.41,"New York, NY",Subscriptions
+U003,5/5/2025,Apple,243.42,"Cupertino, CA",Electronics
+U003,5/6/2025,Walmart,110.77,"Bentonville, AR",Retail
+U003,5/6/2025,Kroger,213,"Plano, TX",Groceries
+U003,5/7/2025,Airbnb,129.53,"San Francisco, CA",Travel
+U003,5/8/2025,Exxon,50.56,"Dallas, TX",Gas
+U003,5/8/2025,Nike,211.07,"Beaverton, OR",Retail
+U003,5/9/2025,Walmart,215.74,"Bentonville, AR",Retail
+U003,5/9/2025,Delta Airlines,229.21,"Atlanta, GA",Travel
+U003,5/9/2025,United Airlines,278.91,"Chicago, IL",Travel
+U003,5/10/2025,United Airlines,388.81,"Chicago, IL",Travel
+U003,5/10/2025,Kroger,39.92,"Plano, TX",Groceries
+U003,5/11/2025,Sweetgreen,336.94,"New York, NY",Dining
+U003,5/12/2025,Costco,76.14,"Plano, TX",Groceries
+U003,5/13/2025,United Airlines,183.26,"Chicago, IL",Travel
+U003,5/13/2025,Starbucks,29.15,"Austin, TX",Dining
+U003,5/13/2025,United Airlines,190.36,"Chicago, IL",Travel
+U003,5/14/2025,Apple,343.45,"Cupertino, CA",Electronics
+U003,5/14/2025,Target,42.12,"Minneapolis, MN",Retail
+U003,5/14/2025,Nike,145.17,"Beaverton, OR",Retail
+U003,5/15/2025,H-E-B,148.25,"Austin, TX",Groceries
+U003,5/16/2025,Sweetgreen,84.01,"New York, NY",Dining
+U003,5/16/2025,Delta Airlines,284.16,"Atlanta, GA",Travel
+U003,5/17/2025,Shell,385.09,"Dallas, TX",Gas
+U003,5/18/2025,Uber,282.96,"New York, NY",Transportation
+U003,5/19/2025,Delta Airlines,286.51,"Atlanta, GA",Travel
+U003,5/19/2025,Delta Airlines,81.16,"Atlanta, GA",Travel
+U003,5/20/2025,Shell,119.22,"Dallas, TX",Gas
+U003,5/20/2025,Netflix,210.59,"Los Gatos, CA",Subscriptions
+U003,5/21/2025,Exxon,26.63,"Dallas, TX",Gas
+U003,5/22/2025,H-E-B,5.28,"Austin, TX",Groceries
+U003,5/22/2025,Amazon,19.08,"Seattle, WA",Online Shopping
+U003,5/22/2025,Uber,113.51,"New York, NY",Transportation
+U003,5/23/2025,Spotify,374.89,"New York, NY",Subscriptions
+U003,5/23/2025,Walmart,117.17,"Bentonville, AR",Retail
+U003,5/24/2025,H-E-B,189.49,"Austin, TX",Groceries
+U003,5/25/2025,Nike,126.86,"Beaverton, OR",Retail
+U003,5/25/2025,Spotify,358.21,"New York, NY",Subscriptions
+U003,5/25/2025,Amazon,105.37,"Seattle, WA",Online Shopping
+U003,5/26/2025,Chipotle,137.4,"Austin, TX",Dining
+U003,5/26/2025,Spotify,321.91,"New York, NY",Subscriptions
+U003,5/26/2025,Walmart,125.6,"Bentonville, AR",Retail
+U003,5/27/2025,Kroger,370.9,"Plano, TX",Groceries
+U003,5/27/2025,Kroger,207.81,"Plano, TX",Groceries
+U003,5/28/2025,Airbnb,96.25,"San Francisco, CA",Travel
+U003,5/29/2025,Target,35.63,"Minneapolis, MN",Retail
+U003,5/29/2025,Costco,173.47,"Plano, TX",Groceries
+U003,5/30/2025,Apple,193.49,"Cupertino, CA",Electronics
+U003,5/31/2025,Lyft,244.58,"San Francisco, CA",Transportation
+U003,5/31/2025,Shell,168.59,"Dallas, TX",Gas
+U003,6/1/2025,Spotify,205.13,"New York, NY",Subscriptions
+U003,6/1/2025,Starbucks,342.54,"Austin, TX",Dining
+U003,6/1/2025,Delta Airlines,318.83,"Atlanta, GA",Travel
+U003,6/2/2025,Spotify,249.3,"New York, NY",Subscriptions
+U003,6/2/2025,Airbnb,34.37,"San Francisco, CA",Travel
+U003,6/2/2025,H-E-B,15.94,"Austin, TX",Groceries
+U003,6/3/2025,Amazon,123.69,"Seattle, WA",Online Shopping
+U003,6/3/2025,Exxon,65.8,"Dallas, TX",Gas
+U003,6/3/2025,Exxon,146.15,"Dallas, TX",Gas
+U003,6/4/2025,Delta Airlines,93.81,"Atlanta, GA",Travel
+U003,6/5/2025,DoorDash,48.12,"Seattle, WA",Dining
+U003,6/5/2025,Starbucks,252.33,"Austin, TX",Dining
+U003,6/5/2025,Airbnb,215.47,"San Francisco, CA",Travel
+U003,6/6/2025,Apple,324.61,"Cupertino, CA",Electronics
+U003,6/6/2025,Kroger,181.61,"Plano, TX",Groceries
+U003,6/6/2025,Delta Airlines,228.18,"Atlanta, GA",Travel
+U003,6/7/2025,Nike,110.87,"Beaverton, OR",Retail
+U003,6/8/2025,Exxon,365.94,"Dallas, TX",Gas
+U003,6/8/2025,Apple,172.11,"Cupertino, CA",Electronics
+U003,6/9/2025,United Airlines,222.68,"Chicago, IL",Travel
+U003,6/9/2025,Starbucks,337.29,"Austin, TX",Dining
+U003,6/10/2025,United Airlines,116.95,"Chicago, IL",Travel
+U003,6/11/2025,Delta Airlines,347.23,"Atlanta, GA",Travel
+U003,6/11/2025,Amazon,225.4,"Seattle, WA",Online Shopping
+U003,6/11/2025,Nike,85.63,"Beaverton, OR",Retail
+U003,6/12/2025,Nike,341.89,"Beaverton, OR",Retail
+U003,6/12/2025,Kroger,380.01,"Plano, TX",Groceries
+U003,6/13/2025,United Airlines,380.45,"Chicago, IL",Travel
+U003,6/14/2025,Lyft,376.05,"San Francisco, CA",Transportation
+U003,6/14/2025,DoorDash,182.1,"Seattle, WA",Dining
+U003,6/15/2025,Target,387.34,"Minneapolis, MN",Retail
+U003,6/16/2025,Lyft,200.45,"San Francisco, CA",Transportation
+U003,6/16/2025,Delta Airlines,239.26,"Atlanta, GA",Travel
+U003,6/16/2025,Kroger,278.48,"Plano, TX",Groceries
+U003,6/17/2025,Walmart,312.65,"Bentonville, AR",Retail
+U003,6/17/2025,Apple,292.93,"Cupertino, CA",Electronics
+U003,6/18/2025,Sweetgreen,279.4,"New York, NY",Dining
+U003,6/19/2025,Chipotle,54.68,"Austin, TX",Dining
+U003,6/19/2025,Airbnb,332.65,"San Francisco, CA",Travel
+U003,6/19/2025,Nike,332.58,"Beaverton, OR",Retail
+U003,6/20/2025,Airbnb,313.06,"San Francisco, CA",Travel
+U003,6/20/2025,Amazon,275.82,"Seattle, WA",Online Shopping
+U003,6/21/2025,Sweetgreen,192.39,"New York, NY",Dining
+U003,6/21/2025,Starbucks,71.15,"Austin, TX",Dining
+U003,6/22/2025,DoorDash,332.03,"Seattle, WA",Dining
+U003,6/22/2025,H-E-B,274.21,"Austin, TX",Groceries
+U003,6/22/2025,Amazon,351.47,"Seattle, WA",Online Shopping
+U003,6/23/2025,Uber,216.27,"New York, NY",Transportation
+U003,6/24/2025,Spotify,309.39,"New York, NY",Subscriptions
+U003,6/24/2025,Delta Airlines,33.48,"Atlanta, GA",Travel
+U003,6/24/2025,Chipotle,213.94,"Austin, TX",Dining
+U003,6/25/2025,Chipotle,31.51,"Austin, TX",Dining
+U003,6/25/2025,Airbnb,29.03,"San Francisco, CA",Travel
+U003,6/25/2025,Lyft,269.87,"San Francisco, CA",Transportation
+U003,6/26/2025,Costco,336.91,"Plano, TX",Groceries
+U003,6/27/2025,Nike,234.6,"Beaverton, OR",Retail
+U003,6/27/2025,Sweetgreen,104.24,"New York, NY",Dining
+U003,6/28/2025,Walmart,397.59,"Bentonville, AR",Retail
+U003,6/29/2025,Chipotle,21.68,"Austin, TX",Dining
+U004,1/1/2025,Spotify,310.08,"New York, NY",Subscriptions
+U004,1/2/2025,Exxon,9.5,"Dallas, TX",Gas
+U004,1/2/2025,Spotify,46.36,"New York, NY",Subscriptions
+U004,1/2/2025,United Airlines,247.16,"Chicago, IL",Travel
+U004,1/3/2025,H-E-B,88.35,"Austin, TX",Groceries
+U004,1/4/2025,Chipotle,203.24,"Austin, TX",Dining
+U004,1/4/2025,Apple,276.42,"Cupertino, CA",Electronics
+U004,1/5/2025,Lyft,193.63,"San Francisco, CA",Transportation
+U004,1/5/2025,Target,98.18,"Minneapolis, MN",Retail
+U004,1/5/2025,Chipotle,207.05,"Austin, TX",Dining
+U004,1/6/2025,Exxon,73.15,"Dallas, TX",Gas
+U004,1/7/2025,Netflix,104.11,"Los Gatos, CA",Subscriptions
+U004,1/7/2025,Airbnb,189.24,"San Francisco, CA",Travel
+U004,1/7/2025,Walmart,385.06,"Bentonville, AR",Retail
+U004,1/8/2025,Lyft,18.19,"San Francisco, CA",Transportation
+U004,1/8/2025,Starbucks,79.47,"Austin, TX",Dining
+U004,1/8/2025,Shell,140.85,"Dallas, TX",Gas
+U004,1/9/2025,Kroger,344.78,"Plano, TX",Groceries
+U004,1/10/2025,Sweetgreen,329.41,"New York, NY",Dining
+U004,1/10/2025,Starbucks,68.94,"Austin, TX",Dining
+U004,1/10/2025,United Airlines,390.85,"Chicago, IL",Travel
+U004,1/11/2025,Apple,176.89,"Cupertino, CA",Electronics
+U004,1/12/2025,Netflix,229.24,"Los Gatos, CA",Subscriptions
+U004,1/12/2025,Nike,25.61,"Beaverton, OR",Retail
+U004,1/13/2025,Uber,72.17,"New York, NY",Transportation
+U004,1/13/2025,Exxon,108.19,"Dallas, TX",Gas
+U004,1/13/2025,Chipotle,144.71,"Austin, TX",Dining
+U004,1/14/2025,Nike,243.15,"Beaverton, OR",Retail
+U004,1/14/2025,H-E-B,257.53,"Austin, TX",Groceries
+U004,1/14/2025,Amazon,33.1,"Seattle, WA",Online Shopping
+U004,1/15/2025,Airbnb,212.95,"San Francisco, CA",Travel
+U004,1/16/2025,Airbnb,158.28,"San Francisco, CA",Travel
+U004,1/16/2025,Walmart,251.97,"Bentonville, AR",Retail
+U004,1/16/2025,Uber,134.37,"New York, NY",Transportation
+U004,1/17/2025,Lyft,227.16,"San Francisco, CA",Transportation
+U004,1/17/2025,H-E-B,95.06,"Austin, TX",Groceries
+U004,1/17/2025,H-E-B,229.59,"Austin, TX",Groceries
+U004,1/18/2025,DoorDash,230.51,"Seattle, WA",Dining
+U004,1/18/2025,Kroger,231.74,"Plano, TX",Groceries
+U004,1/19/2025,Spotify,64.55,"New York, NY",Subscriptions
+U004,1/19/2025,Apple,388.71,"Cupertino, CA",Electronics
+U004,1/20/2025,Nike,309.96,"Beaverton, OR",Retail
+U004,1/20/2025,DoorDash,5.6,"Seattle, WA",Dining
+U004,1/21/2025,Kroger,327.63,"Plano, TX",Groceries
+U004,1/22/2025,Spotify,282.74,"New York, NY",Subscriptions
+U004,1/23/2025,Chipotle,62.44,"Austin, TX",Dining
+U004,1/23/2025,Delta Airlines,57.6,"Atlanta, GA",Travel
+U004,1/24/2025,Apple,179.32,"Cupertino, CA",Electronics
+U004,1/24/2025,Airbnb,228.18,"San Francisco, CA",Travel
+U004,1/25/2025,Delta Airlines,106.05,"Atlanta, GA",Travel
+U004,1/26/2025,Uber,125.84,"New York, NY",Transportation
+U004,1/26/2025,United Airlines,231.28,"Chicago, IL",Travel
+U004,1/26/2025,Costco,187.13,"Plano, TX",Groceries
+U004,1/27/2025,Kroger,337.6,"Plano, TX",Groceries
+U004,1/27/2025,H-E-B,381.01,"Austin, TX",Groceries
+U004,1/28/2025,Amazon,272.5,"Seattle, WA",Online Shopping
+U004,1/29/2025,Starbucks,101.82,"Austin, TX",Dining
+U004,1/30/2025,Kroger,44.41,"Plano, TX",Groceries
+U004,1/30/2025,Shell,260.64,"Dallas, TX",Gas
+U004,1/30/2025,Kroger,75.93,"Plano, TX",Groceries
+U004,1/31/2025,Delta Airlines,12.32,"Atlanta, GA",Travel
+U004,1/31/2025,Airbnb,240.17,"San Francisco, CA",Travel
+U004,1/31/2025,Chipotle,88.21,"Austin, TX",Dining
+U004,2/1/2025,Kroger,48.89,"Plano, TX",Groceries
+U004,2/2/2025,Kroger,380.78,"Plano, TX",Groceries
+U004,2/3/2025,Nike,354.2,"Beaverton, OR",Retail
+U004,2/3/2025,Nike,150.41,"Beaverton, OR",Retail
+U004,2/3/2025,Netflix,74.18,"Los Gatos, CA",Subscriptions
+U004,2/4/2025,Shell,331.69,"Dallas, TX",Gas
+U004,2/5/2025,Lyft,378.52,"San Francisco, CA",Transportation
+U004,2/6/2025,Spotify,154.06,"New York, NY",Subscriptions
+U004,2/6/2025,Uber,135.51,"New York, NY",Transportation
+U004,2/6/2025,DoorDash,8.32,"Seattle, WA",Dining
+U004,2/7/2025,Kroger,140.64,"Plano, TX",Groceries
+U004,2/8/2025,Nike,267.57,"Beaverton, OR",Retail
+U004,2/9/2025,H-E-B,18.05,"Austin, TX",Groceries
+U004,2/9/2025,Lyft,383.07,"San Francisco, CA",Transportation
+U004,2/10/2025,Exxon,104.52,"Dallas, TX",Gas
+U004,2/10/2025,Starbucks,183.72,"Austin, TX",Dining
+U004,2/11/2025,Kroger,126.86,"Plano, TX",Groceries
+U004,2/11/2025,H-E-B,67.08,"Austin, TX",Groceries
+U004,2/12/2025,Sweetgreen,58.72,"New York, NY",Dining
+U004,2/12/2025,Sweetgreen,391.53,"New York, NY",Dining
+U004,2/13/2025,Starbucks,370.44,"Austin, TX",Dining
+U004,2/14/2025,United Airlines,246.93,"Chicago, IL",Travel
+U004,2/14/2025,Chipotle,362.08,"Austin, TX",Dining
+U004,2/15/2025,Apple,28.38,"Cupertino, CA",Electronics
+U004,2/15/2025,Netflix,77.25,"Los Gatos, CA",Subscriptions
+U004,2/15/2025,Chipotle,16.17,"Austin, TX",Dining
+U004,2/16/2025,Kroger,94.97,"Plano, TX",Groceries
+U004,2/17/2025,Chipotle,69.95,"Austin, TX",Dining
+U004,2/17/2025,Exxon,90,"Dallas, TX",Gas
+U004,2/18/2025,Amazon,97.94,"Seattle, WA",Online Shopping
+U004,2/19/2025,Delta Airlines,319.17,"Atlanta, GA",Travel
+U004,2/19/2025,H-E-B,260.02,"Austin, TX",Groceries
+U004,2/19/2025,H-E-B,371.74,"Austin, TX",Groceries
+U004,2/20/2025,Lyft,244.24,"San Francisco, CA",Transportation
+U004,2/20/2025,Amazon,224.96,"Seattle, WA",Online Shopping
+U004,2/21/2025,Exxon,344.36,"Dallas, TX",Gas
+U004,2/21/2025,Starbucks,40.08,"Austin, TX",Dining
+U004,2/22/2025,Apple,129.89,"Cupertino, CA",Electronics
+U004,2/22/2025,Kroger,157.18,"Plano, TX",Groceries
+U004,2/22/2025,Uber,277.16,"New York, NY",Transportation
+U004,2/23/2025,Delta Airlines,285.68,"Atlanta, GA",Travel
+U004,2/23/2025,Apple,315.9,"Cupertino, CA",Electronics
+U004,2/23/2025,Netflix,214.48,"Los Gatos, CA",Subscriptions
+U004,2/24/2025,H-E-B,223.6,"Austin, TX",Groceries
+U004,2/25/2025,Lyft,188.43,"San Francisco, CA",Transportation
+U004,2/25/2025,Target,162.02,"Minneapolis, MN",Retail
+U004,2/25/2025,Airbnb,357.38,"San Francisco, CA",Travel
+U004,2/26/2025,Apple,244.71,"Cupertino, CA",Electronics
+U004,2/26/2025,Walmart,85.49,"Bentonville, AR",Retail
+U004,2/26/2025,Costco,40.53,"Plano, TX",Groceries
+U004,2/27/2025,Kroger,31.94,"Plano, TX",Groceries
+U004,2/27/2025,Airbnb,282.25,"San Francisco, CA",Travel
+U004,2/27/2025,Netflix,46.29,"Los Gatos, CA",Subscriptions
+U004,2/28/2025,Costco,192.52,"Plano, TX",Groceries
+U004,3/1/2025,H-E-B,274.53,"Austin, TX",Groceries
+U004,3/1/2025,Spotify,291.49,"New York, NY",Subscriptions
+U004,3/1/2025,Apple,334.59,"Cupertino, CA",Electronics
+U004,3/2/2025,Spotify,326.06,"New York, NY",Subscriptions
+U004,3/2/2025,DoorDash,346.8,"Seattle, WA",Dining
+U004,3/2/2025,Walmart,59.25,"Bentonville, AR",Retail
+U004,3/3/2025,Exxon,241.52,"Dallas, TX",Gas
+U004,3/4/2025,Starbucks,145.12,"Austin, TX",Dining
+U004,3/4/2025,Exxon,388.23,"Dallas, TX",Gas
+U004,3/5/2025,DoorDash,8.76,"Seattle, WA",Dining
+U004,3/5/2025,Sweetgreen,230.97,"New York, NY",Dining
+U004,3/5/2025,Amazon,23.1,"Seattle, WA",Online Shopping
+U004,3/6/2025,Netflix,165.66,"Los Gatos, CA",Subscriptions
+U004,3/6/2025,Spotify,399.9,"New York, NY",Subscriptions
+U004,3/7/2025,Delta Airlines,200.83,"Atlanta, GA",Travel
+U004,3/7/2025,Walmart,31.74,"Bentonville, AR",Retail
+U004,3/7/2025,Shell,216.52,"Dallas, TX",Gas
+U004,3/8/2025,Shell,194.93,"Dallas, TX",Gas
+U004,3/9/2025,Amazon,327.82,"Seattle, WA",Online Shopping
+U004,3/10/2025,Starbucks,72.65,"Austin, TX",Dining
+U004,3/10/2025,Sweetgreen,124.98,"New York, NY",Dining
+U004,3/10/2025,Amazon,162.71,"Seattle, WA",Online Shopping
+U004,3/11/2025,Starbucks,14.22,"Austin, TX",Dining
+U004,3/12/2025,Uber,285.13,"New York, NY",Transportation
+U004,3/13/2025,Exxon,175.08,"Dallas, TX",Gas
+U004,3/13/2025,Kroger,388.45,"Plano, TX",Groceries
+U004,3/14/2025,Netflix,266.83,"Los Gatos, CA",Subscriptions
+U004,3/14/2025,Walmart,73.54,"Bentonville, AR",Retail
+U004,3/15/2025,H-E-B,257.02,"Austin, TX",Groceries
+U004,3/15/2025,Delta Airlines,71.36,"Atlanta, GA",Travel
+U004,3/16/2025,Delta Airlines,324.35,"Atlanta, GA",Travel
+U004,3/16/2025,Amazon,272.89,"Seattle, WA",Online Shopping
+U004,3/16/2025,Amazon,28.12,"Seattle, WA",Online Shopping
+U004,3/17/2025,Nike,295.09,"Beaverton, OR",Retail
+U004,3/17/2025,Sweetgreen,134.95,"New York, NY",Dining
+U004,3/17/2025,Shell,235.02,"Dallas, TX",Gas
+U004,3/18/2025,Costco,82.17,"Plano, TX",Groceries
+U004,3/18/2025,Uber,34.81,"New York, NY",Transportation
+U004,3/18/2025,Uber,16.18,"New York, NY",Transportation
+U004,3/19/2025,Walmart,193.93,"Bentonville, AR",Retail
+U004,3/19/2025,Netflix,211.27,"Los Gatos, CA",Subscriptions
+U004,3/20/2025,Sweetgreen,8.62,"New York, NY",Dining
+U004,3/21/2025,Walmart,229.14,"Bentonville, AR",Retail
+U004,3/21/2025,Apple,186.43,"Cupertino, CA",Electronics
+U004,3/21/2025,Shell,334.86,"Dallas, TX",Gas
+U004,3/22/2025,Lyft,255.15,"San Francisco, CA",Transportation
+U004,3/22/2025,Shell,234.19,"Dallas, TX",Gas
+U004,3/23/2025,United Airlines,288.7,"Chicago, IL",Travel
+U004,3/23/2025,Costco,307.01,"Plano, TX",Groceries
+U004,3/24/2025,Walmart,296.34,"Bentonville, AR",Retail
+U004,3/24/2025,Spotify,33.7,"New York, NY",Subscriptions
+U004,3/24/2025,Exxon,133.08,"Dallas, TX",Gas
+U004,3/25/2025,Amazon,345.42,"Seattle, WA",Online Shopping
+U004,3/25/2025,Uber,349.33,"New York, NY",Transportation
+U004,3/26/2025,Amazon,355.67,"Seattle, WA",Online Shopping
+U004,3/27/2025,Amazon,16.33,"Seattle, WA",Online Shopping
+U004,3/27/2025,Nike,254.05,"Beaverton, OR",Retail
+U004,3/28/2025,Airbnb,222.54,"San Francisco, CA",Travel
+U004,3/28/2025,Airbnb,45.56,"San Francisco, CA",Travel
+U004,3/28/2025,Airbnb,127.63,"San Francisco, CA",Travel
+U004,3/29/2025,Sweetgreen,328.87,"New York, NY",Dining
+U004,3/29/2025,Delta Airlines,265.14,"Atlanta, GA",Travel
+U004,3/29/2025,Lyft,17.35,"San Francisco, CA",Transportation
+U004,3/30/2025,Amazon,174.3,"Seattle, WA",Online Shopping
+U004,3/31/2025,Delta Airlines,12.1,"Atlanta, GA",Travel
+U004,3/31/2025,Chipotle,280.16,"Austin, TX",Dining
+U004,3/31/2025,DoorDash,45.67,"Seattle, WA",Dining
+U004,4/1/2025,Costco,223.77,"Plano, TX",Groceries
+U004,4/1/2025,Nike,237.57,"Beaverton, OR",Retail
+U004,4/2/2025,H-E-B,252.52,"Austin, TX",Groceries
+U004,4/2/2025,Netflix,213.54,"Los Gatos, CA",Subscriptions
+U004,4/3/2025,Uber,33.3,"New York, NY",Transportation
+U004,4/4/2025,Airbnb,224.27,"San Francisco, CA",Travel
+U004,4/4/2025,H-E-B,123.84,"Austin, TX",Groceries
+U004,4/5/2025,Walmart,326.19,"Bentonville, AR",Retail
+U004,4/5/2025,Starbucks,54.44,"Austin, TX",Dining
+U004,4/6/2025,DoorDash,276.2,"Seattle, WA",Dining
+U004,4/7/2025,H-E-B,220.24,"Austin, TX",Groceries
+U004,4/7/2025,Chipotle,231.86,"Austin, TX",Dining
+U004,4/8/2025,Chipotle,24.12,"Austin, TX",Dining
+U004,4/9/2025,Netflix,228.72,"Los Gatos, CA",Subscriptions
+U004,4/9/2025,H-E-B,235.77,"Austin, TX",Groceries
+U004,4/10/2025,Costco,326.58,"Plano, TX",Groceries
+U004,4/11/2025,Lyft,180.46,"San Francisco, CA",Transportation
+U004,4/11/2025,Nike,115.57,"Beaverton, OR",Retail
+U004,4/11/2025,Uber,214.69,"New York, NY",Transportation
+U004,4/12/2025,Apple,179.31,"Cupertino, CA",Electronics
+U004,4/12/2025,Netflix,81.77,"Los Gatos, CA",Subscriptions
+U004,4/12/2025,Walmart,151.53,"Bentonville, AR",Retail
+U004,4/13/2025,Amazon,330.12,"Seattle, WA",Online Shopping
+U004,4/13/2025,Apple,366.91,"Cupertino, CA",Electronics
+U004,4/14/2025,Delta Airlines,83.63,"Atlanta, GA",Travel
+U004,4/15/2025,Shell,218.31,"Dallas, TX",Gas
+U004,4/16/2025,Kroger,380.76,"Plano, TX",Groceries
+U004,4/16/2025,Spotify,346.79,"New York, NY",Subscriptions
+U004,4/16/2025,Netflix,342.97,"Los Gatos, CA",Subscriptions
+U004,4/17/2025,Walmart,20.44,"Bentonville, AR",Retail
+U004,4/17/2025,Spotify,150.26,"New York, NY",Subscriptions
+U004,4/17/2025,Airbnb,359.44,"San Francisco, CA",Travel
+U004,4/18/2025,Uber,31.58,"New York, NY",Transportation
+U004,4/19/2025,Delta Airlines,315.9,"Atlanta, GA",Travel
+U004,4/19/2025,Walmart,35.86,"Bentonville, AR",Retail
+U004,4/20/2025,Costco,123.03,"Plano, TX",Groceries
+U004,4/21/2025,Chipotle,256.19,"Austin, TX",Dining
+U004,4/22/2025,Lyft,270.21,"San Francisco, CA",Transportation
+U004,4/23/2025,DoorDash,58.1,"Seattle, WA",Dining
+U004,4/24/2025,Lyft,387.09,"San Francisco, CA",Transportation
+U004,4/24/2025,Amazon,228.03,"Seattle, WA",Online Shopping
+U004,4/24/2025,Nike,37.76,"Beaverton, OR",Retail
+U004,4/25/2025,Apple,287.33,"Cupertino, CA",Electronics
+U004,4/25/2025,United Airlines,394.05,"Chicago, IL",Travel
+U004,4/25/2025,Netflix,135.11,"Los Gatos, CA",Subscriptions
+U004,4/26/2025,Target,138.46,"Minneapolis, MN",Retail
+U004,4/27/2025,Shell,80.18,"Dallas, TX",Gas
+U004,4/27/2025,Amazon,184.96,"Seattle, WA",Online Shopping
+U004,4/27/2025,DoorDash,173.44,"Seattle, WA",Dining
+U004,4/28/2025,Amazon,215.87,"Seattle, WA",Online Shopping
+U004,4/29/2025,Airbnb,69.07,"San Francisco, CA",Travel
+U004,4/29/2025,Starbucks,361.45,"Austin, TX",Dining
+U004,4/29/2025,Uber,286.01,"New York, NY",Transportation
+U004,4/30/2025,Shell,302.64,"Dallas, TX",Gas
+U004,4/30/2025,Walmart,285.44,"Bentonville, AR",Retail
+U004,5/1/2025,Lyft,374.08,"San Francisco, CA",Transportation
+U004,5/2/2025,Shell,223.85,"Dallas, TX",Gas
+U004,5/2/2025,H-E-B,215.07,"Austin, TX",Groceries
+U004,5/2/2025,Chipotle,310.39,"Austin, TX",Dining
+U004,5/3/2025,Delta Airlines,92.48,"Atlanta, GA",Travel
+U004,5/3/2025,H-E-B,155.11,"Austin, TX",Groceries
+U004,5/3/2025,Kroger,356.7,"Plano, TX",Groceries
+U004,5/4/2025,Netflix,318.41,"Los Gatos, CA",Subscriptions
+U004,5/5/2025,Costco,285.01,"Plano, TX",Groceries
+U004,5/5/2025,Chipotle,348.64,"Austin, TX",Dining
+U004,5/5/2025,Amazon,249.98,"Seattle, WA",Online Shopping
+U004,5/6/2025,United Airlines,183.94,"Chicago, IL",Travel
+U004,5/6/2025,Chipotle,372.7,"Austin, TX",Dining
+U004,5/7/2025,Chipotle,37.37,"Austin, TX",Dining
+U004,5/7/2025,Shell,116.21,"Dallas, TX",Gas
+U004,5/7/2025,Nike,83.63,"Beaverton, OR",Retail
+U004,5/8/2025,Nike,341.66,"Beaverton, OR",Retail
+U004,5/9/2025,Costco,32.08,"Plano, TX",Groceries
+U004,5/9/2025,Exxon,311.33,"Dallas, TX",Gas
+U004,5/9/2025,Delta Airlines,377.92,"Atlanta, GA",Travel
+U004,5/10/2025,Amazon,365.92,"Seattle, WA",Online Shopping
+U004,5/10/2025,Apple,242.17,"Cupertino, CA",Electronics
+U004,5/11/2025,Uber,234.85,"New York, NY",Transportation
+U004,5/11/2025,Kroger,13.34,"Plano, TX",Groceries
+U004,5/11/2025,Starbucks,100.42,"Austin, TX",Dining
+U004,5/12/2025,Kroger,8.89,"Plano, TX",Groceries
+U004,5/12/2025,DoorDash,382.2,"Seattle, WA",Dining
+U004,5/13/2025,Amazon,89.66,"Seattle, WA",Online Shopping
+U004,5/13/2025,Costco,275.03,"Plano, TX",Groceries
+U004,5/13/2025,Costco,150.32,"Plano, TX",Groceries
+U004,5/14/2025,Costco,199.82,"Plano, TX",Groceries
+U004,5/15/2025,Netflix,120.91,"Los Gatos, CA",Subscriptions
+U004,5/15/2025,Sweetgreen,16.87,"New York, NY",Dining
+U004,5/16/2025,Lyft,123.44,"San Francisco, CA",Transportation
+U004,5/16/2025,Walmart,281.95,"Bentonville, AR",Retail
+U004,5/16/2025,Airbnb,198.62,"San Francisco, CA",Travel
+U004,5/17/2025,Kroger,297.22,"Plano, TX",Groceries
+U004,5/17/2025,Airbnb,206.01,"San Francisco, CA",Travel
+U004,5/17/2025,United Airlines,396.93,"Chicago, IL",Travel
+U004,5/18/2025,United Airlines,100.3,"Chicago, IL",Travel
+U004,5/18/2025,Spotify,185.8,"New York, NY",Subscriptions
+U004,5/19/2025,Target,278.85,"Minneapolis, MN",Retail
+U004,5/19/2025,Target,369.28,"Minneapolis, MN",Retail
+U004,5/19/2025,Kroger,76.26,"Plano, TX",Groceries
+U004,5/20/2025,Starbucks,337.97,"Austin, TX",Dining
+U004,5/20/2025,Exxon,265.71,"Dallas, TX",Gas
+U004,5/20/2025,Costco,314.31,"Plano, TX",Groceries
+U004,5/21/2025,Starbucks,144.35,"Austin, TX",Dining
+U004,5/21/2025,Delta Airlines,123,"Atlanta, GA",Travel
+U004,5/21/2025,Costco,64.32,"Plano, TX",Groceries
+U004,5/22/2025,Walmart,239.85,"Bentonville, AR",Retail
+U004,5/22/2025,United Airlines,58.49,"Chicago, IL",Travel
+U004,5/22/2025,Netflix,341.5,"Los Gatos, CA",Subscriptions
+U004,5/23/2025,Chipotle,330.31,"Austin, TX",Dining
+U004,5/24/2025,Spotify,322.74,"New York, NY",Subscriptions
+U004,5/25/2025,Costco,308.51,"Plano, TX",Groceries
+U004,5/25/2025,Chipotle,276.75,"Austin, TX",Dining
+U004,5/25/2025,Lyft,259.69,"San Francisco, CA",Transportation
+U004,5/26/2025,Starbucks,362.61,"Austin, TX",Dining
+U004,5/26/2025,Target,204.32,"Minneapolis, MN",Retail
+U004,5/27/2025,Airbnb,377.02,"San Francisco, CA",Travel
+U004,5/27/2025,Spotify,60.82,"New York, NY",Subscriptions
+U004,5/27/2025,Uber,189.2,"New York, NY",Transportation
+U004,5/28/2025,Airbnb,186.54,"San Francisco, CA",Travel
+U004,5/28/2025,Uber,296.23,"New York, NY",Transportation
+U004,5/28/2025,Kroger,345.97,"Plano, TX",Groceries
+U004,5/29/2025,DoorDash,11.18,"Seattle, WA",Dining
+U004,5/29/2025,Lyft,109.64,"San Francisco, CA",Transportation
+U004,5/29/2025,Costco,234.21,"Plano, TX",Groceries
+U004,5/30/2025,Starbucks,304.45,"Austin, TX",Dining
+U004,5/31/2025,DoorDash,83.08,"Seattle, WA",Dining
+U004,5/31/2025,H-E-B,141.47,"Austin, TX",Groceries
+U004,5/31/2025,Amazon,320.86,"Seattle, WA",Online Shopping
+U004,6/1/2025,Nike,296.17,"Beaverton, OR",Retail
+U004,6/1/2025,Netflix,265.31,"Los Gatos, CA",Subscriptions
+U004,6/2/2025,DoorDash,379.49,"Seattle, WA",Dining
+U004,6/2/2025,Sweetgreen,331.95,"New York, NY",Dining
+U004,6/2/2025,Kroger,44.63,"Plano, TX",Groceries
+U004,6/3/2025,DoorDash,145.96,"Seattle, WA",Dining
+U004,6/4/2025,Target,21.46,"Minneapolis, MN",Retail
+U004,6/4/2025,Spotify,67.18,"New York, NY",Subscriptions
+U004,6/4/2025,Costco,361.71,"Plano, TX",Groceries
+U004,6/5/2025,Costco,206.26,"Plano, TX",Groceries
+U004,6/5/2025,Shell,137.46,"Dallas, TX",Gas
+U004,6/5/2025,Sweetgreen,80.76,"New York, NY",Dining
+U004,6/6/2025,Apple,332.57,"Cupertino, CA",Electronics
+U004,6/7/2025,Walmart,323.39,"Bentonville, AR",Retail
+U004,6/7/2025,Uber,84.79,"New York, NY",Transportation
+U004,6/7/2025,Sweetgreen,31.64,"New York, NY",Dining
+U004,6/8/2025,Exxon,63.22,"Dallas, TX",Gas
+U004,6/8/2025,Shell,114.1,"Dallas, TX",Gas
+U004,6/8/2025,Netflix,169.07,"Los Gatos, CA",Subscriptions
+U004,6/9/2025,Kroger,151.98,"Plano, TX",Groceries
+U004,6/9/2025,Airbnb,179.31,"San Francisco, CA",Travel
+U004,6/10/2025,Nike,338.42,"Beaverton, OR",Retail
+U004,6/10/2025,Spotify,204.17,"New York, NY",Subscriptions
+U004,6/10/2025,Airbnb,283.44,"San Francisco, CA",Travel
+U004,6/11/2025,Uber,256.9,"New York, NY",Transportation
+U004,6/12/2025,Walmart,165.94,"Bentonville, AR",Retail
+U004,6/12/2025,United Airlines,269.44,"Chicago, IL",Travel
+U004,6/13/2025,Nike,133.52,"Beaverton, OR",Retail
+U004,6/14/2025,H-E-B,77.43,"Austin, TX",Groceries
+U004,6/14/2025,Costco,248.99,"Plano, TX",Groceries
+U004,6/15/2025,Chipotle,247.08,"Austin, TX",Dining
+U004,6/15/2025,Amazon,95.62,"Seattle, WA",Online Shopping
+U004,6/16/2025,H-E-B,104.28,"Austin, TX",Groceries
+U004,6/16/2025,Walmart,207.36,"Bentonville, AR",Retail
+U004,6/17/2025,Apple,353.27,"Cupertino, CA",Electronics
+U004,6/17/2025,United Airlines,215.01,"Chicago, IL",Travel
+U004,6/18/2025,Lyft,18.17,"San Francisco, CA",Transportation
+U004,6/18/2025,DoorDash,384.78,"Seattle, WA",Dining
+U004,6/19/2025,Kroger,349.32,"Plano, TX",Groceries
+U004,6/19/2025,Walmart,145.27,"Bentonville, AR",Retail
+U004,6/19/2025,Amazon,25.05,"Seattle, WA",Online Shopping
+U004,6/20/2025,Delta Airlines,275.4,"Atlanta, GA",Travel
+U004,6/21/2025,Costco,301.36,"Plano, TX",Groceries
+U004,6/21/2025,Spotify,31.93,"New York, NY",Subscriptions
+U004,6/22/2025,Chipotle,310.47,"Austin, TX",Dining
+U004,6/22/2025,Lyft,100.66,"San Francisco, CA",Transportation
+U004,6/23/2025,Apple,289.68,"Cupertino, CA",Electronics
+U004,6/24/2025,Uber,168.93,"New York, NY",Transportation
+U004,6/24/2025,Delta Airlines,389.97,"Atlanta, GA",Travel
+U004,6/25/2025,Apple,27.53,"Cupertino, CA",Electronics
+U004,6/25/2025,Airbnb,255.08,"San Francisco, CA",Travel
+U004,6/25/2025,DoorDash,257.61,"Seattle, WA",Dining
+U004,6/26/2025,Kroger,186.08,"Plano, TX",Groceries
+U004,6/26/2025,Chipotle,386.44,"Austin, TX",Dining
+U004,6/26/2025,Target,110.35,"Minneapolis, MN",Retail
+U004,6/27/2025,Spotify,89.44,"New York, NY",Subscriptions
+U004,6/28/2025,Netflix,270.02,"Los Gatos, CA",Subscriptions
+U004,6/28/2025,Exxon,96.86,"Dallas, TX",Gas
+U004,6/28/2025,Lyft,380.89,"San Francisco, CA",Transportation
+U004,6/29/2025,DoorDash,300.2,"Seattle, WA",Dining
+U005,1/1/2025,Uber,60.29,"New York, NY",Transportation
+U005,1/2/2025,Amazon,44.44,"Seattle, WA",Online Shopping
+U005,1/3/2025,Chipotle,263.87,"Austin, TX",Dining
+U005,1/3/2025,Uber,86.71,"New York, NY",Transportation
+U005,1/4/2025,Sweetgreen,125.46,"New York, NY",Dining
+U005,1/4/2025,Target,367.28,"Minneapolis, MN",Retail
+U005,1/4/2025,Spotify,48.77,"New York, NY",Subscriptions
+U005,1/5/2025,Exxon,289.39,"Dallas, TX",Gas
+U005,1/5/2025,Uber,349.39,"New York, NY",Transportation
+U005,1/6/2025,DoorDash,14.53,"Seattle, WA",Dining
+U005,1/6/2025,Airbnb,61.42,"San Francisco, CA",Travel
+U005,1/6/2025,Sweetgreen,267.42,"New York, NY",Dining
+U005,1/7/2025,Uber,129.88,"New York, NY",Transportation
+U005,1/7/2025,H-E-B,88.87,"Austin, TX",Groceries
+U005,1/8/2025,DoorDash,42.05,"Seattle, WA",Dining
+U005,1/8/2025,Chipotle,6.1,"Austin, TX",Dining
+U005,1/9/2025,Target,279.21,"Minneapolis, MN",Retail
+U005,1/9/2025,Delta Airlines,268.33,"Atlanta, GA",Travel
+U005,1/9/2025,Walmart,113.68,"Bentonville, AR",Retail
+U005,1/10/2025,United Airlines,302.58,"Chicago, IL",Travel
+U005,1/10/2025,Exxon,90.05,"Dallas, TX",Gas
+U005,1/10/2025,Kroger,194.82,"Plano, TX",Groceries
+U005,1/11/2025,Netflix,77.92,"Los Gatos, CA",Subscriptions
+U005,1/11/2025,Delta Airlines,82.75,"Atlanta, GA",Travel
+U005,1/11/2025,Uber,250.84,"New York, NY",Transportation
+U005,1/12/2025,United Airlines,256.71,"Chicago, IL",Travel
+U005,1/13/2025,Target,66.39,"Minneapolis, MN",Retail
+U005,1/13/2025,Spotify,16.81,"New York, NY",Subscriptions
+U005,1/13/2025,United Airlines,172.4,"Chicago, IL",Travel
+U005,1/14/2025,Starbucks,282.8,"Austin, TX",Dining
+U005,1/15/2025,H-E-B,250.41,"Austin, TX",Groceries
+U005,1/15/2025,Starbucks,209.57,"Austin, TX",Dining
+U005,1/15/2025,Delta Airlines,67.09,"Atlanta, GA",Travel
+U005,1/16/2025,Costco,113.05,"Plano, TX",Groceries
+U005,1/16/2025,Exxon,338.91,"Dallas, TX",Gas
+U005,1/16/2025,Kroger,73.94,"Plano, TX",Groceries
+U005,1/17/2025,Airbnb,380.68,"San Francisco, CA",Travel
+U005,1/17/2025,United Airlines,152.8,"Chicago, IL",Travel
+U005,1/17/2025,Shell,349.42,"Dallas, TX",Gas
+U005,1/18/2025,Target,314.65,"Minneapolis, MN",Retail
+U005,1/19/2025,Apple,96.12,"Cupertino, CA",Electronics
+U005,1/19/2025,Shell,389.86,"Dallas, TX",Gas
+U005,1/20/2025,Lyft,143.22,"San Francisco, CA",Transportation
+U005,1/21/2025,H-E-B,222.09,"Austin, TX",Groceries
+U005,1/21/2025,Target,101.63,"Minneapolis, MN",Retail
+U005,1/22/2025,Nike,17.11,"Beaverton, OR",Retail
+U005,1/23/2025,Target,74.65,"Minneapolis, MN",Retail
+U005,1/23/2025,Costco,121.93,"Plano, TX",Groceries
+U005,1/23/2025,Apple,191.43,"Cupertino, CA",Electronics
+U005,1/24/2025,Uber,103.44,"New York, NY",Transportation
+U005,1/24/2025,Nike,91.58,"Beaverton, OR",Retail
+U005,1/25/2025,Walmart,329.15,"Bentonville, AR",Retail
+U005,1/26/2025,United Airlines,33.2,"Chicago, IL",Travel
+U005,1/26/2025,Costco,339.65,"Plano, TX",Groceries
+U005,1/27/2025,Delta Airlines,229.22,"Atlanta, GA",Travel
+U005,1/27/2025,Spotify,347.71,"New York, NY",Subscriptions
+U005,1/28/2025,Shell,339.22,"Dallas, TX",Gas
+U005,1/28/2025,Exxon,188.69,"Dallas, TX",Gas
+U005,1/28/2025,Sweetgreen,215.26,"New York, NY",Dining
+U005,1/29/2025,Chipotle,15.98,"Austin, TX",Dining
+U005,1/29/2025,Costco,394.08,"Plano, TX",Groceries
+U005,1/29/2025,Walmart,398.27,"Bentonville, AR",Retail
+U005,1/30/2025,Starbucks,71.71,"Austin, TX",Dining
+U005,1/30/2025,Costco,368.49,"Plano, TX",Groceries
+U005,1/30/2025,DoorDash,115.25,"Seattle, WA",Dining
+U005,1/31/2025,Chipotle,236.16,"Austin, TX",Dining
+U005,1/31/2025,Costco,228.17,"Plano, TX",Groceries
+U005,1/31/2025,Nike,347.24,"Beaverton, OR",Retail
+U005,2/1/2025,Spotify,364.11,"New York, NY",Subscriptions
+U005,2/1/2025,Sweetgreen,310.01,"New York, NY",Dining
+U005,2/2/2025,Shell,274.23,"Dallas, TX",Gas
+U005,2/3/2025,Lyft,104.88,"San Francisco, CA",Transportation
+U005,2/3/2025,Costco,212.09,"Plano, TX",Groceries
+U005,2/4/2025,Shell,175.46,"Dallas, TX",Gas
+U005,2/5/2025,Kroger,230.15,"Plano, TX",Groceries
+U005,2/5/2025,Airbnb,130.93,"San Francisco, CA",Travel
+U005,2/6/2025,Target,153.7,"Minneapolis, MN",Retail
+U005,2/6/2025,Airbnb,75.16,"San Francisco, CA",Travel
+U005,2/6/2025,DoorDash,6.48,"Seattle, WA",Dining
+U005,2/7/2025,Exxon,5.08,"Dallas, TX",Gas
+U005,2/7/2025,Netflix,70.2,"Los Gatos, CA",Subscriptions
+U005,2/7/2025,Lyft,375.21,"San Francisco, CA",Transportation
+U005,2/8/2025,Target,65.25,"Minneapolis, MN",Retail
+U005,2/9/2025,Spotify,143.22,"New York, NY",Subscriptions
+U005,2/10/2025,Starbucks,373.36,"Austin, TX",Dining
+U005,2/10/2025,Shell,239.13,"Dallas, TX",Gas
+U005,2/11/2025,Chipotle,201.67,"Austin, TX",Dining
+U005,2/11/2025,Apple,289.55,"Cupertino, CA",Electronics
+U005,2/12/2025,Costco,364.34,"Plano, TX",Groceries
+U005,2/12/2025,Lyft,221.47,"San Francisco, CA",Transportation
+U005,2/12/2025,Chipotle,17.61,"Austin, TX",Dining
+U005,2/13/2025,Target,182.17,"Minneapolis, MN",Retail
+U005,2/13/2025,Spotify,352.42,"New York, NY",Subscriptions
+U005,2/14/2025,Starbucks,134.64,"Austin, TX",Dining
+U005,2/15/2025,Netflix,338.11,"Los Gatos, CA",Subscriptions
+U005,2/16/2025,Netflix,139.87,"Los Gatos, CA",Subscriptions
+U005,2/17/2025,Starbucks,72.13,"Austin, TX",Dining
+U005,2/17/2025,Apple,193.15,"Cupertino, CA",Electronics
+U005,2/17/2025,Apple,43.34,"Cupertino, CA",Electronics
+U005,2/18/2025,United Airlines,73.73,"Chicago, IL",Travel
+U005,2/18/2025,Kroger,354.06,"Plano, TX",Groceries
+U005,2/19/2025,United Airlines,357.9,"Chicago, IL",Travel
+U005,2/20/2025,Lyft,174.76,"San Francisco, CA",Transportation
+U005,2/20/2025,H-E-B,89.75,"Austin, TX",Groceries
+U005,2/20/2025,Delta Airlines,151.94,"Atlanta, GA",Travel
+U005,2/21/2025,Walmart,271.44,"Bentonville, AR",Retail
+U005,2/22/2025,Uber,17.2,"New York, NY",Transportation
+U005,2/22/2025,DoorDash,374.2,"Seattle, WA",Dining
+U005,2/23/2025,Nike,94.5,"Beaverton, OR",Retail
+U005,2/24/2025,Netflix,238.53,"Los Gatos, CA",Subscriptions
+U005,2/25/2025,Nike,399.98,"Beaverton, OR",Retail
+U005,2/25/2025,Lyft,389.84,"San Francisco, CA",Transportation
+U005,2/25/2025,Netflix,137.37,"Los Gatos, CA",Subscriptions
+U005,2/26/2025,Nike,42.74,"Beaverton, OR",Retail
+U005,2/26/2025,Shell,29.81,"Dallas, TX",Gas
+U005,2/26/2025,Starbucks,37.73,"Austin, TX",Dining
+U005,2/27/2025,Chipotle,187.29,"Austin, TX",Dining
+U005,2/27/2025,Chipotle,199.59,"Austin, TX",Dining
+U005,2/27/2025,Walmart,181.28,"Bentonville, AR",Retail
+U005,2/28/2025,Nike,190.98,"Beaverton, OR",Retail
+U005,3/1/2025,Starbucks,87.17,"Austin, TX",Dining
+U005,3/1/2025,H-E-B,210.47,"Austin, TX",Groceries
+U005,3/1/2025,DoorDash,332.16,"Seattle, WA",Dining
+U005,3/2/2025,Uber,75.31,"New York, NY",Transportation
+U005,3/2/2025,Nike,252.82,"Beaverton, OR",Retail
+U005,3/2/2025,Amazon,161.28,"Seattle, WA",Online Shopping
+U005,3/3/2025,Spotify,351.41,"New York, NY",Subscriptions
+U005,3/4/2025,Spotify,260.04,"New York, NY",Subscriptions
+U005,3/4/2025,Netflix,201.06,"Los Gatos, CA",Subscriptions
+U005,3/5/2025,H-E-B,281.72,"Austin, TX",Groceries
+U005,3/6/2025,Spotify,283.35,"New York, NY",Subscriptions
+U005,3/6/2025,Nike,266.93,"Beaverton, OR",Retail
+U005,3/6/2025,Delta Airlines,298.97,"Atlanta, GA",Travel
+U005,3/7/2025,Netflix,117.95,"Los Gatos, CA",Subscriptions
+U005,3/7/2025,Sweetgreen,319.53,"New York, NY",Dining
+U005,3/7/2025,Apple,45.51,"Cupertino, CA",Electronics
+U005,3/8/2025,Starbucks,27.81,"Austin, TX",Dining
+U005,3/9/2025,Chipotle,157.46,"Austin, TX",Dining
+U005,3/9/2025,Kroger,126.31,"Plano, TX",Groceries
+U005,3/10/2025,Uber,20.96,"New York, NY",Transportation
+U005,3/10/2025,United Airlines,283.56,"Chicago, IL",Travel
+U005,3/10/2025,Uber,391.53,"New York, NY",Transportation
+U005,3/11/2025,Kroger,129.28,"Plano, TX",Groceries
+U005,3/11/2025,Shell,317.6,"Dallas, TX",Gas
+U005,3/11/2025,Airbnb,52.84,"San Francisco, CA",Travel
+U005,3/12/2025,Spotify,369.87,"New York, NY",Subscriptions
+U005,3/12/2025,Spotify,141.62,"New York, NY",Subscriptions
+U005,3/13/2025,DoorDash,17.12,"Seattle, WA",Dining
+U005,3/14/2025,Chipotle,149.85,"Austin, TX",Dining
+U005,3/15/2025,Lyft,393.01,"San Francisco, CA",Transportation
+U005,3/15/2025,Shell,268.14,"Dallas, TX",Gas
+U005,3/15/2025,Netflix,264.39,"Los Gatos, CA",Subscriptions
+U005,3/16/2025,Uber,357.68,"New York, NY",Transportation
+U005,3/16/2025,Exxon,75.38,"Dallas, TX",Gas
+U005,3/16/2025,Lyft,351.52,"San Francisco, CA",Transportation
+U005,3/17/2025,Uber,44.23,"New York, NY",Transportation
+U005,3/18/2025,Nike,139.65,"Beaverton, OR",Retail
+U005,3/18/2025,DoorDash,346.26,"Seattle, WA",Dining
+U005,3/18/2025,Delta Airlines,395.54,"Atlanta, GA",Travel
+U005,3/19/2025,Target,85.97,"Minneapolis, MN",Retail
+U005,3/19/2025,United Airlines,298.82,"Chicago, IL",Travel
+U005,3/19/2025,Airbnb,32.44,"San Francisco, CA",Travel
+U005,3/20/2025,Shell,263.34,"Dallas, TX",Gas
+U005,3/21/2025,Uber,34.9,"New York, NY",Transportation
+U005,3/22/2025,Amazon,138.6,"Seattle, WA",Online Shopping
+U005,3/22/2025,DoorDash,55.6,"Seattle, WA",Dining
+U005,3/23/2025,Nike,213.95,"Beaverton, OR",Retail
+U005,3/23/2025,Nike,60.88,"Beaverton, OR",Retail
+U005,3/24/2025,Exxon,327.99,"Dallas, TX",Gas
+U005,3/24/2025,Costco,256.65,"Plano, TX",Groceries
+U005,3/24/2025,Uber,20.24,"New York, NY",Transportation
+U005,3/25/2025,Amazon,315.56,"Seattle, WA",Online Shopping
+U005,3/26/2025,Walmart,277.32,"Bentonville, AR",Retail
+U005,3/26/2025,Kroger,290.96,"Plano, TX",Groceries
+U005,3/27/2025,United Airlines,10.08,"Chicago, IL",Travel
+U005,3/28/2025,Airbnb,96.06,"San Francisco, CA",Travel
+U005,3/28/2025,Walmart,355.56,"Bentonville, AR",Retail
+U005,3/29/2025,Chipotle,234.6,"Austin, TX",Dining
+U005,3/30/2025,Target,64.92,"Minneapolis, MN",Retail
+U005,3/30/2025,Lyft,230.42,"San Francisco, CA",Transportation
+U005,3/31/2025,Delta Airlines,353.79,"Atlanta, GA",Travel
+U005,3/31/2025,Kroger,7.08,"Plano, TX",Groceries
+U005,4/1/2025,Amazon,188.45,"Seattle, WA",Online Shopping
+U005,4/2/2025,Uber,166.75,"New York, NY",Transportation
+U005,4/3/2025,Lyft,191.37,"San Francisco, CA",Transportation
+U005,4/4/2025,Delta Airlines,44.11,"Atlanta, GA",Travel
+U005,4/4/2025,Chipotle,32.36,"Austin, TX",Dining
+U005,4/4/2025,Delta Airlines,268.49,"Atlanta, GA",Travel
+U005,4/5/2025,H-E-B,252.85,"Austin, TX",Groceries
+U005,4/5/2025,Sweetgreen,169.15,"New York, NY",Dining
+U005,4/6/2025,Airbnb,87.19,"San Francisco, CA",Travel
+U005,4/6/2025,Target,352.14,"Minneapolis, MN",Retail
+U005,4/6/2025,Starbucks,396.76,"Austin, TX",Dining
+U005,4/7/2025,H-E-B,30.64,"Austin, TX",Groceries
+U005,4/8/2025,United Airlines,88.5,"Chicago, IL",Travel
+U005,4/8/2025,Exxon,345.92,"Dallas, TX",Gas
+U005,4/9/2025,Airbnb,323.12,"San Francisco, CA",Travel
+U005,4/9/2025,United Airlines,10.97,"Chicago, IL",Travel
+U005,4/9/2025,Apple,367.29,"Cupertino, CA",Electronics
+U005,4/10/2025,Costco,244.08,"Plano, TX",Groceries
+U005,4/10/2025,Uber,304.86,"New York, NY",Transportation
+U005,4/10/2025,Airbnb,190.48,"San Francisco, CA",Travel
+U005,4/11/2025,Costco,195.28,"Plano, TX",Groceries
+U005,4/12/2025,Sweetgreen,214.04,"New York, NY",Dining
+U005,4/13/2025,H-E-B,257.45,"Austin, TX",Groceries
+U005,4/14/2025,United Airlines,171.42,"Chicago, IL",Travel
+U005,4/14/2025,Chipotle,128.4,"Austin, TX",Dining
+U005,4/14/2025,Lyft,213.03,"San Francisco, CA",Transportation
+U005,4/15/2025,Amazon,256.71,"Seattle, WA",Online Shopping
+U005,4/16/2025,Exxon,199.49,"Dallas, TX",Gas
+U005,4/16/2025,Delta Airlines,15.35,"Atlanta, GA",Travel
+U005,4/17/2025,Spotify,133.31,"New York, NY",Subscriptions
+U005,4/17/2025,Kroger,177.08,"Plano, TX",Groceries
+U005,4/18/2025,Kroger,385.99,"Plano, TX",Groceries
+U005,4/18/2025,Amazon,338.33,"Seattle, WA",Online Shopping
+U005,4/19/2025,United Airlines,329.21,"Chicago, IL",Travel
+U005,4/19/2025,Starbucks,248.47,"Austin, TX",Dining
+U005,4/19/2025,Exxon,125.64,"Dallas, TX",Gas
+U005,4/20/2025,Lyft,238.56,"San Francisco, CA",Transportation
+U005,4/20/2025,Target,347.72,"Minneapolis, MN",Retail
+U005,4/20/2025,Uber,388.21,"New York, NY",Transportation
+U005,4/21/2025,Costco,31.41,"Plano, TX",Groceries
+U005,4/21/2025,Chipotle,366.4,"Austin, TX",Dining
+U005,4/21/2025,Sweetgreen,336.66,"New York, NY",Dining
+U005,4/22/2025,Exxon,83.83,"Dallas, TX",Gas
+U005,4/23/2025,Exxon,222.53,"Dallas, TX",Gas
+U005,4/24/2025,Spotify,207.63,"New York, NY",Subscriptions
+U005,4/24/2025,Kroger,330.82,"Plano, TX",Groceries
+U005,4/24/2025,H-E-B,313.78,"Austin, TX",Groceries
+U005,4/25/2025,Airbnb,199.73,"San Francisco, CA",Travel
+U005,4/25/2025,Walmart,222.16,"Bentonville, AR",Retail
+U005,4/26/2025,Lyft,89.3,"San Francisco, CA",Transportation
+U005,4/26/2025,H-E-B,206.93,"Austin, TX",Groceries
+U005,4/26/2025,Amazon,252.7,"Seattle, WA",Online Shopping
+U005,4/27/2025,Target,315.78,"Minneapolis, MN",Retail
+U005,4/28/2025,Starbucks,110.15,"Austin, TX",Dining
+U005,4/28/2025,Airbnb,311.11,"San Francisco, CA",Travel
+U005,4/29/2025,Chipotle,355.12,"Austin, TX",Dining
+U005,4/30/2025,Lyft,275.27,"San Francisco, CA",Transportation
+U005,4/30/2025,Starbucks,123.03,"Austin, TX",Dining
+U005,5/1/2025,Uber,40.3,"New York, NY",Transportation
+U005,5/2/2025,Spotify,158.98,"New York, NY",Subscriptions
+U005,5/3/2025,Sweetgreen,290.65,"New York, NY",Dining
+U005,5/3/2025,Costco,88.84,"Plano, TX",Groceries
+U005,5/3/2025,Uber,273.56,"New York, NY",Transportation
+U005,5/4/2025,Chipotle,209.43,"Austin, TX",Dining
+U005,5/5/2025,Nike,268.58,"Beaverton, OR",Retail
+U005,5/5/2025,Target,185.69,"Minneapolis, MN",Retail
+U005,5/6/2025,Exxon,180.05,"Dallas, TX",Gas
+U005,5/7/2025,Costco,31.98,"Plano, TX",Groceries
+U005,5/8/2025,DoorDash,58.41,"Seattle, WA",Dining
+U005,5/8/2025,Starbucks,225.19,"Austin, TX",Dining
+U005,5/9/2025,Netflix,196.53,"Los Gatos, CA",Subscriptions
+U005,5/9/2025,Airbnb,369.39,"San Francisco, CA",Travel
+U005,5/9/2025,United Airlines,319.02,"Chicago, IL",Travel
+U005,5/10/2025,Lyft,190.79,"San Francisco, CA",Transportation
+U005,5/10/2025,Spotify,45.43,"New York, NY",Subscriptions
+U005,5/11/2025,Apple,178.63,"Cupertino, CA",Electronics
+U005,5/11/2025,Kroger,8,"Plano, TX",Groceries
+U005,5/12/2025,Exxon,238.72,"Dallas, TX",Gas
+U005,5/12/2025,Target,26.59,"Minneapolis, MN",Retail
+U005,5/13/2025,Kroger,243.09,"Plano, TX",Groceries
+U005,5/14/2025,Apple,55.37,"Cupertino, CA",Electronics
+U005,5/14/2025,Nike,371.6,"Beaverton, OR",Retail
+U005,5/14/2025,Costco,128.53,"Plano, TX",Groceries
+U005,5/15/2025,Netflix,287.77,"Los Gatos, CA",Subscriptions
+U005,5/16/2025,United Airlines,374.91,"Chicago, IL",Travel
+U005,5/16/2025,Walmart,332.14,"Bentonville, AR",Retail
+U005,5/16/2025,Lyft,207.61,"San Francisco, CA",Transportation
+U005,5/17/2025,Starbucks,321.69,"Austin, TX",Dining
+U005,5/18/2025,Apple,319.54,"Cupertino, CA",Electronics
+U005,5/18/2025,H-E-B,129.55,"Austin, TX",Groceries
+U005,5/19/2025,Netflix,323.59,"Los Gatos, CA",Subscriptions
+U005,5/19/2025,Shell,283.51,"Dallas, TX",Gas
+U005,5/20/2025,Sweetgreen,237.61,"New York, NY",Dining
+U005,5/20/2025,Kroger,197.21,"Plano, TX",Groceries
+U005,5/20/2025,Chipotle,200.41,"Austin, TX",Dining
+U005,5/21/2025,Uber,183.81,"New York, NY",Transportation
+U005,5/21/2025,Costco,284.57,"Plano, TX",Groceries
+U005,5/21/2025,Nike,87.63,"Beaverton, OR",Retail
+U005,5/22/2025,Sweetgreen,395.8,"New York, NY",Dining
+U005,5/22/2025,Costco,332.69,"Plano, TX",Groceries
+U005,5/22/2025,Nike,249.79,"Beaverton, OR",Retail
+U005,5/23/2025,United Airlines,162.39,"Chicago, IL",Travel
+U005,5/23/2025,Airbnb,196.57,"San Francisco, CA",Travel
+U005,5/24/2025,Spotify,172.61,"New York, NY",Subscriptions
+U005,5/24/2025,Sweetgreen,251.85,"New York, NY",Dining
+U005,5/25/2025,Starbucks,113.65,"Austin, TX",Dining
+U005,5/25/2025,DoorDash,335.17,"Seattle, WA",Dining
+U005,5/25/2025,Spotify,54.23,"New York, NY",Subscriptions
+U005,5/26/2025,Delta Airlines,18.98,"Atlanta, GA",Travel
+U005,5/26/2025,Costco,322.83,"Plano, TX",Groceries
+U005,5/27/2025,DoorDash,149.09,"Seattle, WA",Dining
+U005,5/28/2025,Costco,136.52,"Plano, TX",Groceries
+U005,5/28/2025,Starbucks,267,"Austin, TX",Dining
+U005,5/28/2025,Delta Airlines,112.53,"Atlanta, GA",Travel
+U005,5/29/2025,Kroger,388.59,"Plano, TX",Groceries
+U005,5/29/2025,Shell,39.83,"Dallas, TX",Gas
+U005,5/29/2025,H-E-B,239.74,"Austin, TX",Groceries
+U005,5/30/2025,Exxon,373.84,"Dallas, TX",Gas
+U005,5/30/2025,Apple,75.32,"Cupertino, CA",Electronics
+U005,5/31/2025,Uber,87.87,"New York, NY",Transportation
+U005,6/1/2025,DoorDash,146.71,"Seattle, WA",Dining
+U005,6/1/2025,Apple,382.35,"Cupertino, CA",Electronics
+U005,6/2/2025,Spotify,123.04,"New York, NY",Subscriptions
+U005,6/2/2025,Sweetgreen,23.14,"New York, NY",Dining
+U005,6/2/2025,Delta Airlines,152.67,"Atlanta, GA",Travel
+U005,6/3/2025,Uber,303.1,"New York, NY",Transportation
+U005,6/3/2025,Walmart,382.82,"Bentonville, AR",Retail
+U005,6/4/2025,Nike,390.28,"Beaverton, OR",Retail
+U005,6/5/2025,Target,360.41,"Minneapolis, MN",Retail
+U005,6/5/2025,Netflix,67.25,"Los Gatos, CA",Subscriptions
+U005,6/6/2025,Airbnb,135.65,"San Francisco, CA",Travel
+U005,6/6/2025,Kroger,138.44,"Plano, TX",Groceries
+U005,6/6/2025,Costco,290.18,"Plano, TX",Groceries
+U005,6/7/2025,Amazon,145.68,"Seattle, WA",Online Shopping
+U005,6/7/2025,Amazon,285.63,"Seattle, WA",Online Shopping
+U005,6/7/2025,Amazon,291.22,"Seattle, WA",Online Shopping
+U005,6/8/2025,H-E-B,145.27,"Austin, TX",Groceries
+U005,6/9/2025,Uber,148.08,"New York, NY",Transportation
+U005,6/10/2025,Sweetgreen,369.15,"New York, NY",Dining
+U005,6/10/2025,Netflix,36.52,"Los Gatos, CA",Subscriptions
+U005,6/11/2025,Netflix,29.31,"Los Gatos, CA",Subscriptions
+U005,6/12/2025,Amazon,271.46,"Seattle, WA",Online Shopping
+U005,6/12/2025,Lyft,214.9,"San Francisco, CA",Transportation
+U005,6/13/2025,Exxon,203.44,"Dallas, TX",Gas
+U005,6/13/2025,Kroger,391.51,"Plano, TX",Groceries
+U005,6/13/2025,Walmart,265.61,"Bentonville, AR",Retail
+U005,6/14/2025,Kroger,209.83,"Plano, TX",Groceries
+U005,6/15/2025,Shell,208.14,"Dallas, TX",Gas
+U005,6/15/2025,Kroger,37.02,"Plano, TX",Groceries
+U005,6/15/2025,Costco,208.92,"Plano, TX",Groceries
+U005,6/16/2025,Airbnb,54,"San Francisco, CA",Travel
+U005,6/16/2025,Uber,59.57,"New York, NY",Transportation
+U005,6/16/2025,Chipotle,114.99,"Austin, TX",Dining
+U005,6/17/2025,Apple,109.36,"Cupertino, CA",Electronics
+U005,6/18/2025,Shell,37.17,"Dallas, TX",Gas
+U005,6/18/2025,Target,286.45,"Minneapolis, MN",Retail
+U005,6/19/2025,Nike,237.96,"Beaverton, OR",Retail
+U005,6/19/2025,Starbucks,185.33,"Austin, TX",Dining
+U005,6/20/2025,United Airlines,304.72,"Chicago, IL",Travel
+U005,6/20/2025,Costco,388.65,"Plano, TX",Groceries
+U005,6/20/2025,Delta Airlines,353.61,"Atlanta, GA",Travel
+U005,6/21/2025,Shell,200,"Dallas, TX",Gas
+U005,6/21/2025,Sweetgreen,362.36,"New York, NY",Dining
+U005,6/22/2025,Sweetgreen,82.87,"New York, NY",Dining
+U005,6/22/2025,Amazon,35.97,"Seattle, WA",Online Shopping
+U005,6/22/2025,H-E-B,98.3,"Austin, TX",Groceries
+U005,6/23/2025,Lyft,181.4,"San Francisco, CA",Transportation
+U005,6/23/2025,Uber,298.63,"New York, NY",Transportation
+U005,6/23/2025,Walmart,215.52,"Bentonville, AR",Retail
+U005,6/24/2025,Delta Airlines,193.59,"Atlanta, GA",Travel
+U005,6/24/2025,Sweetgreen,103.88,"New York, NY",Dining
+U005,6/25/2025,Costco,6.06,"Plano, TX",Groceries
+U005,6/25/2025,Kroger,9.31,"Plano, TX",Groceries
+U005,6/25/2025,Netflix,394.13,"Los Gatos, CA",Subscriptions
+U005,6/26/2025,Netflix,347.69,"Los Gatos, CA",Subscriptions
+U005,6/26/2025,Nike,329.24,"Beaverton, OR",Retail
+U005,6/26/2025,Spotify,310.55,"New York, NY",Subscriptions
+U005,6/27/2025,Lyft,339.52,"San Francisco, CA",Transportation
+U005,6/28/2025,DoorDash,378.39,"Seattle, WA",Dining
+U005,6/28/2025,Exxon,221.75,"Dallas, TX",Gas
+U005,6/28/2025,Walmart,34.32,"Bentonville, AR",Retail
+U005,6/29/2025,Starbucks,337.41,"Austin, TX",Dining
+U005,6/29/2025,Airbnb,183.25,"San Francisco, CA",Travel
+U005,6/29/2025,H-E-B,31.04,"Austin, TX",Groceries
