@@ -81,7 +81,7 @@ function ManageUploadsPage() {
               </h1>
             </div>
             <p className="text-gray-600">
-              View all your uploaded transaction statements
+              View all your previous transaction statements
             </p>
           </div>
 
