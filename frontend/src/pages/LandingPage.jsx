@@ -116,7 +116,9 @@ function LandingPage() {
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                 Your spending, <br />
-                <span className="text-[#D03027]">rewarded.</span>
+                <span className="bg-gradient-to-r from-[#D03027] to-[#FF6B6B] bg-clip-text text-transparent">
+                  rewarded.
+                </span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-200 mb-10 leading-relaxed">
                 CapitalYou Card automatically tracks your top spending categories and maximizes your rewards. No thinking required.
