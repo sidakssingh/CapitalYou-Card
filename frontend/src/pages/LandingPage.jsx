@@ -1,13 +1,40 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronRight, Shield, TrendingUp, Star } from 'lucide-react';
+import { ChevronRight, Shield, TrendingUp, Star, LogOut } from 'lucide-react';
 import { testApi } from '../services/api';
+import { getCurrentUser, signOut } from '../services/auth';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
 
 function LandingPage() {
+  const navigate = useNavigate();
   const [apiResponse, setApiResponse] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState(null);
+  const [checkingAuth, setCheckingAuth] = useState(true);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const currentUser = await getCurrentUser();
+        setUser(currentUser);
+      } catch (error) {
+        setUser(null);
+      } finally {
+        setCheckingAuth(false);
+      }
+    };
+    checkAuth();
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      setUser(null);
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
 
   const handleTestApi = async () => {
     setLoading(true);
@@ -56,13 +83,23 @@ function LandingPage() {
                 className="h-16 md:h-20 w-auto"
               />
             </Link>
-            <nav className="hidden md:flex items-center gap-8">
-              <Link 
-                to="/login" 
-                className="px-6 py-2.5 bg-[#004977] hover:bg-[#003557] text-white rounded-full font-medium transition-all shadow-sm hover:shadow-md"
-              >
-                Login
-              </Link>
+            <nav className="flex items-center gap-8">
+              {user ? (
+                <button 
+                  onClick={handleLogout}
+                  className="flex items-center gap-2 px-6 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full font-medium transition-all"
+                >
+                  <LogOut className="w-4 h-4" />
+                  Log Out
+                </button>
+              ) : (
+                <Link 
+                  to="/login" 
+                  className="px-6 py-2.5 bg-[#004977] hover:bg-[#003557] text-white rounded-full font-medium transition-all shadow-sm hover:shadow-md"
+                >
+                  Login
+                </Link>
+              )}
             </nav>
           </motion.div>
         </div>
@@ -87,13 +124,12 @@ function LandingPage() {
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  to="/register"
+                  to={user ? "/dashboard" : "/register"}
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#D03027] hover:bg-[#B02820] text-white rounded-full font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
                 >
-                  Get Started
+                  {user ? "Go to Dashboard" : "Get Started"}
                   <ChevronRight className="w-5 h-5" />
                 </Link>
-                {/* Removed Test API button */}
               </div>
             </motion.div>
           </div>
@@ -156,16 +192,19 @@ function LandingPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to see your spending insights?
+              {user ? "View your spending insights" : "Ready to see your spending insights?"}
             </h2>
             <p className="text-gray-200 text-lg mb-8 max-w-2xl mx-auto">
-              Get started today to see your top spending categories and how many points you're earning.
+              {user 
+                ? "Head to your dashboard to see your top spending categories and rewards."
+                : "Get started today to see your top spending categories and how many points you're earning."
+              }
             </p>
             <Link
-              to="/register"
+              to={user ? "/dashboard" : "/register"}
               className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-[#D03027] hover:bg-[#B02820] text-white rounded-full font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
             >
-              Get Started
+              {user ? "Go to Dashboard" : "Get Started"}
               <ChevronRight className="w-5 h-5" />
             </Link>
           </motion.div>
