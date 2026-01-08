@@ -113,24 +113,6 @@ def load_transaction_data(
     return pd.read_csv(path)
 
 
-_POINTS_MULTIPLIERS = {
-    "fuel": 4,
-    "travel": 3,
-    "dining": 2,
-    "restaurants": 2,
-    "e-commerce": 5,
-    "online": 5,
-}
-
-
-def _points_multiplier_for_category(category: str) -> int:
-    lower_cat = category.lower()
-    for key, value in _POINTS_MULTIPLIERS.items():
-        if key in lower_cat:
-            return value
-    return 1
-
-
 def summarize_user_spending(
     user_id: Union[str, int],
     model,
@@ -147,16 +129,30 @@ def summarize_user_spending(
         raise ValueError(f"No transactions found for user {user_id!r}.")
 
     summary = summarize_transactions(user_df, model)
-    return {
-        "user_id": int(normalized_user_id) if normalized_user_id.isdigit() else normalized_user_id,
-        "total_spent": summary["total_spent"],
-        "categories": [
+    max_percentage = max(
+        (entry["percentage_of_total"] for entry in summary["by_category"]), default=0.0
+    )
+
+    categories = []
+    for entry in summary["by_category"]:
+        percentage = entry["percentage_of_total"]
+        if max_percentage <= 0:
+            multiplier = 0.0
+        else:
+            multiplier = 5 * (percentage / max_percentage)
+        multiplier = round(multiplier, 1)
+
+        categories.append(
             {
                 "category": entry["category"],
                 "total_spent": entry["total_spent"],
-                "percentage_of_spend": entry["percentage_of_total"],
-                "points_multiplier": _points_multiplier_for_category(entry["category"]),
+                "percentage_of_spend": percentage,
+                "points_multiplier": multiplier,
             }
-            for entry in summary["by_category"]
-        ],
+        )
+
+    return {
+        "user_id": int(normalized_user_id) if normalized_user_id.isdigit() else normalized_user_id,
+        "total_spent": summary["total_spent"],
+        "categories": categories,
     }
