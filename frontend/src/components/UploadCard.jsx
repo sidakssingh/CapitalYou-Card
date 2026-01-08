@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Trash2, TrendingUp, FileText } from 'lucide-react';
+import { TrendingUp, FileText } from 'lucide-react';
 import PropTypes from 'prop-types';
 
-function UploadCard({ summary, onDelete }) {
+function UploadCard({ summary }) {
   // Format date
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -27,26 +27,16 @@ function UploadCard({ summary, onDelete }) {
   };
 
   const topCategory = getTopCategory();
-  // Capital One blue: #004977
 
   return (
     <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow">
-      <div className="flex justify-between items-start mb-4">
-        <div className="flex-1">
-          <h3 className="text-lg font-semibold text-[#004977] mb-1">
-            {summary.title && summary.title !== 'None' ? summary.title : 'Upload Summary'}
-          </h3>
-          <p className="text-sm text-gray-500">
-            {formatDate(summary.created_at)}
-          </p>
-        </div>
-        <button
-          onClick={() => onDelete(summary.id)}
-          className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-          aria-label="Delete upload"
-        >
-          <Trash2 className="w-5 h-5" />
-        </button>
+      <div className="mb-4">
+        <h3 className="text-lg font-semibold text-[#004977] mb-1">
+          {summary.title && summary.title !== 'None' ? summary.title : 'Statement Summary'}
+        </h3>
+        <p className="text-sm text-gray-500">
+          {formatDate(summary.created_at)}
+        </p>
       </div>
 
       <div className="space-y-3">
@@ -95,8 +85,7 @@ UploadCard.propTypes = {
       category: PropTypes.string.isRequired,
       total_spent: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     }))
-  }).isRequired,
-  onDelete: PropTypes.func.isRequired
+  }).isRequired
 };
 
 export default UploadCard;

@@ -54,9 +54,9 @@ function RegisterPage() {
       const { user } = await signUp(formData.email, formData.password);
       // Check if user was created successfully
       if (user) {
-        setSuccess('Successfully registered! Redirecting to login...');
+        setSuccess('Successfully registered! Redirecting to upload your first statement...');
         setTimeout(() => {
-          navigate('/login');
+          navigate('/upload');
         }, 2000);
       }
     } catch (err) {

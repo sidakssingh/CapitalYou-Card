@@ -3,7 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { LogIn, ArrowLeft, Mail, Lock } from 'lucide-react';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
-import { signIn } from '../services/auth';
+import { signIn, getCurrentUser } from '../services/auth';
+import { getAggregatedSummary } from '../services/database';
+
+// Demo user UID - goes straight to dashboard
+const DEMO_USER_UID = 'bf75c74b-e9ae-490c-9fe8-14a1313cda4e';
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -12,14 +16,42 @@ function LoginPage() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const checkUserDataAndRedirect = async () => {
+    try {
+      const user = await getCurrentUser();
+      if (!user) {
+        navigate('/dashboard');
+        return;
+      }
+      
+      // Demo user always goes to dashboard
+      if (user.id === DEMO_USER_UID) {
+        navigate('/dashboard');
+        return;
+      }
+      
+      // Check if regular user has data
+      const data = await getAggregatedSummary(user.id);
+      if (data && data.categories && data.categories.length > 0) {
+        navigate('/dashboard');
+      } else {
+        // No data - redirect to upload
+        navigate('/upload');
+      }
+    } catch (err) {
+      // If error checking data, go to upload page
+      navigate('/upload');
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setLoading(true);
 
     try {
-        await signIn(email, password);
-        navigate('/dashboard');
+      await signIn(email, password);
+      await checkUserDataAndRedirect();
     } catch (err) {
       setError(err.message || 'Failed to sign in. Please check your credentials.');
     } finally {
@@ -33,7 +65,7 @@ function LoginPage() {
     
     try {
       await signIn('janedoe@capitalone.com', '123456');
-      navigate('/dashboard');
+      navigate('/dashboard'); // Demo user always goes to dashboard
     } catch (err) {
       setError(err.message || 'Failed to sign in with Capital One demo account.');
     } finally {

@@ -163,19 +163,7 @@ const Header = ({ testMode, setTestMode, showToggle = true, onDeleteAccount, isD
         </div>
         
         <div className="flex items-center gap-3">
-          {!isDemoUser && (
-            <Link
-              to="/upload"
-              className="flex items-center gap-2 px-4 py-2 bg-[#D03027] hover:bg-[#B02820] text-white rounded-full font-medium text-sm transition-all"
-            >
-              <Upload className="w-4 h-4" />
-              <span className="hidden sm:inline">Upload Data</span>
-            </Link>
-          )}
-          
           <SettingsMenu onDeleteAccount={onDeleteAccount} />
-          
-          {/* Removed API/Test mode toggle button */}
         </div>
       </motion.div>
     </div>
@@ -299,7 +287,14 @@ function DashboardPage() {
     );
   }
 
+  // Redirect to upload page if no data (for non-demo users)
   if (!data || !data.categories || data.categories.length === 0) {
+    if (!isDemoUser) {
+      // Redirect regular users to upload page
+      navigate('/upload');
+      return null;
+    }
+    // Demo user should never see this, but just in case
     return (
       <div className="min-h-screen bg-gray-50 font-sans">
         <Header testMode={testMode} setTestMode={setTestMode} onDeleteAccount={handleDeleteAccount} isDemoUser={isDemoUser} />
@@ -308,27 +303,10 @@ function DashboardPage() {
             <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Upload className="w-8 h-8 text-gray-400" />
             </div>
-            <h2 className="text-xl font-bold text-[#004977] mb-2">No Data Uploaded</h2>
-            <p className="text-gray-600 mb-6">
-              Upload your transaction data to see personalized spending insights and rewards.
+            <h2 className="text-xl font-bold text-[#004977] mb-2">No Data Available</h2>
+            <p className="text-gray-600">
+              No spending data is currently available for this account.
             </p>
-            {!isDemoUser && (
-              <div className="flex flex-col gap-3">
-                <Link
-                  to="/upload"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#D03027] hover:bg-[#B02820] text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-xl"
-                >
-                  <Upload className="w-5 h-5" />
-                  Upload Data
-                </Link>
-                <Link
-                  to="/manage"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-[#004977] border-2 border-[#004977] rounded-full font-semibold transition-all"
-                >
-                  Manage Uploads
-                </Link>
-              </div>
-            )}
           </div>
         </div>
       </div>
@@ -424,7 +402,7 @@ function DashboardPage() {
                 to="/manage"
                 className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white hover:bg-gray-50 text-[#004977] border-2 border-[#004977] rounded-full font-semibold transition-all whitespace-nowrap"
               >
-                Manage Uploads
+                View Statements
               </Link>
             )}
           </div>

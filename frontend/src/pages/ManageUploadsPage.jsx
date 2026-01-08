@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Trash2, Database } from 'lucide-react';
+import { ArrowLeft, FileText } from 'lucide-react';
 import { getCurrentUser } from '../services/auth';
-import { getAllSummaries, deleteSummary } from '../services/database';
+import { getAllSummaries } from '../services/database';
 import UploadCard from '../components/UploadCard';
-import Modal from '../components/Modal';
 import LogoutButton from '../components/LogoutButton';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
 
@@ -14,9 +13,6 @@ function ManageUploadsPage() {
   const [summaries, setSummaries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-  const [summaryToDelete, setSummaryToDelete] = useState(null);
-  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     loadSummaries();
@@ -31,31 +27,9 @@ function ManageUploadsPage() {
       setError(null);
     } catch (err) {
       console.error('Failed to load summaries:', err);
-      setError('Failed to load your uploads. Please try again.');
+      setError('Failed to load your statements. Please try again.');
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleDeleteClick = (summaryId) => {
-    setSummaryToDelete(summaryId);
-    setDeleteModalOpen(true);
-  };
-
-  const handleDeleteConfirm = async () => {
-    if (!summaryToDelete) return;
-
-    setDeleting(true);
-    try {
-      await deleteSummary(summaryToDelete);
-      setSummaries(summaries.filter(s => s.id !== summaryToDelete));
-      setDeleteModalOpen(false);
-      setSummaryToDelete(null);
-    } catch (err) {
-      console.error('Failed to delete summary:', err);
-      alert('Failed to delete upload. Please try again.');
-    } finally {
-      setDeleting(false);
     }
   };
 
@@ -101,13 +75,13 @@ function ManageUploadsPage() {
           {/* Page Header */}
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-2">
-              <Database className="w-8 h-8 text-[#004977]" />
+              <FileText className="w-8 h-8 text-[#004977]" />
               <h1 className="text-3xl font-bold text-[#004977]">
-                Manage Your Uploads
+                Manage Your Statements
               </h1>
             </div>
             <p className="text-gray-600">
-              View and manage all your uploaded transaction summaries
+              View all your uploaded transaction statements
             </p>
           </div>
 
@@ -115,7 +89,7 @@ function ManageUploadsPage() {
           {loading && (
             <div className="text-center py-12">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#004977] mx-auto"></div>
-              <p className="text-gray-600 mt-4">Loading your uploads...</p>
+              <p className="text-gray-600 mt-4">Loading your statements...</p>
             </div>
           )}
 
@@ -137,18 +111,18 @@ function ManageUploadsPage() {
             <>
               {summaries.length === 0 ? (
                 <div className="bg-white rounded-xl shadow-md border border-gray-200 p-12 text-center">
-                  <Database className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                  <FileText className="w-16 h-16 text-gray-300 mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                    No Uploads Yet
+                    No Statements Yet
                   </h3>
                   <p className="text-gray-600 mb-6">
-                    Upload your first transaction CSV to get started
+                    Upload your first statement to get started
                   </p>
                   <button
                     onClick={() => navigate('/upload')}
                     className="px-6 py-3 bg-[#D03027] hover:bg-[#B02820] text-white rounded-lg font-semibold transition-colors"
                   >
-                    Upload Transactions
+                    Upload Statement
                   </button>
                 </div>
               ) : (
@@ -157,7 +131,6 @@ function ManageUploadsPage() {
                     <UploadCard
                       key={summary.id}
                       summary={summary}
-                      onDelete={handleDeleteClick}
                     />
                   ))}
                 </div>
@@ -166,45 +139,6 @@ function ManageUploadsPage() {
           )}
         </motion.div>
       </div>
-
-      {/* Delete Confirmation Modal */}
-      <Modal
-        isOpen={deleteModalOpen}
-        onClose={() => !deleting && setDeleteModalOpen(false)}
-        title="Delete Upload?"
-      >
-        <div className="p-6 space-y-6">
-          <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto">
-            <Trash2 className="w-8 h-8 text-red-600" />
-          </div>
-
-          <div className="text-center space-y-2">
-            <p className="text-gray-800 font-medium">
-              Are you sure you want to delete this upload?
-            </p>
-            <p className="text-sm text-gray-600">
-              This action cannot be undone. The spending summary will be permanently removed.
-            </p>
-          </div>
-
-          <div className="flex gap-3 pt-2">
-            <button
-              onClick={() => setDeleteModalOpen(false)}
-              disabled={deleting}
-              className="flex-1 px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-all disabled:opacity-50"
-            >
-              Cancel
-            </button>
-            <button
-              onClick={handleDeleteConfirm}
-              disabled={deleting}
-              className="flex-1 px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl disabled:opacity-50"
-            >
-              {deleting ? 'Deleting...' : 'Delete'}
-            </button>
-          </div>
-        </div>
-      </Modal>
     </div>
   );
 }
