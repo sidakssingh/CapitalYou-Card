@@ -116,22 +116,36 @@ async def user_spending_categories(user_id: int):
 
 @app.post("/api/transactions/upload")
 async def upload_transactions(file: UploadFile = File(...)):
-    """Upload a CSV file with transaction data"""
+    """Upload a CSV or PDF file with transaction data"""
     print(f"Received file upload: {file.filename}")
     
     # Validate file type
-    if not file.filename.endswith('.csv'):
-        print("Error: File is not a CSV")
-        raise HTTPException(status_code=400, detail="File must be a CSV")
+    is_csv = file.filename.endswith('.csv')
+    is_pdf = file.filename.endswith('.pdf')
+    
+    if not (is_csv or is_pdf):
+        print("Error: File is not a CSV or PDF")
+        raise HTTPException(status_code=400, detail="File must be a CSV or PDF")
     
     try:
-        # Read CSV content
+        # Read file content
         contents = await file.read()
         print(f"File size: {len(contents)} bytes")
         
-        # Parse CSV with pandas
-        df = pd.read_csv(pd.io.common.BytesIO(contents))
-        print(f"Successfully parsed CSV with {len(df)} rows")
+        # Parse the file using load_transaction_data which handles both CSV and PDF
+        from pathlib import Path
+        import tempfile
+        from ml_pipeline import load_transaction_data
+        
+        # Save temporarily and use load_transaction_data to handle it
+        with tempfile.NamedTemporaryFile(suffix=Path(file.filename).suffix, delete=False) as tmp:
+            tmp.write(contents)
+            tmp_path = tmp.name
+        
+        df = load_transaction_data(tmp_path)
+        Path(tmp_path).unlink()
+        
+        print(f"Successfully parsed file with {len(df)} rows")
         print(f"Columns: {df.columns.tolist()}")
         
         # Validate required columns
@@ -141,21 +155,34 @@ async def upload_transactions(file: UploadFile = File(...)):
             print(f"Error: Missing required columns: {missing_columns}")
             raise HTTPException(
                 status_code=400, 
-                detail=f"CSV missing required columns: {', '.join(missing_columns)}"
+                detail=f"File missing required columns: {', '.join(missing_columns)}"
             )
         
-        # Get the first user_id from the CSV if it exists
+        # Extract user_id or use default
         first_user_id = None
         if 'user_id' in df.columns and len(df) > 0:
-            first_user_id = str(df['user_id'].iloc[0])
-            print(f"First user_id in CSV: {first_user_id}")
+            # Get first non-NaN user_id
+            user_id_values = df['user_id'].dropna()
+            if len(user_id_values) > 0:
+                first_user_id = str(user_id_values.iloc[0])
+                print(f"First user_id in file: {first_user_id}")
         
-        # Store data in memory (more secure than saving to disk)
+        # If no valid user_id found, use default
+        if first_user_id is None or first_user_id.lower() == 'nan':
+            first_user_id = '1'
+            print(f"No user_id found in file, using default: {first_user_id}")
+            # Fill NaN values in user_id column with default
+            if 'user_id' in df.columns:
+                df['user_id'] = df['user_id'].fillna(first_user_id)
+            else:
+                df['user_id'] = first_user_id
+        
+        # Store data in memory
         global _uploaded_data
         _uploaded_data = df
         print(f"Stored {len(df)} transactions in memory")
         
-        print("CSV upload successful")
+        print("File upload successful")
         return {
             "success": True,
             "message": "Transactions uploaded successfully",
@@ -165,11 +192,13 @@ async def upload_transactions(file: UploadFile = File(...)):
         }
     
     except pd.errors.EmptyDataError:
-        print("Error: Empty CSV file")
-        raise HTTPException(status_code=400, detail="CSV file is empty")
+        print("Error: Empty file")
+        raise HTTPException(status_code=400, detail="File is empty")
     except pd.errors.ParserError as e:
-        print(f"Error parsing CSV: {str(e)}")
-        raise HTTPException(status_code=400, detail=f"Failed to parse CSV: {str(e)}")
+        print(f"Error parsing file: {str(e)}")
+        raise HTTPException(status_code=400, detail=f"Failed to parse file: {str(e)}")
+    except HTTPException:
+        raise
     except Exception as e:
         print(f"Unexpected error: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Failed to process file: {str(e)}")
