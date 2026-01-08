@@ -10,6 +10,7 @@ import { getSpendingCategories } from '../services/api';
 import { getCurrentMonthSummary, getAggregatedSummary, deleteAllSummaries } from '../services/database';
 import { getCurrentUser, deleteUserAccount } from '../services/auth';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
+import virtualCard from '../assets/virtual-card.png';
 
 // Sample test data
 const TEST_DATA = {
@@ -223,20 +224,52 @@ function DashboardPage() {
     <div className="min-h-screen bg-gray-50 font-sans">
       <Header testMode={testMode} setTestMode={setTestMode} onDeleteAccount={handleDeleteAccount} />
 
-      {/* Page Header */}
-      <div className="bg-[#004977] text-white py-8">
+      {/* Combined Dashboard Header with Card */}
+      <div className="bg-gradient-to-br from-[#004977] to-[#003557] text-white py-8 md:py-12">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
+            className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8"
           >
-            <h1 className="text-3xl md:text-4xl font-bold">
-              Your Spending Dashboard
-            </h1>
-            <p className="text-gray-300 mt-2">
-              See your top spending categories and how you're earning rewards.
-            </p>
+            {/* Left side - Dashboard info */}
+            <div className="flex-1">
+              <h1 className="text-3xl md:text-4xl font-bold mb-2">
+                Your Spending Dashboard
+              </h1>
+              <p className="text-white/70 mb-6">
+                See your top spending categories and how you're earning rewards.
+              </p>
+              
+              {data.total_spent && (
+                <div className="flex flex-col sm:flex-row sm:items-end gap-4">
+                  <div>
+                    <p className="text-white/60 text-sm font-medium uppercase tracking-wide">Total Spent This Month</p>
+                    <p className="text-5xl md:text-6xl font-bold mt-1">
+                      ${data.total_spent.toFixed(2)}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white px-4 py-2 rounded-full border border-white/20">
+                    <span className="font-medium text-sm">Earning rewards on {categoriesToShow.length} categories</span>
+                  </div>
+                </div>
+              )}
+            </div>
+            
+            {/* Right side - Virtual Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex-shrink-0 hidden md:block"
+            >
+              <img 
+                src={virtualCard} 
+                alt="CapitalYou Card" 
+                className="w-80 lg:w-96 drop-shadow-2xl"
+              />
+            </motion.div>
           </motion.div>
         </div>
       </div>
@@ -259,27 +292,6 @@ function DashboardPage() {
 
       {/* Main Content */}
       <main className="container mx-auto px-6 py-10">
-        {/* Summary Card */}
-        {data.total_spent && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="bg-gradient-to-br from-[#004977] to-[#003557] rounded-2xl shadow-lg p-6 md:p-8 mb-8 text-white"
-          >
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div>
-                <p className="text-white/80 text-sm font-medium uppercase tracking-wide">Total Spent This Month</p>
-                <p className="text-5xl font-bold mt-2">
-                  ${data.total_spent.toFixed(2)}
-                </p>
-              </div>
-              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-5 py-3 rounded-full border border-white/30">
-                <span className="font-semibold">Earning rewards on {categoriesToShow.length} categories</span>
-              </div>
-            </div>
-          </motion.div>
-        )}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
