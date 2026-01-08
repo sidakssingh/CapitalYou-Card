@@ -19,12 +19,14 @@ function DataUploadPage() {
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile) {
-      if (selectedFile.type === 'text/csv' || selectedFile.name.endsWith('.csv')) {
+      const isCSV = selectedFile.type === 'text/csv' || selectedFile.name.endsWith('.csv');
+      const isPDF = selectedFile.type === 'application/pdf' || selectedFile.name.endsWith('.pdf');
+      if (isCSV || isPDF) {
         setFile(selectedFile);
         setError(null);
-        console.log('CSV file selected:', selectedFile.name);
+        console.log('File selected:', selectedFile.name);
       } else {
-        setError('Please select a valid CSV file');
+        setError('Please select a valid CSV or PDF file');
         setFile(null);
         console.log('Invalid file type selected');
       }
@@ -116,7 +118,7 @@ function DataUploadPage() {
                 Upload Your Transactions
               </h1>
               <p className="text-gray-600 text-lg">
-                Upload a CSV file with your transaction data to get personalized spending insights
+                Upload a CSV or PDF file with your transaction data to get personalized spending insights
               </p>
             </div>
 
@@ -141,7 +143,7 @@ function DataUploadPage() {
               <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-[#D03027] transition-colors">
                 <input
                   type="file"
-                  accept=".csv"
+                  accept=".csv,.pdf"
                   onChange={handleFileChange}
                   className="hidden"
                   id="csv-upload"
@@ -160,7 +162,7 @@ function DataUploadPage() {
                     <div className="space-y-2">
                       <Upload className="w-12 h-12 text-gray-400 mx-auto" />
                       <p className="text-gray-600 font-medium">
-                        Click to select a CSV file
+                        Click to select a CSV or PDF file
                       </p>
                       <p className="text-sm text-gray-500">
                         or drag and drop

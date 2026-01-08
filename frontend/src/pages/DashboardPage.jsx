@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { AlertCircle, Loader2, TestTube, Database, ChevronLeft, Upload } from 'lucide-react';
+import { AlertCircle, Loader2, TestTube, Database, ChevronLeft, Upload, ArrowRight } from 'lucide-react';
 import CategoryDial from '../components/CategoryDial';
 import LogoutButton from '../components/LogoutButton';
+import SpendPie from '../components/SpendPie';
 import { getSpendingCategories } from '../services/api';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
 
@@ -105,6 +106,7 @@ function DashboardPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [testMode, setTestMode] = useState(false);
+  const [showCategoryGrid, setShowCategoryGrid] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -200,7 +202,7 @@ function DashboardPage() {
     );
   }
 
-  const topCategories = data.categories.slice(0, 4);
+  const categoriesToShow = data.categories;
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
@@ -265,42 +267,61 @@ function DashboardPage() {
                 </p>
               </div>
               <div className="flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full">
-                <span className="font-semibold">Earning rewards on {topCategories.length} categories</span>
+                <span className="font-semibold">Earning rewards on {categoriesToShow.length} categories</span>
               </div>
             </div>
           </motion.div>
         )}
 
-        {/* Section Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-8"
+        >
+          <SpendPie categories={categoriesToShow} />
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-6"
+          className="mb-6 flex items-center justify-between"
         >
-          <h2 className="text-2xl font-bold text-[#004977]">Top Spending Categories</h2>
-          <p className="text-gray-600 mt-1">Your highest spending categories this period, ranked by total amount.</p>
+          <h2 className="text-2xl font-bold text-[#004977]">Detailed Breakdown</h2>
+          <button
+            type="button"
+            aria-label="Toggle detailed breakdown"
+            onClick={() => setShowCategoryGrid((prev) => !prev)}
+            className="flex items-center justify-center h-10 w-10 rounded-full border border-slate-200 bg-white shadow-sm"
+          >
+            <ArrowRight
+              className="text-[#004977] transition-transform duration-200"
+              style={{ transform: showCategoryGrid ? 'rotate(90deg)' : 'rotate(0deg)' }}
+            />
+          </button>
         </motion.div>
 
-        {/* Category Dials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {topCategories.map((category, index) => (
-            <motion.div
-              key={category.category}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-            >
-              <CategoryDial
-                category={category.category}
-                percentage={category.percentage_of_spend || category.percentage}
-                pointsMultiplier={category.points_multiplier || category.pointsMultiplier}
-                totalSpent={category.total_spent}
-                rank={index + 1}
-              />
-            </motion.div>
-          ))}
-        </div>
+        {showCategoryGrid && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            {categoriesToShow.map((category, index) => (
+              <motion.div
+                key={category.category}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 + index * 0.05 }}
+              >
+                <CategoryDial
+                  category={category.category}
+                  percentage={category.percentage_of_spend || category.percentage}
+                  pointsMultiplier={category.points_multiplier || category.pointsMultiplier}
+                  totalSpent={category.total_spent}
+                  rank={index + 1}
+                />
+              </motion.div>
+            ))}
+          </div>
+        )}
       </main>
 
       {/* Footer */}
