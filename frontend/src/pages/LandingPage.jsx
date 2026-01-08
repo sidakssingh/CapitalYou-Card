@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { CreditCard } from 'lucide-react';
 import { testApi } from '../services/api';
+import capitalYouLogo from '../assets/CapitalYou_logo.png';
 
 function LandingPage() {
   const [apiResponse, setApiResponse] = useState(null);
@@ -29,10 +29,13 @@ function LandingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex items-center gap-2">
-            <CreditCard className="w-8 h-8 text-emerald-400" />
-            <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-400">CapitalYou Card</h1>
-          </div>
+          <Link to="/" className="flex items-center">
+            <img 
+              src={capitalYouLogo} 
+              alt="CapitalYou" 
+              className="h-10 md:h-12 w-auto"
+            />
+          </Link>
         </motion.div>
       </header>
 

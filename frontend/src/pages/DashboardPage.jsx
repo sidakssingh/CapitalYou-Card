@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { CreditCard, AlertCircle, Loader2, TestTube, Database } from 'lucide-react';
+import { AlertCircle, Loader2, TestTube, Database } from 'lucide-react';
 import CategoryDial from '../components/CategoryDial';
 import { getSpendingCategories } from '../services/api';
+import capitalYouLogo from '../assets/CapitalYou_logo.png';
 
 // Sample test data
 const TEST_DATA = {
@@ -83,12 +84,13 @@ function DashboardPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex items-center gap-2">
-              <CreditCard className="w-8 h-8 text-emerald-400" />
-              <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-400">
-                CapitalYou Card
-              </h1>
-            </div>
+            <Link to="/" className="flex items-center">
+              <img 
+                src={capitalYouLogo} 
+                alt="CapitalYou" 
+                className="h-10 md:h-12 w-auto"
+              />
+            </Link>
             
             {/* Test Mode Toggle Button */}
             <button
@@ -122,12 +124,13 @@ function DashboardPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex items-center gap-2">
-              <CreditCard className="w-8 h-8 text-emerald-400" />
-              <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-400">
-                CapitalYou Card
-              </h1>
-            </div>
+            <Link to="/" className="flex items-center">
+              <img 
+                src={capitalYouLogo} 
+                alt="CapitalYou" 
+                className="h-10 md:h-12 w-auto"
+              />
+            </Link>
             
             {/* Test Mode Toggle Button */}
             <button
@@ -158,7 +161,11 @@ function DashboardPage() {
     return (
       <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 font-sans text-white flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <CreditCard className="w-12 h-12 text-slate-400" />
+          <img 
+            src={capitalYouLogo} 
+            alt="CapitalYou" 
+            className="h-12 w-auto opacity-50"
+          />
           <h2 className="text-2xl font-bold text-slate-300">No Spending Data</h2>
           <p className="text-slate-400">No categories found for this user.</p>
         </div>
@@ -179,12 +186,13 @@ function DashboardPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex items-center gap-2">
-            <CreditCard className="w-8 h-8 text-emerald-400" />
-            <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-400">
-              CapitalYou Card
-            </h1>
-          </div>
+          <Link to="/" className="flex items-center">
+            <img 
+              src={capitalYouLogo} 
+              alt="CapitalYou" 
+              className="h-10 md:h-12 w-auto"
+            />
+          </Link>
           
           {/* Test Mode Toggle Button */}
           <button
