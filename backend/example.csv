@@ -1,0 +1,11 @@
+user_id,date,merchant,amount,location
+1,2025-01-03,Starbucks,6.45,Austin TX
+1,2025-01-04,H-E-B Grocery,54.12,Austin TX
+1,2025-01-05,Amazon Marketplace,129.99,Online
+1,2025-01-06,Uber Trip,18.75,Austin TX
+1,2025-01-07,Netflix Subscription,15.99,Online
+1,2025-01-08,Chipotle Mexican Grill,12.34,Austin TX
+1,2025-01-09,Shell Gas Station,41.20,Austin TX
+1,2025-01-10,Delta Airlines,287.60,Online
+1,2025-01-11,Apple App Store,4.99,Online
+1,2025-01-12,Target Store,76.88,Austin TX
