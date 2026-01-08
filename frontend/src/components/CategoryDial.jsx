@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
  * CategoryDial - A semi-circular dial component showing spending percentage
  * Styled to match Capital One's design language
  */
-const CategoryDial = ({ category, percentage, pointsMultiplier, totalSpent, rank }) => {
+const CategoryDial = ({ category, percentage, totalSpent, rank }) => {
   // Clamp percentage between 0 and 100
   const clampedPercentage = Math.max(0, Math.min(100, percentage));
   
@@ -60,11 +60,6 @@ const CategoryDial = ({ category, percentage, pointsMultiplier, totalSpent, rank
               </span>
             )}
             <h3 className="text-lg font-bold text-[#004977]">{category}</h3>
-          </div>
-          <div className="text-right">
-            <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#D03027]/10 text-[#D03027] font-bold text-sm">
-              {pointsMultiplier}x Points
-            </span>
           </div>
         </div>
 
@@ -152,7 +147,6 @@ const CategoryDial = ({ category, percentage, pointsMultiplier, totalSpent, rank
 CategoryDial.propTypes = {
   category: PropTypes.string.isRequired,
   percentage: PropTypes.number.isRequired,
-  pointsMultiplier: PropTypes.number.isRequired,
   totalSpent: PropTypes.number,
   rank: PropTypes.number,
 };

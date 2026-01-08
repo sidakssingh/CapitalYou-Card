@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { AlertCircle, Loader2, TestTube, Database, ChevronLeft, Upload, ArrowRight, ChevronDown, Settings } from 'lucide-react';
@@ -6,7 +6,6 @@ import CategoryDial from '../components/CategoryDial';
 import LogoutButton from '../components/LogoutButton';
 import SettingsMenu from '../components/SettingsMenu';
 import SpendPie from '../components/SpendPie';
-import { getSpendingCategories } from '../services/api';
 import { getCurrentMonthSummary, getAggregatedSummary, deleteAllSummaries } from '../services/database';
 import { getCurrentUser, deleteUserAccount } from '../services/auth';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
@@ -42,6 +41,30 @@ const TEST_DATA = {
       "points_multiplier": 2
     }
   ]
+};
+
+const computeMultipliers = (categories = []) => {
+  if (!categories || categories.length === 0) {
+    return [];
+  }
+
+  const normalized = categories.map((entry) => ({
+    ...entry,
+    percentage_of_spend: Number(entry.percentage_of_spend) || 0,
+  }));
+
+  const maxPercentage = Math.max(...normalized.map((entry) => entry.percentage_of_spend), 0);
+  if (maxPercentage === 0) {
+    return normalized.map((entry) => ({
+      ...entry,
+      points_multiplier: 1,
+    }));
+  }
+
+  return normalized.map((entry) => ({
+    ...entry,
+    points_multiplier: Math.max(1, Math.round((5 * (entry.percentage_of_spend / maxPercentage)) * 10) / 10),
+  }));
 };
 
 // Reusable Header Component
@@ -116,6 +139,13 @@ function DashboardPage() {
   };
   const [showSettings, setShowSettings] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+  const categoriesToShow = useMemo(() => {
+    if (!data || !data.categories) {
+      return [];
+    }
+    return computeMultipliers(data.categories);
+  }, [data]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -217,8 +247,6 @@ function DashboardPage() {
       </div>
     );
   }
-
-  const categoriesToShow = data.categories;
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
@@ -379,8 +407,8 @@ function DashboardPage() {
           className="mb-6 flex items-center justify-between"
         >
           <div>
-            <h2 className="text-2xl font-bold text-[#004977]">Detailed Breakdown</h2>
-            <p className="text-sm text-gray-500 mt-1">All-time spending across all uploads</p>
+            <h2 className="text-2xl font-bold text-[#004977]">Total Spending</h2>
+            <p className="text-sm text-gray-500 mt-1">All-time spending across all statements</p>
           </div>
           <button
             type="button"
@@ -410,7 +438,6 @@ function DashboardPage() {
                 <CategoryDial
                   category={category.category}
                   percentage={category.percentage_of_spend || category.percentage}
-                  pointsMultiplier={category.points_multiplier || category.pointsMultiplier}
                   totalSpent={category.total_spent}
                   rank={index + 1}
                 />
