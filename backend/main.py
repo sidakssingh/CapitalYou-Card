@@ -145,6 +145,14 @@ async def upload_transactions(file: UploadFile = File(...)):
         contents = await file.read()
         print(f"File size: {len(contents)} bytes")
         
+        # Validate file size (5MB max)
+        max_size = 5 * 1024 * 1024  # 5MB in bytes
+        if len(contents) > max_size:
+            raise HTTPException(
+                status_code=400, 
+                detail=f"File size exceeds 5MB limit. Your file is {len(contents) / (1024 * 1024):.2f}MB"
+            )
+        
         # Parse the file using load_transaction_data which handles both CSV and PDF
         from pathlib import Path
         import tempfile

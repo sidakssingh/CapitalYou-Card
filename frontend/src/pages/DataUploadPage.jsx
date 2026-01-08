@@ -120,6 +120,9 @@ function DataUploadPage() {
               <p className="text-gray-600 text-lg">
                 Upload a CSV or PDF file with your transaction data to get personalized spending insights
               </p>
+              <p className="text-gray-500 text-sm mt-2">
+                Maximum file size: 5MB
+              </p>
             </div>
 
             {/* Upload Area */}

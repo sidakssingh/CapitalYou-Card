@@ -407,8 +407,8 @@ function DashboardPage() {
           className="mb-6 flex items-center justify-between"
         >
           <div>
-            <h2 className="text-2xl font-bold text-[#004977]">Total Spending</h2>
-            <p className="text-sm text-gray-500 mt-1">All-time spending across all statements</p>
+            <h2 className="text-2xl font-bold text-[#004977]">Lifetime Spending</h2>
+            <p className="text-sm text-gray-500 mt-1">All-time spending across all statements since the opening of your card</p>
           </div>
           <button
             type="button"
