@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { AlertCircle, Loader2, TestTube, Database, ChevronLeft } from 'lucide-react';
+import { AlertCircle, Loader2, TestTube, Database, ChevronLeft, Upload } from 'lucide-react';
 import CategoryDial from '../components/CategoryDial';
 import { getSpendingCategories } from '../services/api';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
@@ -58,29 +58,39 @@ const Header = ({ testMode, setTestMode, showToggle = true }) => (
           </Link>
         </div>
         
-        {showToggle && (
-          <button
-            onClick={() => setTestMode(!testMode)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full font-medium text-sm transition-all ${
-              testMode
-                ? 'bg-amber-100 text-amber-800 hover:bg-amber-200'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-            }`}
-            title={testMode ? 'Switch to API mode' : 'Switch to test mode with sample data'}
+        <div className="flex items-center gap-3">
+          <Link
+            to="/upload"
+            className="flex items-center gap-2 px-4 py-2 bg-[#D03027] hover:bg-[#B02820] text-white rounded-full font-medium text-sm transition-all"
           >
-            {testMode ? (
-              <>
-                <TestTube className="w-4 h-4" />
-                <span className="hidden sm:inline">Test Mode</span>
-              </>
-            ) : (
-              <>
-                <Database className="w-4 h-4" />
-                <span className="hidden sm:inline">API Mode</span>
-              </>
-            )}
-          </button>
-        )}
+            <Upload className="w-4 h-4" />
+            <span className="hidden sm:inline">Upload Data</span>
+          </Link>
+          
+          {showToggle && (
+            <button
+              onClick={() => setTestMode(!testMode)}
+              className={`flex items-center gap-2 px-4 py-2 rounded-full font-medium text-sm transition-all ${
+                testMode
+                  ? 'bg-amber-100 text-amber-800 hover:bg-amber-200'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              }`}
+              title={testMode ? 'Switch to API mode' : 'Switch to test mode with sample data'}
+            >
+              {testMode ? (
+                <>
+                  <TestTube className="w-4 h-4" />
+                  <span className="hidden sm:inline">Test Mode</span>
+                </>
+              ) : (
+                <>
+                  <Database className="w-4 h-4" />
+                  <span className="hidden sm:inline">API Mode</span>
+                </>
+              )}
+            </button>
+          )}
+        </div>
       </motion.div>
     </div>
   </header>
@@ -101,12 +111,19 @@ function DashboardPage() {
       return;
     }
 
+    // If no userId provided, show no data state
+    if (!userId) {
+      setLoading(false);
+      setError(null);
+      setData(null);
+      return;
+    }
+
     const fetchData = async () => {
       try {
         setLoading(true);
         setError(null);
-        const id = userId || '1';
-        const response = await getSpendingCategories(id);
+        const response = await getSpendingCategories(userId);
         setData(response);
       } catch (err) {
         setError(err.message);
@@ -158,13 +175,25 @@ function DashboardPage() {
         <Header testMode={testMode} setTestMode={setTestMode} />
         <div className="flex items-center justify-center min-h-[70vh]">
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 max-w-md mx-6 text-center">
-            <img 
-              src={capitalYouLogo} 
-              alt="CapitalYou" 
-              className="h-12 w-auto mx-auto mb-4 opacity-30"
-            />
-            <h2 className="text-xl font-bold text-[#004977] mb-2">No Spending Data</h2>
-            <p className="text-gray-600">No categories found for this user.</p>
+            <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Upload className="w-8 h-8 text-gray-400" />
+            </div>
+            <h2 className="text-xl font-bold text-[#004977] mb-2">No Data Uploaded</h2>
+            <p className="text-gray-600 mb-6">
+              Upload your transaction data to see personalized spending insights and rewards.
+            </p>
+            <Link
+              to="/upload"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#D03027] hover:bg-[#B02820] text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-xl"
+            >
+              <Upload className="w-5 h-5" />
+              Upload Data
+            </Link>
+            {!testMode && (
+              <p className="text-sm text-gray-500 mt-4">
+                Or switch to Test Mode to see sample data
+              </p>
+            )}
           </div>
         </div>
       </div>

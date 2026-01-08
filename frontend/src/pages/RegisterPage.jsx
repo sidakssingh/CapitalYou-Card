@@ -30,8 +30,8 @@ function RegisterPage() {
 
   const handleAcceptDisclaimer = () => {
     setShowDisclaimer(false);
-    // Mock registration - redirect to dashboard
-    navigate('/dashboard/1');
+    // Mock registration - redirect to data upload page
+    navigate('/upload');
   };
 
   return (
