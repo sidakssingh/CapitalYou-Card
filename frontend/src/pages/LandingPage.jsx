@@ -5,6 +5,7 @@ import { ChevronRight, Shield, TrendingUp, Star, LogOut } from 'lucide-react';
 import { testApi } from '../services/api';
 import { getCurrentUser, signOut } from '../services/auth';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
+import exampleImage from '../assets/example.png';
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -106,32 +107,55 @@ function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#004977] to-[#003557] text-white">
+      <section className="bg-gradient-to-br from-[#004977] to-[#003557] text-white overflow-hidden">
         <div className="container mx-auto px-6 py-20 md:py-28">
-          <div className="max-w-3xl">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            {/* Left side - Text content */}
+            <div className="flex-1 max-w-3xl">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                  Your spending, <br />
+                  <span className="bg-gradient-to-r from-[#D03027] to-[#FF6B6B] bg-clip-text text-transparent">
+                    rewarded.
+                  </span>
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-200 mb-10 leading-relaxed">
+                  CapitalYou Card automatically tracks your top spending categories and maximizes your rewards. No thinking required.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link
+                    to={user ? "/dashboard" : "/register"}
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#D03027] hover:bg-[#B02820] text-white rounded-full font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
+                  >
+                    {user ? "Go to Dashboard" : "Get Started"}
+                    <ChevronRight className="w-5 h-5" />
+                  </Link>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Right side - Example image (bigger) with subtle vertical gradient toward bottom */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              className="flex-1 relative hidden lg:block"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Your spending, <br />
-                <span className="bg-gradient-to-r from-[#D03027] to-[#FF6B6B] bg-clip-text text-transparent">
-                  rewarded.
-                </span>
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-200 mb-10 leading-relaxed">
-                CapitalYou Card automatically tracks your top spending categories and maximizes your rewards. No thinking required.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  to={user ? "/dashboard" : "/register"}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#D03027] hover:bg-[#B02820] text-white rounded-full font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
-                >
-                  {user ? "Go to Dashboard" : "Get Started"}
-                  <ChevronRight className="w-5 h-5" />
-                </Link>
+              <div className="relative w-full max-w-2xl ml-auto">
+                <img 
+                  src={exampleImage} 
+                  alt="Dashboard Example" 
+                  className="rounded-2xl shadow-2xl w-full h-auto block"
+                  style={{
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.9) 60%, transparent 100%)',
+                    maskImage: 'linear-gradient(to bottom, black 0%, rgba(0,0,0,0.9) 60%, transparent 100%)'
+                  }}
+                />
               </div>
             </motion.div>
           </div>
