@@ -3,16 +3,28 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { LogIn, ArrowLeft, Mail, Lock } from 'lucide-react';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
+import { signIn } from '../services/auth';
 
 function LoginPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock login - redirect to data upload page
-    navigate('/upload');
+    setError('');
+    setLoading(true);
+
+    try {
+      await signIn(email, password);
+      navigate('/upload');
+    } catch (err) {
+      setError(err.message || 'Failed to sign in. Please check your credentials.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -58,6 +70,13 @@ function LoginPage() {
             className="bg-white rounded-2xl p-8 shadow-2xl"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Error Message */}
+              {error && (
+                <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl text-sm">
+                  {error}
+                </div>
+              )}
+
               {/* Email */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
@@ -99,10 +118,11 @@ function LoginPage() {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-[#004977] hover:bg-[#003557] text-white py-3 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                disabled={loading}
+                className="w-full bg-[#004977] hover:bg-[#003557] text-white py-3 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <LogIn className="w-5 h-5" />
-                Sign In
+                {loading ? 'Signing In...' : 'Sign In'}
               </button>
             </form>
 
@@ -117,17 +137,7 @@ function LoginPage() {
             </div>
           </motion.div>
 
-          {/* Demo Notice */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="mt-6 text-center"
-          >
-            <p className="text-white/70 text-sm">
-              This is a demo application. Any credentials will work.
-            </p>
-          </motion.div>
+
         </motion.div>
       </div>
     </div>

@@ -4,10 +4,14 @@ import { motion } from 'framer-motion';
 import { UserPlus, ArrowLeft, Mail, Lock, User, Shield, CheckCircle } from 'lucide-react';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
 import Modal from '../components/Modal';
+import { signUp } from '../services/auth';
 
 function RegisterPage() {
   const navigate = useNavigate();
   const [showDisclaimer, setShowDisclaimer] = useState(false);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,14 +28,42 @@ function RegisterPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError('');
+
+    // Validate passwords match
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
+    // Validate password length
+    if (formData.password.length < 6) {
+      setError('Password must be at least 6 characters');
+      return;
+    }
+
     // Show disclaimer modal
     setShowDisclaimer(true);
   };
 
-  const handleAcceptDisclaimer = () => {
+  const handleAcceptDisclaimer = async () => {
     setShowDisclaimer(false);
-    // Mock registration - redirect to data upload page
-    navigate('/upload');
+    setLoading(true);
+
+    try {
+      const { user } = await signUp(formData.email, formData.password);
+      // Check if user was created successfully
+      if (user) {
+        setSuccess('Successfully registered! Redirecting to login...');
+        setTimeout(() => {
+          navigate('/login');
+        }, 2000);
+      }
+    } catch (err) {
+      setError(err.message || 'Failed to create account. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -77,6 +109,20 @@ function RegisterPage() {
             className="bg-white rounded-2xl p-8 shadow-2xl"
           >
             <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Error Message */}
+              {error && (
+                <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl text-sm">
+                  {error}
+                </div>
+              )}
+              {/* Success Message */}
+              {success && (
+                <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-xl text-sm flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  {success}
+                </div>
+              )}
+
               {/* Name */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -160,10 +206,11 @@ function RegisterPage() {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-[#D03027] hover:bg-[#B02820] text-white py-3 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 mt-6"
+                disabled={loading}
+                className="w-full bg-[#D03027] hover:bg-[#B02820] text-white py-3 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 mt-6 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <UserPlus className="w-5 h-5" />
-                Create Account
+                {loading ? 'Creating Account...' : 'Create Account'}
               </button>
             </form>
 
@@ -178,17 +225,7 @@ function RegisterPage() {
             </div>
           </motion.div>
 
-          {/* Demo Notice */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="mt-6 text-center"
-          >
-            <p className="text-white/70 text-sm">
-              This is a demo application. Your information is not stored.
-            </p>
-          </motion.div>
+
         </motion.div>
       </div>
 
@@ -209,7 +246,6 @@ function RegisterPage() {
             <p className="text-center text-base">
               By creating an account, you consent to the following:
             </p>
-            
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <CheckCircle className="w-5 h-5 text-[#D03027] flex-shrink-0 mt-0.5" />
@@ -217,15 +253,13 @@ function RegisterPage() {
                   Your transaction data will be analyzed by our AI to provide personalized spending insights and optimize rewards.
                 </p>
               </div>
-              
               <div className="flex items-start gap-3">
                 <CheckCircle className="w-5 h-5 text-[#D03027] flex-shrink-0 mt-0.5" />
                 <p>
-                  <strong>Your data is never stored.</strong> All information is processed in real-time and immediately discarded.
+                  <strong>We never store your raw transactions or uploaded files.</strong> Only anonymized spending summaries are securely kept for analytics and rewards optimization. All original transaction details are processed in real-time and immediately discarded.
                 </p>
               </div>
             </div>
-
             <p className="text-xs text-gray-500 text-center pt-2">
               You can revoke this consent anytime in your account settings.
             </p>

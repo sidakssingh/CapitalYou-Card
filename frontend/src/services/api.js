@@ -51,8 +51,7 @@ export const getSpendingCategories = async (userId) => {
  * @param {File} file - CSV file containing transaction data
  * @returns {Promise<Object>} Upload result with success status, rows processed, and columns found
  *          Expected Format:
- *        {
-          const TEST_DATA = {
+ *        {const DATA = {
             "user_id": 1,
             "total_spent": 648.31,
             "categories": [
