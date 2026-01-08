@@ -13,40 +13,51 @@ const CategoryDial = ({ category, percentage, pointsMultiplier, totalSpent }) =>
   // Clamp percentage between 0 and 100
   const clampedPercentage = Math.max(0, Math.min(100, percentage));
   
-  // SVG dimensions for semi-circle dial
+  // SVG dimensions
   const width = 200;
-  const height = 120; // Half circle height
+  const height = 110;
   const centerX = width / 2;
-  const centerY = height; // Bottom center for semi-circle
+  const centerY = height - 10; // Center at bottom with some padding
   const radius = 80;
   
-  // Calculate the angle for the arc (0-180 degrees for semi-circle)
-  // 0% = 180° (left), 100% = 0° (right)
-  // We want it to fill from left to right
-  const startAngle = 180; // Start from left
-  const endAngle = 180 - (clampedPercentage / 100) * 180; // End based on percentage
+  // Calculate the fill angle (0% = left side, 100% = right side)
+  // In SVG, angles work differently - we need to calculate the end point
+  // The arc goes from left (180°) to right (0°), sweeping upward
+  // percentage maps to how much of the 180° arc is filled
   
-  // Convert angles to radians
-  const startRad = (startAngle - 90) * (Math.PI / 180);
-  const endRad = (endAngle - 90) * (Math.PI / 180);
+  const fillAngle = (clampedPercentage / 100) * 180; // 0 to 180 degrees
   
-  // Calculate arc endpoints
-  const x1 = centerX + radius * Math.cos(startRad);
-  const y1 = centerY + radius * Math.sin(startRad);
-  const x2 = centerX + radius * Math.cos(endRad);
-  const y2 = centerY + radius * Math.sin(endRad);
+  // Convert to radians (SVG uses a coordinate system where 0° is right, going counterclockwise)
+  // For our upward-facing semi-circle:
+  // - Left point is at angle 180° (π radians)
+  // - Right point is at angle 0°
+  // - We fill from left toward right
   
-  // Determine if arc is large (>= 180°)
-  const sweepAngle = Math.abs(endAngle - startAngle);
-  const largeArcFlag = sweepAngle >= 180 ? 1 : 0;
+  const startAngleRad = Math.PI; // 180° - left side
+  const endAngleRad = Math.PI - (fillAngle * Math.PI / 180); // End point based on percentage
   
-  // Create arc path for filled area
-  const arcPath = clampedPercentage > 0 
-    ? `M ${centerX} ${centerY} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArcFlag} 0 ${x2} ${y2} Z`
+  // Calculate the end point of the filled arc
+  const endX = centerX + radius * Math.cos(endAngleRad);
+  const endY = centerY - radius * Math.sin(endAngleRad);
+  
+  // Left point (start of arc)
+  const leftX = centerX - radius;
+  const leftY = centerY;
+  
+  // Right point (for background)
+  const rightX = centerX + radius;
+  const rightY = centerY;
+  
+  // Determine if arc is large (> 50% means > 90° of fill)
+  const largeArcFlag = fillAngle > 90 ? 1 : 0;
+  
+  // Background semi-circle arc (just the outline)
+  const backgroundArc = `M ${leftX} ${leftY} A ${radius} ${radius} 0 0 1 ${rightX} ${rightY}`;
+  
+  // Filled pie slice: center -> left point -> arc to end point -> back to center
+  const filledPath = clampedPercentage > 0
+    ? `M ${centerX} ${centerY} L ${leftX} ${leftY} A ${radius} ${radius} 0 ${largeArcFlag} 1 ${endX} ${endY} Z`
     : '';
-  
-  // Background semi-circle path
-  const backgroundPath = `M ${centerX - radius} ${centerY} A ${radius} ${radius} 0 0 1 ${centerX + radius} ${centerY}`;
   
   // Create unique pattern ID
   const patternId = `diagonal-${category.replace(/\s+/g, '-').toLowerCase()}`;
@@ -70,44 +81,48 @@ const CategoryDial = ({ category, percentage, pointsMultiplier, totalSpent }) =>
               <pattern
                 id={patternId}
                 patternUnits="userSpaceOnUse"
-                width="8"
-                height="8"
+                width="6"
+                height="6"
+                patternTransform="rotate(45)"
               >
-                <path
-                  d="M 0 8 L 8 0"
-                  stroke="#3B82F6"
-                  strokeWidth="1.5"
-                  opacity="0.6"
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="6"
+                  stroke="#1E40AF"
+                  strokeWidth="2"
                 />
               </pattern>
             </defs>
             
             {/* Background semi-circle outline (gray) */}
             <path
-              d={backgroundPath}
+              d={backgroundArc}
               fill="none"
-              stroke="#E5E7EB"
-              strokeWidth="3"
+              stroke="#D1D5DB"
+              strokeWidth="4"
+              strokeLinecap="round"
             />
             
             {/* Filled arc (blue with diagonal pattern) */}
-            {clampedPercentage > 0 && arcPath && (
+            {clampedPercentage > 0 && filledPath && (
               <>
+                {/* Solid blue fill */}
                 <motion.path
-                  d={arcPath}
-                  fill={`url(#${patternId})`}
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 1, ease: "easeOut" }}
-                />
-                {/* Solid blue fill overlay */}
-                <motion.path
-                  d={arcPath}
+                  d={filledPath}
                   fill="#3B82F6"
-                  fillOpacity="0.7"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 1, ease: "easeOut" }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 0.85 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                />
+                {/* Diagonal pattern overlay */}
+                <motion.path
+                  d={filledPath}
+                  fill={`url(#${patternId})`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 0.5 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                 />
               </>
             )}
