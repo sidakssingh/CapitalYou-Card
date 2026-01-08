@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { AlertCircle, Loader2, TestTube, Database } from 'lucide-react';
+import { AlertCircle, Loader2, TestTube, Database, ChevronLeft } from 'lucide-react';
 import CategoryDial from '../components/CategoryDial';
 import { getSpendingCategories } from '../services/api';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
@@ -38,154 +38,17 @@ const TEST_DATA = {
   ]
 };
 
-function DashboardPage() {
-  const { userId } = useParams();
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [testMode, setTestMode] = useState(false);
-
-  useEffect(() => {
-    if (testMode) {
-      // Use test data
-      setLoading(false);
-      setError(null);
-      setData(TEST_DATA);
-      return;
-    }
-
-    // Fetch from API
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        // Default to user_id 1 if no userId in params
-        const id = userId || '1';
-        const response = await getSpendingCategories(id);
-        setData(response);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [userId, testMode]);
-
-  if (loading && !testMode) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 font-sans text-white">
-        {/* Header */}
-        <header className="container mx-auto px-6 py-6">
-          <motion.div 
-            className="flex justify-between items-center"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Link to="/" className="flex items-center">
-              <img 
-                src={capitalYouLogo} 
-                alt="CapitalYou" 
-                className="h-10 md:h-12 w-auto"
-              />
-            </Link>
-            
-            {/* Test Mode Toggle Button */}
-            <button
-              onClick={() => setTestMode(true)}
-              className="flex items-center gap-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black rounded-lg font-medium transition-all"
-            >
-              <TestTube className="w-4 h-4" />
-              <span className="hidden sm:inline">View Test Data</span>
-            </button>
-          </motion.div>
-        </header>
-        
-        <div className="flex items-center justify-center min-h-[60vh]">
-          <div className="flex flex-col items-center gap-4">
-            <Loader2 className="w-8 h-8 animate-spin text-emerald-400" />
-            <p className="text-slate-300">Loading spending data...</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (error && !testMode) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 font-sans text-white">
-        {/* Header */}
-        <header className="container mx-auto px-6 py-6">
-          <motion.div 
-            className="flex justify-between items-center"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Link to="/" className="flex items-center">
-              <img 
-                src={capitalYouLogo} 
-                alt="CapitalYou" 
-                className="h-10 md:h-12 w-auto"
-              />
-            </Link>
-            
-            {/* Test Mode Toggle Button */}
-            <button
-              onClick={() => setTestMode(true)}
-              className="flex items-center gap-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-black rounded-lg font-medium transition-all"
-            >
-              <TestTube className="w-4 h-4" />
-              <span className="hidden sm:inline">View Test Data</span>
-            </button>
-          </motion.div>
-        </header>
-        
-        <div className="flex items-center justify-center min-h-[60vh]">
-          <div className="flex flex-col items-center gap-4 max-w-md mx-auto px-6">
-            <AlertCircle className="w-12 h-12 text-red-400" />
-            <h2 className="text-2xl font-bold text-red-400">Error Loading Data</h2>
-            <p className="text-slate-300 text-center">{error}</p>
-            <p className="text-sm text-slate-400 text-center">
-              Make sure the backend API is running and the endpoint is available.
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (!data || !data.categories || data.categories.length === 0) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 font-sans text-white flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <img 
-            src={capitalYouLogo} 
-            alt="CapitalYou" 
-            className="h-12 w-auto opacity-50"
-          />
-          <h2 className="text-2xl font-bold text-slate-300">No Spending Data</h2>
-          <p className="text-slate-400">No categories found for this user.</p>
-        </div>
-      </div>
-    );
-  }
-
-  // Get top 4 categories (or all if less than 4)
-  const topCategories = data.categories.slice(0, 4);
-
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 font-sans text-white">
-      {/* Header */}
-      <header className="container mx-auto px-6 py-6">
-        <motion.div 
-          className="flex justify-between items-center"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+// Reusable Header Component
+const Header = ({ testMode, setTestMode, showToggle = true }) => (
+  <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
+    <div className="container mx-auto px-6 py-4">
+      <motion.div 
+        className="flex justify-between items-center"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+      >
+        <div className="flex items-center gap-4">
           <Link to="/" className="flex items-center">
             <img 
               src={capitalYouLogo} 
@@ -193,14 +56,15 @@ function DashboardPage() {
               className="h-10 md:h-12 w-auto"
             />
           </Link>
-          
-          {/* Test Mode Toggle Button */}
+        </div>
+        
+        {showToggle && (
           <button
             onClick={() => setTestMode(!testMode)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-full font-medium text-sm transition-all ${
               testMode
-                ? 'bg-yellow-500 hover:bg-yellow-600 text-black'
-                : 'bg-slate-700 hover:bg-slate-600 text-white'
+                ? 'bg-amber-100 text-amber-800 hover:bg-amber-200'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
             title={testMode ? 'Switch to API mode' : 'Switch to test mode with sample data'}
           >
@@ -216,79 +80,215 @@ function DashboardPage() {
               </>
             )}
           </button>
-        </motion.div>
-      </header>
+        )}
+      </motion.div>
+    </div>
+  </header>
+);
 
-      {/* Dashboard Content */}
-      <main className="container mx-auto px-6 py-8">
-        {/* Whiteboard-style container */}
+function DashboardPage() {
+  const { userId } = useParams();
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [testMode, setTestMode] = useState(false);
+
+  useEffect(() => {
+    if (testMode) {
+      setLoading(false);
+      setError(null);
+      setData(TEST_DATA);
+      return;
+    }
+
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const id = userId || '1';
+        const response = await getSpendingCategories(id);
+        setData(response);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [userId, testMode]);
+
+  if (loading && !testMode) {
+    return (
+      <div className="min-h-screen bg-gray-50 font-sans">
+        <Header testMode={testMode} setTestMode={setTestMode} />
+        <div className="flex items-center justify-center min-h-[70vh]">
+          <div className="flex flex-col items-center gap-4">
+            <Loader2 className="w-10 h-10 animate-spin text-[#D03027]" />
+            <p className="text-gray-600 font-medium">Loading your spending data...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error && !testMode) {
+    return (
+      <div className="min-h-screen bg-gray-50 font-sans">
+        <Header testMode={testMode} setTestMode={setTestMode} />
+        <div className="flex items-center justify-center min-h-[70vh]">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 max-w-md mx-6 text-center">
+            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <AlertCircle className="w-8 h-8 text-[#D03027]" />
+            </div>
+            <h2 className="text-xl font-bold text-[#004977] mb-2">Unable to Load Data</h2>
+            <p className="text-gray-600 mb-4">{error}</p>
+            <p className="text-sm text-gray-500">
+              Make sure the backend API is running, or try Test Mode to see sample data.
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!data || !data.categories || data.categories.length === 0) {
+    return (
+      <div className="min-h-screen bg-gray-50 font-sans">
+        <Header testMode={testMode} setTestMode={setTestMode} />
+        <div className="flex items-center justify-center min-h-[70vh]">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 max-w-md mx-6 text-center">
+            <img 
+              src={capitalYouLogo} 
+              alt="CapitalYou" 
+              className="h-12 w-auto mx-auto mb-4 opacity-30"
+            />
+            <h2 className="text-xl font-bold text-[#004977] mb-2">No Spending Data</h2>
+            <p className="text-gray-600">No categories found for this user.</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const topCategories = data.categories.slice(0, 4);
+
+  return (
+    <div className="min-h-screen bg-gray-50 font-sans">
+      <Header testMode={testMode} setTestMode={setTestMode} />
+
+      {/* Page Header */}
+      <div className="bg-[#004977] text-white py-8">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <Link 
+              to="/" 
+              className="inline-flex items-center gap-1 text-white/70 hover:text-white text-sm mb-4 transition-colors"
+            >
+              <ChevronLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+            <h1 className="text-3xl md:text-4xl font-bold">
+              Your Spending Dashboard
+            </h1>
+            <p className="text-gray-300 mt-2">
+              See your top spending categories and how you're earning rewards.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Test Mode Banner */}
+      {testMode && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-amber-50 border-b border-amber-200"
+        >
+          <div className="container mx-auto px-6 py-3">
+            <div className="flex items-center gap-2 text-amber-800">
+              <TestTube className="w-5 h-5" />
+              <span className="font-medium text-sm">You're viewing sample data in Test Mode</span>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Main Content */}
+      <main className="container mx-auto px-6 py-10">
+        {/* Summary Card */}
+        {data.total_spent && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 mb-8"
+          >
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <p className="text-gray-500 text-sm font-medium uppercase tracking-wide">Total Spent This Period</p>
+                <p className="text-4xl font-bold text-[#004977] mt-1">
+                  ${data.total_spent.toFixed(2)}
+                </p>
+              </div>
+              <div className="flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full">
+                <span className="font-semibold">Earning rewards on {topCategories.length} categories</span>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="bg-white border-4 border-black rounded-lg p-8 md:p-12 shadow-2xl relative"
-          style={{
-            backgroundImage: 'radial-gradient(circle, #e5e7eb 1px, transparent 1px)',
-            backgroundSize: '20px 20px',
-            backgroundPosition: '0 0'
-          }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-6"
         >
-          {/* Test Mode Banner */}
-          {testMode && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="absolute top-4 right-4 bg-yellow-400 border-2 border-black px-4 py-2 rounded-lg shadow-lg z-10"
-            >
-              <div className="flex items-center gap-2">
-                <TestTube className="w-5 h-5 text-black" />
-                <span className="font-bold text-black text-sm">TEST MODE - Sample Data</span>
-              </div>
-            </motion.div>
-          )}
-          
-          {/* Title */}
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-8 text-center">
-            Top Spending Categories
-          </h2>
-
-          {/* Category Dials Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            {topCategories.map((category, index) => (
-              <motion.div
-                key={category.category}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-              >
-                <CategoryDial
-                  category={category.category}
-                  percentage={category.percentage_of_spend || category.percentage}
-                  pointsMultiplier={category.points_multiplier || category.pointsMultiplier}
-                  totalSpent={category.total_spent}
-                />
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Total Spent Summary */}
-          {data.total_spent && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.7 }}
-              className="mt-8 text-center"
-            >
-              <p className="text-lg text-gray-700">
-                <span className="font-semibold">Total Spent: </span>
-                <span className="text-2xl font-bold text-gray-900">
-                  ${data.total_spent.toFixed(2)}
-                </span>
-              </p>
-            </motion.div>
-          )}
+          <h2 className="text-2xl font-bold text-[#004977]">Top Spending Categories</h2>
+          <p className="text-gray-600 mt-1">Your highest spending categories this period, ranked by total amount.</p>
         </motion.div>
+
+        {/* Category Dials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {topCategories.map((category, index) => (
+            <motion.div
+              key={category.category}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+            >
+              <CategoryDial
+                category={category.category}
+                percentage={category.percentage_of_spend || category.percentage}
+                pointsMultiplier={category.points_multiplier || category.pointsMultiplier}
+                totalSpent={category.total_spent}
+                rank={index + 1}
+              />
+            </motion.div>
+          ))}
+        </div>
       </main>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-100 py-8 mt-12">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <img 
+              src={capitalYouLogo} 
+              alt="CapitalYou" 
+              className="h-8 w-auto opacity-50"
+            />
+            <p className="text-sm text-gray-500">
+              Disclaimer: This is a demo application built for the Capital One Tech Summit hackathon.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
