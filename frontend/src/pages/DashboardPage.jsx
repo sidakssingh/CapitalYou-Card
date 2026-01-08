@@ -71,29 +71,7 @@ const Header = ({ testMode, setTestMode, showToggle = true }) => (
           
           <LogoutButton />
           
-          {showToggle && (
-            <button
-              onClick={() => setTestMode(!testMode)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full font-medium text-sm transition-all ${
-                testMode
-                  ? 'bg-amber-100 text-amber-800 hover:bg-amber-200'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-              title={testMode ? 'Switch to API mode' : 'Switch to test mode with sample data'}
-            >
-              {testMode ? (
-                <>
-                  <TestTube className="w-4 h-4" />
-                  <span className="hidden sm:inline">Test Mode</span>
-                </>
-              ) : (
-                <>
-                  <Database className="w-4 h-4" />
-                  <span className="hidden sm:inline">API Mode</span>
-                </>
-              )}
-            </button>
-          )}
+          {/* Removed API/Test mode toggle button */}
         </div>
       </motion.div>
     </div>

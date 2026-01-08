@@ -93,36 +93,14 @@ function LandingPage() {
                   Get Started
                   <ChevronRight className="w-5 h-5" />
                 </Link>
-                <button
-                  onClick={handleTestApi}
-                  disabled={loading}
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded-full font-semibold text-lg transition-all disabled:opacity-50"
-                >
-                  {loading ? 'Testing...' : 'Test API Connection'}
-                </button>
+                {/* Removed Test API button */}
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* API Response */}
-      {apiResponse && (
-        <motion.div 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-gray-50 border-b border-gray-200"
-        >
-          <div className="container mx-auto px-6 py-4">
-            <div className="bg-white rounded-lg border border-gray-200 p-4 max-w-2xl">
-              <p className="text-sm font-medium text-gray-500 mb-2">API Response:</p>
-              <pre className="text-sm text-[#004977] overflow-auto">
-                {JSON.stringify(apiResponse, null, 2)}
-              </pre>
-            </div>
-          </div>
-        </motion.div>
-      )}
+      {/* Removed API Response display */}
 
       {/* Features Section */}
       <section className="bg-gray-50 py-20">
