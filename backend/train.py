@@ -17,7 +17,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 
 
 def main():
-    data_path = Path(__file__).parent / "data" / "structured_synthetic_transactions.csv"
+    data_path = Path(__file__).parent / "train" / "train_data.csv"
     if not data_path.exists():
         print(f"Error: data file not found at {data_path}", file=sys.stderr)
         sys.exit(1)
