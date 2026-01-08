@@ -9,7 +9,7 @@ import joblib
 import pandas as pd
 
 DEFAULT_MODEL_PATH = Path(__file__).parent / "ml model" / "models" / "merchant_category_model.pkl"
-DEFAULT_TRANSACTIONS_CSV = Path(__file__).parent / "example.csv"
+DEFAULT_TRANSACTIONS_CSV = Path(__file__).parent / "capital_one_professional_statement.pdf"
 
 _ALIAS_MAP = {
     "door dash": "doordash",
@@ -104,12 +104,30 @@ def summarize_transactions(
 def load_transaction_data(
     csv_path: Union[str, Path] = DEFAULT_TRANSACTIONS_CSV,
 ) -> pd.DataFrame:
-    """Load the example transaction dataset."""
+    """Load the transaction dataset.
+
+    If a PDF path is provided (``.pdf`` suffix), call the `convert_pdf_to_csv`
+    helper, then read the produced CSV. Otherwise, read the CSV directly.
+    """
     path = Path(csv_path)
     if not path.is_absolute():
         path = (Path(__file__).parent / path).resolve()
     if not path.exists():
         raise FileNotFoundError(f"Transactions CSV not found at {path!r}")
+
+    # Simple PDF handling: import the helper locally and convert to CSV.
+    if path.suffix.lower() == ".pdf":
+        try:
+            from pdf_to_csv import convert_pdf_to_csv
+        except Exception as exc:
+            raise ImportError(
+                "PDF support requires the `pypdf` package and the `pdf_to_csv` helper. "
+                "Install with `pip install pypdf` or provide CSV input instead."
+            ) from exc
+
+        csv_path = convert_pdf_to_csv(str(path))
+        return pd.read_csv(csv_path)
+
     return pd.read_csv(path)
 
 
@@ -120,15 +138,19 @@ def summarize_user_spending(
 ) -> dict:
     """Return a summarized view for the requested user_id."""
     df = load_transaction_data(csv_path)
-    if "user_id" not in df.columns:
-        raise ValueError("Transactions CSV missing 'user_id' column.")
 
     normalized_user_id = str(user_id)
-    user_df = df[df["user_id"].astype(str) == normalized_user_id]
-    if user_df.empty:
-        raise ValueError(f"No transactions found for user {user_id!r}.")
 
-    summary = summarize_transactions(user_df, model)
+    # If the CSV contains no user identifiers, fall back to a global summary
+    # and return it for the requested user id (best-effort demo behavior).
+    if "user_id" not in df.columns or df["user_id"].dropna().empty:
+        summary = summarize_transactions(df, model)
+    else:
+        user_df = df[df["user_id"].astype(str) == normalized_user_id]
+        if user_df.empty:
+            raise ValueError(f"No transactions found for user {user_id!r}.")
+        summary = summarize_transactions(user_df, model)
+
     max_percentage = max(
         (entry["percentage_of_total"] for entry in summary["by_category"]), default=0.0
     )
