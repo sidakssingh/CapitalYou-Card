@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { AlertCircle, Loader2, TestTube, Database, ChevronLeft, Upload, ArrowRight } from 'lucide-react';
+import { AlertCircle, Loader2, TestTube, Database, ChevronLeft, Upload, ArrowRight, ChevronDown, Settings } from 'lucide-react';
 import CategoryDial from '../components/CategoryDial';
 import LogoutButton from '../components/LogoutButton';
+import SettingsMenu from '../components/SettingsMenu';
 import SpendPie from '../components/SpendPie';
 import { getSpendingCategories } from '../services/api';
+import { getAggregatedSummary, deleteAllSummaries } from '../services/database';
+import { getCurrentUser, deleteUserAccount } from '../services/auth';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
 
 // Sample test data
@@ -41,7 +44,7 @@ const TEST_DATA = {
 };
 
 // Reusable Header Component
-const Header = ({ testMode, setTestMode, showToggle = true }) => (
+const Header = ({ testMode, setTestMode, showToggle = true, onDeleteAccount }) => (
   <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
     <div className="container mx-auto px-6 py-2">
       <motion.div 
@@ -69,7 +72,7 @@ const Header = ({ testMode, setTestMode, showToggle = true }) => (
             <span className="hidden sm:inline">Upload Data</span>
           </Link>
           
-          <LogoutButton />
+          <SettingsMenu onDeleteAccount={onDeleteAccount} />
           
           {/* Removed API/Test mode toggle button */}
         </div>
@@ -80,11 +83,37 @@ const Header = ({ testMode, setTestMode, showToggle = true }) => (
 
 function DashboardPage() {
   const { userId } = useParams();
+  const navigate = useNavigate();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [testMode, setTestMode] = useState(false);
   const [showCategoryGrid, setShowCategoryGrid] = useState(false);
+
+  // Handle account deletion
+  const handleDeleteAccount = async () => {
+    try {
+      const user = await getCurrentUser();
+      if (!user) {
+        console.error('No user found');
+        return;
+      }
+
+      // Delete all user summaries first
+      await deleteAllSummaries(user.id);
+      
+      // Delete the user account
+      await deleteUserAccount();
+      
+      // Navigate to landing page after successful deletion
+      navigate('/');
+    } catch (err) {
+      console.error('Error deleting account:', err);
+      alert('Failed to delete account. Please try again or contact support.');
+    }
+  };
+  const [showSettings, setShowSettings] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -94,18 +123,20 @@ function DashboardPage() {
         setData(TEST_DATA);
         return;
       }
-      // If no userId provided, show no data state
-      if (!userId) {
-        setLoading(false);
-        setError(null);
-        setData(null);
-        return;
-      }
+      
       try {
         setLoading(true);
         setError(null);
-        const response = await getSpendingCategories(userId);
-        setData(response);
+        
+        // Get current user and fetch aggregated summary
+        const user = await getCurrentUser();
+        if (!user) {
+          setError('Please log in to view your dashboard');
+          return;
+        }
+        
+        const aggregatedData = await getAggregatedSummary(user.id);
+        setData(aggregatedData);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -113,12 +144,12 @@ function DashboardPage() {
       }
     };
     fetchData();
-  }, [userId, testMode]);
+  }, [testMode]);
 
   if (loading && !testMode) {
     return (
       <div className="min-h-screen bg-gray-50 font-sans">
-        <Header testMode={testMode} setTestMode={setTestMode} />
+        <Header testMode={testMode} setTestMode={setTestMode} onDeleteAccount={handleDeleteAccount} />
         <div className="flex items-center justify-center min-h-[70vh]">
           <div className="flex flex-col items-center gap-4">
             <Loader2 className="w-10 h-10 animate-spin text-[#D03027]" />
@@ -132,7 +163,7 @@ function DashboardPage() {
   if (error && !testMode) {
     return (
       <div className="min-h-screen bg-gray-50 font-sans">
-        <Header testMode={testMode} setTestMode={setTestMode} />
+        <Header testMode={testMode} setTestMode={setTestMode} onDeleteAccount={handleDeleteAccount} />
         <div className="flex items-center justify-center min-h-[70vh]">
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 max-w-md mx-6 text-center">
             <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -152,7 +183,7 @@ function DashboardPage() {
   if (!data || !data.categories || data.categories.length === 0) {
     return (
       <div className="min-h-screen bg-gray-50 font-sans">
-        <Header testMode={testMode} setTestMode={setTestMode} />
+        <Header testMode={testMode} setTestMode={setTestMode} onDeleteAccount={handleDeleteAccount} />
         <div className="flex items-center justify-center min-h-[70vh]">
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 max-w-md mx-6 text-center">
             <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -162,18 +193,21 @@ function DashboardPage() {
             <p className="text-gray-600 mb-6">
               Upload your transaction data to see personalized spending insights and rewards.
             </p>
-            <Link
-              to="/upload"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#D03027] hover:bg-[#B02820] text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-xl"
-            >
-              <Upload className="w-5 h-5" />
-              Upload Data
-            </Link>
-            {!testMode && (
-              <p className="text-sm text-gray-500 mt-4">
-                Or switch to Test Mode to see sample data
-              </p>
-            )}
+            <div className="flex flex-col gap-3">
+              <Link
+                to="/upload"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#D03027] hover:bg-[#B02820] text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-xl"
+              >
+                <Upload className="w-5 h-5" />
+                Upload Data
+              </Link>
+              <Link
+                to="/manage"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-[#004977] border-2 border-[#004977] rounded-full font-semibold transition-all"
+              >
+                Manage Uploads
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -184,7 +218,7 @@ function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
-      <Header testMode={testMode} setTestMode={setTestMode} />
+      <Header testMode={testMode} setTestMode={setTestMode} onDeleteAccount={handleDeleteAccount} />
 
       {/* Page Header */}
       <div className="bg-[#004977] text-white py-8">
@@ -194,13 +228,6 @@ function DashboardPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <Link 
-              to="/" 
-              className="inline-flex items-center gap-1 text-white/70 hover:text-white text-sm mb-4 transition-colors"
-            >
-              <ChevronLeft className="w-4 h-4" />
-              Back to Home
-            </Link>
             <h1 className="text-3xl md:text-4xl font-bold">
               Your Spending Dashboard
             </h1>
@@ -235,16 +262,16 @@ function DashboardPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 mb-8"
+            className="bg-gradient-to-br from-[#004977] to-[#003557] rounded-2xl shadow-lg p-6 md:p-8 mb-8 text-white"
           >
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
-                <p className="text-gray-500 text-sm font-medium uppercase tracking-wide">Total Spent This Period</p>
-                <p className="text-4xl font-bold text-[#004977] mt-1">
+                <p className="text-white/80 text-sm font-medium uppercase tracking-wide">Total Spent</p>
+                <p className="text-5xl font-bold mt-2">
                   ${data.total_spent.toFixed(2)}
                 </p>
               </div>
-              <div className="flex items-center gap-2 bg-green-50 text-green-700 px-4 py-2 rounded-full">
+              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-5 py-3 rounded-full border border-white/30">
                 <span className="font-semibold">Earning rewards on {categoriesToShow.length} categories</span>
               </div>
             </div>
@@ -257,6 +284,15 @@ function DashboardPage() {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-8"
         >
+          <div className="flex items-start justify-between gap-6 mb-6">
+            <h2 className="text-2xl font-bold text-[#004977]">Spending Overview</h2>
+            <Link
+              to="/manage"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white hover:bg-gray-50 text-[#004977] border-2 border-[#004977] rounded-full font-semibold transition-all whitespace-nowrap"
+            >
+              Manage Uploads
+            </Link>
+          </div>
           <SpendPie categories={categoriesToShow} />
         </motion.div>
 
@@ -271,11 +307,14 @@ function DashboardPage() {
             type="button"
             aria-label="Toggle detailed breakdown"
             onClick={() => setShowCategoryGrid((prev) => !prev)}
-            className="flex items-center justify-center h-10 w-10 rounded-full border border-slate-200 bg-white shadow-sm"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 bg-white shadow-sm hover:bg-gray-50 transition-colors"
           >
-            <ArrowRight
-              className="text-[#004977] transition-transform duration-200"
-              style={{ transform: showCategoryGrid ? 'rotate(90deg)' : 'rotate(0deg)' }}
+            <span className="text-sm font-medium text-gray-700">
+              {showCategoryGrid ? 'Hide' : 'Show'}
+            </span>
+            <ChevronDown
+              className="w-5 h-5 text-[#004977] transition-transform duration-200"
+              style={{ transform: showCategoryGrid ? 'rotate(180deg)' : 'rotate(0deg)' }}
             />
           </button>
         </motion.div>

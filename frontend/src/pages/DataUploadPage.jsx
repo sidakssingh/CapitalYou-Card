@@ -62,14 +62,14 @@ function DataUploadPage() {
       console.log('Summary data received:', summaryData);
       
       // Save summary to Supabase (only summaries are stored, not raw transactions)
-      await saveSummary(user.id, summaryData, title || null);
+      const savedSummary = await saveSummary(user.id, summaryData, title || null);
       console.log('Summary saved to database for user:', user.id);
       
       setUploadSuccess(true);
       
-      // Redirect to dashboard after 2 seconds
+      // Redirect to report page after 2 seconds
       setTimeout(() => {
-        navigate(`/dashboard/${backendUserId}`);
+        navigate(`/report/${savedSummary.id}`);
       }, 2000);
     } catch (err) {
       console.log('Upload failed:', err.message);
