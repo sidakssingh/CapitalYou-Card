@@ -7,7 +7,7 @@ import LogoutButton from '../components/LogoutButton';
 import SettingsMenu from '../components/SettingsMenu';
 import SpendPie from '../components/SpendPie';
 import { getSpendingCategories } from '../services/api';
-import { getAggregatedSummary, deleteAllSummaries } from '../services/database';
+import { getCurrentMonthSummary, getAggregatedSummary, deleteAllSummaries } from '../services/database';
 import { getCurrentUser, deleteUserAccount } from '../services/auth';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
 
@@ -85,6 +85,7 @@ function DashboardPage() {
   const { userId } = useParams();
   const navigate = useNavigate();
   const [data, setData] = useState(null);
+  const [allTimeData, setAllTimeData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [testMode, setTestMode] = useState(false);
@@ -128,15 +129,17 @@ function DashboardPage() {
         setLoading(true);
         setError(null);
         
-        // Get current user and fetch aggregated summary
+        // Get current user and fetch current month summary
         const user = await getCurrentUser();
         if (!user) {
           setError('Please log in to view your dashboard');
           return;
         }
         
+        const currentMonthData = await getCurrentMonthSummary(user.id);
         const aggregatedData = await getAggregatedSummary(user.id);
-        setData(aggregatedData);
+        setData(currentMonthData);
+        setAllTimeData(aggregatedData);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -266,7 +269,7 @@ function DashboardPage() {
           >
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
-                <p className="text-white/80 text-sm font-medium uppercase tracking-wide">Total Spent</p>
+                <p className="text-white/80 text-sm font-medium uppercase tracking-wide">Total Spent This Month</p>
                 <p className="text-5xl font-bold mt-2">
                   ${data.total_spent.toFixed(2)}
                 </p>
@@ -285,7 +288,10 @@ function DashboardPage() {
           className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-8"
         >
           <div className="flex items-start justify-between gap-6 mb-6">
-            <h2 className="text-2xl font-bold text-[#004977]">Spending Overview</h2>
+            <div>
+              <h2 className="text-2xl font-bold text-[#004977]">Spending Overview</h2>
+              <p className="text-sm text-gray-500 mt-1">{new Date().toLocaleString('default', { month: 'long', year: 'numeric' })}</p>
+            </div>
             <Link
               to="/manage"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white hover:bg-gray-50 text-[#004977] border-2 border-[#004977] rounded-full font-semibold transition-all whitespace-nowrap"
@@ -360,7 +366,10 @@ function DashboardPage() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mb-6 flex items-center justify-between"
         >
-          <h2 className="text-2xl font-bold text-[#004977]">Detailed Breakdown</h2>
+          <div>
+            <h2 className="text-2xl font-bold text-[#004977]">Detailed Breakdown</h2>
+            <p className="text-sm text-gray-500 mt-1">All-time spending across all uploads</p>
+          </div>
           <button
             type="button"
             aria-label="Toggle detailed breakdown"
@@ -377,9 +386,9 @@ function DashboardPage() {
           </button>
         </motion.div>
 
-        {showCategoryGrid && (
+        {showCategoryGrid && allTimeData && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            {categoriesToShow.map((category, index) => (
+            {allTimeData.categories.map((category, index) => (
               <motion.div
                 key={category.category}
                 initial={{ opacity: 0, y: 20 }}

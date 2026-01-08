@@ -213,3 +213,78 @@ export const getCurrentMonthSummary = async (userId) => {
     categories: categories.sort((a, b) => b.total_spent - a.total_spent)
   };
 };
+
+/**
+ * Gets spending data grouped by month for charting
+ * @param {string} userId - Supabase auth user ID
+ * @returns {Promise<Array>} Array of monthly summaries with month, year, total_spent, and categories
+ */
+export const getMonthlySpendingData = async (userId) => {
+  const summaries = await getAllSummaries(userId);
+  
+  if (!summaries || summaries.length === 0) {
+    return [];
+  }
+
+  // Group summaries by month/year
+  const monthlyMap = {};
+  
+  summaries.forEach(summary => {
+    const date = new Date(summary.created_at);
+    const year = date.getFullYear();
+    const month = date.getMonth(); // 0-indexed
+    const monthKey = `${year}-${String(month + 1).padStart(2, '0')}`; // e.g., "2026-01"
+    
+    if (!monthlyMap[monthKey]) {
+      monthlyMap[monthKey] = {
+        month: month + 1, // 1-indexed for display (1 = January)
+        year: year,
+        monthKey: monthKey,
+        monthName: date.toLocaleString('default', { month: 'long' }), // "January", "February", etc.
+        total_spent: 0,
+        categoryMap: {}
+      };
+    }
+    
+    // Add to total spent
+    monthlyMap[monthKey].total_spent += parseFloat(summary.total_spent || 0);
+    
+    // Aggregate categories for this month
+    (summary.categories || []).forEach(cat => {
+      const categoryName = cat.category;
+      if (!monthlyMap[monthKey].categoryMap[categoryName]) {
+        monthlyMap[monthKey].categoryMap[categoryName] = {
+          category: categoryName,
+          total_spent: 0,
+          points_multiplier: cat.points_multiplier || 1
+        };
+      }
+      monthlyMap[monthKey].categoryMap[categoryName].total_spent += parseFloat(cat.total_spent || 0);
+    });
+  });
+
+  // Convert to array and format
+  const monthlyData = Object.values(monthlyMap).map(monthData => {
+    const categories = Object.values(monthData.categoryMap).map(cat => ({
+      ...cat,
+      percentage_of_spend: monthData.total_spent > 0 
+        ? (cat.total_spent / monthData.total_spent) * 100 
+        : 0
+    }));
+    
+    return {
+      month: monthData.month,
+      year: monthData.year,
+      monthKey: monthData.monthKey,
+      monthName: monthData.monthName,
+      total_spent: monthData.total_spent,
+      categories: categories.sort((a, b) => b.total_spent - a.total_spent)
+    };
+  });
+
+  // Sort by date (newest first)
+  return monthlyData.sort((a, b) => {
+    if (a.year !== b.year) return b.year - a.year;
+    return b.month - a.month;
+  });
+};
