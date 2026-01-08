@@ -5,7 +5,7 @@ from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, conlist
 
-from ml_pipeline import load_category_model, summarize_transactions, summarize_user_spending, _points_multiplier_for_category
+from ml_pipeline import load_category_model, summarize_transactions, summarize_user_spending
 
 # In-memory storage for uploaded transaction data (more secure than file storage)
 _uploaded_data: Optional[pd.DataFrame] = None
@@ -85,6 +85,7 @@ async def transactions_summary(payload: TransactionSummaryRequest):
         raise HTTPException(status_code=400, detail=str(err))
     except Exception as err:
         raise HTTPException(status_code=500, detail=f"Failed to summarize transactions: {err}")
+
 @app.get("/api/users/{user_id}/spending-categories")
 async def user_spending_categories(user_id: int):
     if _category_model is None:
@@ -93,34 +94,15 @@ async def user_spending_categories(user_id: int):
             detail=f"Category model unavailable: {_model_load_error or 'unknown error'}",
         )
     try:
-        # Use in-memory uploaded data if available
+        # Use uploaded data if available, otherwise fall back to example.csv
         if _uploaded_data is not None:
-            # Filter for the requested user
-            if "user_id" not in _uploaded_data.columns:
-                raise ValueError("Uploaded data missing 'user_id' column.")
-            
-            normalized_user_id = str(user_id)
-            user_df = _uploaded_data[_uploaded_data["user_id"].astype(str) == normalized_user_id]
-            
-            if user_df.empty:
-                raise ValueError(f"No transactions found for user {user_id}.")
-            
-            summary = summarize_transactions(user_df, _category_model)
-            payload = {
-                "user_id": user_id,
-                "total_spent": summary["total_spent"],
-                "categories": [
-                    {
-                        "category": entry["category"],
-                        "total_spent": entry["total_spent"],
-                        "percentage_of_spend": entry["percentage_of_total"],
-                        "points_multiplier": _points_multiplier_for_category(entry["category"]),
-                    }
-                    for entry in summary["by_category"]
-                ],
-            }
+            # Temporarily save to a file for summarize_user_spending to read
+            from pathlib import Path
+            temp_csv = Path(__file__).parent / "temp_uploaded.csv"
+            _uploaded_data.to_csv(temp_csv, index=False)
+            payload = summarize_user_spending(user_id, _category_model, csv_path=temp_csv)
+            temp_csv.unlink()  # Delete temp file
         else:
-            # Fall back to example.csv if no data uploaded
             payload = summarize_user_spending(user_id, _category_model)
     except ValueError as err:
         raise HTTPException(status_code=404, detail=str(err))
