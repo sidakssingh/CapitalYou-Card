@@ -87,10 +87,10 @@ function LandingPage() {
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  to="/dashboard/1"
+                  to="/register"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#D03027] hover:bg-[#B02820] text-white rounded-full font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
                 >
-                  View Your Dashboard
+                  Get Started
                   <ChevronRight className="w-5 h-5" />
                 </Link>
                 <button
@@ -181,13 +181,13 @@ function LandingPage() {
               Ready to see your spending insights?
             </h2>
             <p className="text-gray-200 text-lg mb-8 max-w-2xl mx-auto">
-              View your personalized dashboard to see your top spending categories and how many points you're earning.
+              Get started today to see your top spending categories and how many points you're earning.
             </p>
             <Link
-              to="/dashboard/1"
+              to="/register"
               className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-[#D03027] hover:bg-[#B02820] text-white rounded-full font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
             >
-              Go to Dashboard
+              Get Started
               <ChevronRight className="w-5 h-5" />
             </Link>
           </motion.div>

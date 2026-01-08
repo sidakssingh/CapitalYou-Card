@@ -11,8 +11,8 @@ function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Mock login - redirect to dashboard
-    navigate('/dashboard/1');
+    // Mock login - redirect to data upload page
+    navigate('/upload');
   };
 
   return (

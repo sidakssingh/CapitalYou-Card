@@ -1,11 +1,14 @@
 from typing import List, Optional
 
 import pandas as pd
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, conlist
 
-from ml_pipeline import load_category_model, summarize_transactions, summarize_user_spending
+from ml_pipeline import load_category_model, summarize_transactions, summarize_user_spending, _points_multiplier_for_category
+
+# In-memory storage for uploaded transaction data (more secure than file storage)
+_uploaded_data: Optional[pd.DataFrame] = None
 
 
 class Transaction(BaseModel):
@@ -82,10 +85,6 @@ async def transactions_summary(payload: TransactionSummaryRequest):
         raise HTTPException(status_code=400, detail=str(err))
     except Exception as err:
         raise HTTPException(status_code=500, detail=f"Failed to summarize transactions: {err}")
-
-    return summary
-
-
 @app.get("/api/users/{user_id}/spending-categories")
 async def user_spending_categories(user_id: int):
     if _category_model is None:
@@ -94,7 +93,35 @@ async def user_spending_categories(user_id: int):
             detail=f"Category model unavailable: {_model_load_error or 'unknown error'}",
         )
     try:
-        payload = summarize_user_spending(user_id, _category_model)
+        # Use in-memory uploaded data if available
+        if _uploaded_data is not None:
+            # Filter for the requested user
+            if "user_id" not in _uploaded_data.columns:
+                raise ValueError("Uploaded data missing 'user_id' column.")
+            
+            normalized_user_id = str(user_id)
+            user_df = _uploaded_data[_uploaded_data["user_id"].astype(str) == normalized_user_id]
+            
+            if user_df.empty:
+                raise ValueError(f"No transactions found for user {user_id}.")
+            
+            summary = summarize_transactions(user_df, _category_model)
+            payload = {
+                "user_id": user_id,
+                "total_spent": summary["total_spent"],
+                "categories": [
+                    {
+                        "category": entry["category"],
+                        "total_spent": entry["total_spent"],
+                        "percentage_of_spend": entry["percentage_of_total"],
+                        "points_multiplier": _points_multiplier_for_category(entry["category"]),
+                    }
+                    for entry in summary["by_category"]
+                ],
+            }
+        else:
+            # Fall back to example.csv if no data uploaded
+            payload = summarize_user_spending(user_id, _category_model)
     except ValueError as err:
         raise HTTPException(status_code=404, detail=str(err))
     except Exception as err:
@@ -103,3 +130,64 @@ async def user_spending_categories(user_id: int):
         )
 
     return payload
+
+
+@app.post("/api/transactions/upload")
+async def upload_transactions(file: UploadFile = File(...)):
+    """Upload a CSV file with transaction data"""
+    print(f"Received file upload: {file.filename}")
+    
+    # Validate file type
+    if not file.filename.endswith('.csv'):
+        print("Error: File is not a CSV")
+        raise HTTPException(status_code=400, detail="File must be a CSV")
+    
+    try:
+        # Read CSV content
+        contents = await file.read()
+        print(f"File size: {len(contents)} bytes")
+        
+        # Parse CSV with pandas
+        df = pd.read_csv(pd.io.common.BytesIO(contents))
+        print(f"Successfully parsed CSV with {len(df)} rows")
+        print(f"Columns: {df.columns.tolist()}")
+        
+        # Validate required columns
+        required_columns = ['merchant', 'amount']
+        missing_columns = [col for col in required_columns if col not in df.columns]
+        if missing_columns:
+            print(f"Error: Missing required columns: {missing_columns}")
+            raise HTTPException(
+                status_code=400, 
+                detail=f"CSV missing required columns: {', '.join(missing_columns)}"
+            )
+        
+        # Get the first user_id from the CSV if it exists
+        first_user_id = None
+        if 'user_id' in df.columns and len(df) > 0:
+            first_user_id = str(df['user_id'].iloc[0])
+            print(f"First user_id in CSV: {first_user_id}")
+        
+        # Store data in memory (more secure than saving to disk)
+        global _uploaded_data
+        _uploaded_data = df
+        print(f"Stored {len(df)} transactions in memory")
+        
+        print("CSV upload successful")
+        return {
+            "success": True,
+            "message": "Transactions uploaded successfully",
+            "rows_processed": len(df),
+            "columns": df.columns.tolist(),
+            "user_id": first_user_id
+        }
+    
+    except pd.errors.EmptyDataError:
+        print("Error: Empty CSV file")
+        raise HTTPException(status_code=400, detail="CSV file is empty")
+    except pd.errors.ParserError as e:
+        print(f"Error parsing CSV: {str(e)}")
+        raise HTTPException(status_code=400, detail=f"Failed to parse CSV: {str(e)}")
+    except Exception as e:
+        print(f"Unexpected error: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to process file: {str(e)}")
