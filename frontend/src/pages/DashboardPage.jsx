@@ -293,7 +293,65 @@ function DashboardPage() {
               Manage Uploads
             </Link>
           </div>
-          <SpendPie categories={categoriesToShow} />
+          
+          <div className="flex flex-col lg:flex-row gap-8 items-start">
+            {/* Pie Chart - Left Side */}
+            <div className="flex-shrink-0">
+              <SpendPie categories={categoriesToShow} />
+            </div>
+            
+            {/* Bonus Categories List - Right Side */}
+            <div className="flex-1 min-w-0">
+              <h3 className="text-xl font-bold text-[#004977] mb-4">
+                Bonus Rewards Categories
+              </h3>
+              <p className="text-gray-500 text-sm mb-6">
+                Categories earning more than 1x points
+              </p>
+              <div className="space-y-3">
+                {categoriesToShow
+                  .filter(cat => (cat.points_multiplier || cat.pointsMultiplier || 1) > 1)
+                  .sort((a, b) => (b.points_multiplier || b.pointsMultiplier || 1) - (a.points_multiplier || a.pointsMultiplier || 1))
+                  .map((category, index) => {
+                    const multiplier = category.points_multiplier || category.pointsMultiplier || 1;
+                    return (
+                      <motion.div
+                        key={category.category}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: 0.2 + index * 0.05 }}
+                        className="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div 
+                            className="w-3 h-3 rounded-full"
+                            style={{ 
+                              backgroundColor: ['#0ea5e9', '#14b8a6', '#2563eb', '#c084fc', '#fb7185', '#f59e0b', '#10b981', '#22d3ee', '#f97316', '#a855f7'][
+                                categoriesToShow.findIndex(c => c.category === category.category) % 10
+                              ] 
+                            }}
+                          />
+                          <span className="font-medium text-gray-800">{category.category}</span>
+                        </div>
+                        <div className="flex items-center gap-4">
+                          <span className="text-gray-500 text-sm">
+                            ${category.total_spent?.toFixed(2) || '—'}
+                          </span>
+                          <span className="bg-[#D03027] text-white text-sm font-bold px-3 py-1 rounded-full">
+                            {multiplier}x
+                          </span>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                {categoriesToShow.filter(cat => (cat.points_multiplier || cat.pointsMultiplier || 1) > 1).length === 0 && (
+                  <p className="text-gray-400 text-center py-8">
+                    No bonus categories yet
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         <motion.div
