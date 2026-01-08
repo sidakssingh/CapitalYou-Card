@@ -132,7 +132,7 @@ function DataUploadPage() {
                   type="text"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  placeholder="e.g., December 2025 Expenses"
+                  placeholder="e.g., January 2026 Expenses"
                   disabled={uploading || uploadSuccess}
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#004977] focus:border-transparent transition-all"
                 />

@@ -11,6 +11,7 @@ function RegisterPage() {
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -51,11 +52,12 @@ function RegisterPage() {
 
     try {
       const { user } = await signUp(formData.email, formData.password);
-      
       // Check if user was created successfully
       if (user) {
-        alert('Successfully registered! Redirecting to login...');
-        navigate('/login');
+        setSuccess('Successfully registered! Redirecting to login...');
+        setTimeout(() => {
+          navigate('/login');
+        }, 2000);
       }
     } catch (err) {
       setError(err.message || 'Failed to create account. Please try again.');
@@ -111,6 +113,13 @@ function RegisterPage() {
               {error && (
                 <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl text-sm">
                   {error}
+                </div>
+              )}
+              {/* Success Message */}
+              {success && (
+                <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-xl text-sm flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  {success}
                 </div>
               )}
 

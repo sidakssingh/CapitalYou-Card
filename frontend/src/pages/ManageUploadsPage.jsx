@@ -73,13 +73,6 @@ function ManageUploadsPage() {
               />
             </Link>
             <div className="flex items-center gap-3">
-              <Link
-                to="/dashboard"
-                className="inline-flex items-center gap-2 text-gray-600 hover:text-[#004977] transition-colors"
-              >
-                <ArrowLeft className="w-5 h-5" />
-                <span className="font-medium">Back to Dashboard</span>
-              </Link>
               <LogoutButton />
             </div>
           </div>
@@ -88,6 +81,17 @@ function ManageUploadsPage() {
 
       {/* Main Content */}
       <div className="container mx-auto px-6 py-12">
+        {/* Back to Dashboard Button */}
+        <Link
+          to="/dashboard"
+          className="inline-flex items-center gap-2 text-gray-600 hover:text-[#004977] transition-all group mb-8"
+        >
+          <div className="flex items-center gap-2 group-hover:gap-3 transition-all">
+            <ArrowLeft className="w-5 h-5" />
+            <span className="font-medium">Dashboard</span>
+          </div>
+        </Link>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
