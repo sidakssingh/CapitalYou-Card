@@ -57,8 +57,11 @@ function LandingPage() {
               />
             </Link>
             <nav className="hidden md:flex items-center gap-8">
-              <Link to="/dashboard/1" className="text-[#004977] hover:text-[#D03027] font-medium transition-colors">
-                Dashboard
+              <Link 
+                to="/login" 
+                className="px-6 py-2.5 bg-[#004977] hover:bg-[#003557] text-white rounded-full font-medium transition-all shadow-sm hover:shadow-md"
+              >
+                Login
               </Link>
             </nav>
           </motion.div>
