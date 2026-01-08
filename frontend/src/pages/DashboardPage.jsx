@@ -41,7 +41,7 @@ const TEST_DATA = {
 // Reusable Header Component
 const Header = ({ testMode, setTestMode, showToggle = true }) => (
   <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-    <div className="container mx-auto px-6 py-4">
+    <div className="container mx-auto px-6 py-2">
       <motion.div 
         className="flex justify-between items-center"
         initial={{ opacity: 0, y: -10 }}
@@ -53,7 +53,7 @@ const Header = ({ testMode, setTestMode, showToggle = true }) => (
             <img 
               src={capitalYouLogo} 
               alt="CapitalYou" 
-              className="h-10 md:h-12 w-auto"
+              className="h-16 md:h-20 w-auto"
             />
           </Link>
         </div>
