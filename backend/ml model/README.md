@@ -1,19 +1,33 @@
-# Merchant Category Model (very simple)
+# Merchant Category Model (simple and clear)
 
 Overview
 
-This folder has a small model that learns to put a merchant name into a category. For example, it learns that "Starbucks" is "Dining" and that "Walmart" is "Retail".
+This folder holds a small model that learns to put a merchant name into a category. For example, it learns that "Starbucks" is "Dining" and that "Walmart" is "Retail".
 
 Training
 
-- I trained the model using the file `train/train_data.csv`.
-- To train it run:
+- The model is trained from the file `train/train_data.csv`.
+- To train the model run:
 
 ```bash
 python train.py
 ```
 
-- The model is saved to `models/merchant_category_model.pkl`.
+- Steps and method names used in `train.py` and why they are used:
+  - `preprocess_merchant_series`: cleans merchant names. It lowercases text, removes separators like `-` or `_`, and collapses spaced letters so `H-E-B`, `H E B`, and `HEB` are the same. This makes matching more reliable.
+  - `TfidfVectorizer` (word): creates word n-gram features with `analyzer='word'` and `ngram_range=(1,2)`. This captures whole words and short phrases.
+  - `TfidfVectorizer` (char_wb): creates character n-gram features with `analyzer='char_wb'` and `ngram_range=(3,5)`. This helps with typos and rare names.
+  - `FeatureUnion`: combines the word and character features so the model sees both kinds of signals.
+  - `LogisticRegression` (`base_clf`): the classifier that learns to map features to categories.
+  - `CalibratedClassifierCV`: wraps the classifier to calibrate `predict_proba` outputs so confidence matches reality better when there is enough data.
+  - `train_test_split`: splits data with `test_size=0.2` to keep a held-out test set for quick checks.
+  - `joblib.dump`: saves the trained pipeline to `models/merchant_category_model.pkl`.
+  - The training script also writes `models/merchant_names.json` which is a canonical list of merchants used for fuzzy matching at inference time.
+
+What is saved
+
+- The trained pipeline is saved to `models/merchant_category_model.pkl`.
+- A list of canonical merchant names is saved to `models/merchant_names.json` for fuzzy matching.
 
 Testing
 
@@ -23,30 +37,28 @@ Testing
 python test.py
 ```
 
-- `test.py` uses the data in the `test/` folder and prints the predicted category and how confident the model is.
+- `test.py` uses the file `test/test_data.csv` and prints each merchant with the predicted category and a confidence number.
 
-Quick interaction
+Quick one off check in Python
 
-- You can try a single merchant name by running:
+- You can load the saved model and run a single prediction like this:
 
-```bash
-python run.py
+```py
+import joblib
+model = joblib.load('models/merchant_category_model.pkl')
+print(model.predict(['starbucks']))
+print(model.predict_proba(['starbucks']))
 ```
 
-- Then type a merchant name at the prompt and see the answer.
+- The methods `predict` and `predict_proba` return the category and the confidence numbers.
 
-Why this is done
+Notes and tips
 
-- We clean merchant names so that small differences or typos do not confuse the model.
-- We use both word and character features so the model can learn shapes of names and common parts.
-- We calibrate probabilities so reported confidence better matches reality.
-
-Notes
-
-- Install the Python packages in `requirements.txt` before running commands:
+- There is no interactive script included. Use `test.py` or write a small script that loads the saved model.
+- Install Python packages before running commands:
 
 ```bash
 pip install -r ../requirements.txt
 ```
 
-- If something does not work, check that the model file exists in `models/` and that the CSV files are in the `train/` and `test/` folders.
+- If something does not work, check that `models/merchant_category_model.pkl` exists and that the CSV files are in `train/` and `test/`.
