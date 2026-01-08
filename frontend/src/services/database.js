@@ -149,3 +149,67 @@ export const deleteAllSummaries = async (userId) => {
 
   if (error) throw error;
 };
+
+/**
+ * Gets summaries for the current month only
+ * @param {string} userId - Supabase auth user ID
+ * @returns {Promise<Object>} Aggregated summary for current month with total_spent and categories
+ */
+export const getCurrentMonthSummary = async (userId) => {
+  // Get current month/year
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth(); // 0-indexed (0 = January, 11 = December)
+  
+  // Create start and end dates for the current month
+  const startOfMonth = new Date(year, month, 1);
+  const endOfMonth = new Date(year, month + 1, 0, 23, 59, 59, 999);
+  
+  // Fetch summaries created in this month
+  const { data: summaries, error } = await supabase
+    .from('category_summaries')
+    .select('*')
+    .eq('user_id', userId)
+    .gte('created_at', startOfMonth.toISOString())
+    .lte('created_at', endOfMonth.toISOString())
+    .order('created_at', { ascending: false });
+
+  if (error) throw error;
+  
+  if (!summaries || summaries.length === 0) {
+    return {
+      total_spent: 0,
+      categories: []
+    };
+  }
+
+  // Sum total spent across all summaries
+  const totalSpent = summaries.reduce((sum, s) => sum + parseFloat(s.total_spent || 0), 0);
+
+  // Aggregate categories
+  const categoryMap = {};
+  summaries.forEach(summary => {
+    (summary.categories || []).forEach(cat => {
+      const categoryName = cat.category;
+      if (!categoryMap[categoryName]) {
+        categoryMap[categoryName] = {
+          category: categoryName,
+          total_spent: 0,
+          points_multiplier: cat.points_multiplier || 1
+        };
+      }
+      categoryMap[categoryName].total_spent += parseFloat(cat.total_spent || 0);
+    });
+  });
+
+  // Convert to array and calculate percentages
+  const categories = Object.values(categoryMap).map(cat => ({
+    ...cat,
+    percentage_of_spend: totalSpent > 0 ? (cat.total_spent / totalSpent) * 100 : 0
+  }));
+
+  return {
+    total_spent: totalSpent,
+    categories: categories.sort((a, b) => b.total_spent - a.total_spent)
+  };
+};
