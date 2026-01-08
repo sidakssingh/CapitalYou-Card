@@ -1,3 +1,10 @@
+"""Quick model validation script.
+
+Loads a saved pipeline and runs predictions on `test/test_data.csv`, printing
+per-row predicted category and confidence. This script is intended for manual
+sanity checks and not for automated testing.
+"""
+
 import pandas as pd
 import joblib
 
@@ -7,6 +14,11 @@ TEST_DATA_PATH = "test/test_data.csv"
 
 
 def main():
+    """Run a quick validation pass on the test CSV and print per-row predictions.
+
+    This is a manual convenience script — for automated checks add proper
+    unit tests under `tests/`.
+    """
     # Load trained model
     model = joblib.load(MODEL_PATH)
 
