@@ -15,3 +15,11 @@ export const healthCheck = async () => {
   }
   return response.json();
 };
+
+export const getSpendingCategories = async (userId) => {
+  const response = await fetch(`${API_BASE_URL}/api/users/${userId}/spending-categories`);
+  if (!response.ok) {
+    throw new Error('Failed to fetch spending categories');
+  }
+  return response.json();
+};

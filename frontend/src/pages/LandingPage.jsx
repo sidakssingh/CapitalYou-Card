@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CreditCard } from 'lucide-react';
 import { testApi } from '../services/api';
@@ -50,28 +51,34 @@ function LandingPage() {
               CapitalYou Card helps you take control of your finances with smart spending insights and rewards.
             </p>
             
-            {/* Test API Button */}
-            <div className="mt-8">
+            {/* Action Buttons */}
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                to="/dashboard/1"
+                className="px-8 py-3 bg-emerald-500 hover:bg-emerald-600 rounded-lg font-medium transition-colors text-center"
+              >
+                View Dashboard
+              </Link>
               <button
                 onClick={handleTestApi}
                 disabled={loading}
-                className="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 disabled:bg-emerald-800 rounded-lg font-medium transition-colors"
+                className="px-6 py-3 bg-slate-700 hover:bg-slate-600 disabled:bg-slate-800 rounded-lg font-medium transition-colors"
               >
                 {loading ? 'Loading...' : 'Test Backend API'}
               </button>
-              
-              {apiResponse && (
-                <motion.div 
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-4 p-4 bg-slate-800 rounded-lg text-left max-w-md mx-auto"
-                >
-                  <pre className="text-sm text-slate-300 overflow-auto">
-                    {JSON.stringify(apiResponse, null, 2)}
-                  </pre>
-                </motion.div>
-              )}
             </div>
+              
+            {apiResponse && (
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-4 p-4 bg-slate-800 rounded-lg text-left max-w-md mx-auto"
+              >
+                <pre className="text-sm text-slate-300 overflow-auto">
+                  {JSON.stringify(apiResponse, null, 2)}
+                </pre>
+              </motion.div>
+            )}
           </motion.div>
         </div>
       </section>
