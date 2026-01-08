@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Upload, FileText, CheckCircle, AlertCircle } from 'lucide-react';
-import { uploadTransactions } from '../services/api';
+import { uploadTransactions, getSpendingCategories } from '../services/api';
+import { saveSummary } from '../services/database';
+import { getCurrentUser } from '../services/auth';
+import LogoutButton from '../components/LogoutButton';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
 
 function DataUploadPage() {
   const navigate = useNavigate();
   const [file, setFile] = useState(null);
+  const [title, setTitle] = useState('');
   const [uploading, setUploading] = useState(false);
   const [uploadSuccess, setUploadSuccess] = useState(false);
   const [error, setError] = useState(null);
@@ -38,17 +42,32 @@ function DataUploadPage() {
     console.log('Starting upload for file:', file.name);
 
     try {
-      const response = await uploadTransactions(file);
-      console.log('Upload successful:', response);
-      setUploadSuccess(true);
+      // Get current user
+      const user = await getCurrentUser();
+      if (!user) {
+        throw new Error('You must be logged in to upload transactions');
+      }
+
+      // Upload CSV and get summary from backend (CSV is discarded after processing)
+      const uploadResponse = await uploadTransactions(file);
+      console.log('Upload successful:', uploadResponse);
       
-      // Get user_id from response, default to 1 if not provided
-      const userId = response.user_id || '1';
-      console.log('Redirecting to dashboard for user:', userId);
+      // Get user_id from response for backend API call
+      const backendUserId = uploadResponse.user_id || '1';
+      
+      // Fetch the spending summary from backend
+      const summaryData = await getSpendingCategories(backendUserId);
+      console.log('Summary data received:', summaryData);
+      
+      // Save summary to Supabase (only summaries are stored, not raw transactions)
+      await saveSummary(user.id, summaryData, title || null);
+      console.log('Summary saved to database for user:', user.id);
+      
+      setUploadSuccess(true);
       
       // Redirect to dashboard after 2 seconds
       setTimeout(() => {
-        navigate(`/dashboard/${userId}`);
+        navigate(`/dashboard/${backendUserId}`);
       }, 2000);
     } catch (err) {
       console.log('Upload failed:', err.message);
@@ -75,6 +94,7 @@ function DataUploadPage() {
                 className="h-16 md:h-20 w-auto"
               />
             </Link>
+            <LogoutButton />
           </motion.div>
         </div>
       </header>
@@ -102,6 +122,22 @@ function DataUploadPage() {
 
             {/* Upload Area */}
             <div className="space-y-6">
+              {/* Title Input (Optional) */}
+              <div>
+                <label htmlFor="upload-title" className="block text-sm font-medium text-gray-700 mb-2">
+                  Title (Optional)
+                </label>
+                <input
+                  id="upload-title"
+                  type="text"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  placeholder="e.g., December 2025 Expenses"
+                  disabled={uploading || uploadSuccess}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#004977] focus:border-transparent transition-all"
+                />
+              </div>
+
               <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-[#D03027] transition-colors">
                 <input
                   type="file"

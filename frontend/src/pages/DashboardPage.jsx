@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { AlertCircle, Loader2, TestTube, Database, ChevronLeft, Upload } from 'lucide-react';
 import CategoryDial from '../components/CategoryDial';
+import LogoutButton from '../components/LogoutButton';
 import { getSpendingCategories } from '../services/api';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
 
@@ -67,6 +68,8 @@ const Header = ({ testMode, setTestMode, showToggle = true }) => (
             <span className="hidden sm:inline">Upload Data</span>
           </Link>
           
+          <LogoutButton />
+          
           {showToggle && (
             <button
               onClick={() => setTestMode(!testMode)}
@@ -104,22 +107,20 @@ function DashboardPage() {
   const [testMode, setTestMode] = useState(false);
 
   useEffect(() => {
-    if (testMode) {
-      setLoading(false);
-      setError(null);
-      setData(TEST_DATA);
-      return;
-    }
-
-    // If no userId provided, show no data state
-    if (!userId) {
-      setLoading(false);
-      setError(null);
-      setData(null);
-      return;
-    }
-
     const fetchData = async () => {
+      if (testMode) {
+        setLoading(false);
+        setError(null);
+        setData(TEST_DATA);
+        return;
+      }
+      // If no userId provided, show no data state
+      if (!userId) {
+        setLoading(false);
+        setError(null);
+        setData(null);
+        return;
+      }
       try {
         setLoading(true);
         setError(null);
@@ -131,7 +132,6 @@ function DashboardPage() {
         setLoading(false);
       }
     };
-
     fetchData();
   }, [userId, testMode]);
 
