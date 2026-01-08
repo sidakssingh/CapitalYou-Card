@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import DataUploadPage from './pages/DataUploadPage'
 import ManageUploadsPage from './pages/ManageUploadsPage'
+import ReportPage from './pages/ReportPage'
 import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
@@ -36,6 +37,14 @@ function App() {
         element={
           <ProtectedRoute>
             <ManageUploadsPage />
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/report/:id" 
+        element={
+          <ProtectedRoute>
+            <ReportPage />
           </ProtectedRoute>
         } 
       />

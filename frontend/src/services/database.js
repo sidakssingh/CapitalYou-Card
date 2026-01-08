@@ -26,6 +26,22 @@ export const saveSummary = async (userId, summaryData, title = null) => {
 };
 
 /**
+ * Gets a single summary by ID
+ * @param {string} summaryId - Summary ID
+ * @returns {Promise<Object|null>} Summary or null if not found
+ */
+export const getSummaryById = async (summaryId) => {
+  const { data, error } = await supabase
+    .from('category_summaries')
+    .select('*')
+    .eq('id', summaryId)
+    .single();
+
+  if (error && error.code !== 'PGRST116') throw error; // PGRST116 = no rows
+  return data;
+};
+
+/**
  * Gets the latest spending summary for a user
  * @param {string} userId - Supabase auth user ID
  * @returns {Promise<Object|null>} Latest summary or null if none exists
@@ -116,6 +132,20 @@ export const deleteSummary = async (summaryId) => {
     .from('category_summaries')
     .delete()
     .eq('id', summaryId);
+
+  if (error) throw error;
+};
+
+/**
+ * Deletes all summaries for a user
+ * @param {string} userId - Supabase auth user ID
+ * @returns {Promise<void>}
+ */
+export const deleteAllSummaries = async (userId) => {
+  const { error } = await supabase
+    .from('category_summaries')
+    .delete()
+    .eq('user_id', userId);
 
   if (error) throw error;
 };

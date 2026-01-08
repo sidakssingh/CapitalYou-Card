@@ -18,8 +18,8 @@ function LoginPage() {
     setLoading(true);
 
     try {
-      await signIn(email, password);
-      navigate('/upload');
+        await signIn(email, password);
+        navigate('/dashboard');
     } catch (err) {
       setError(err.message || 'Failed to sign in. Please check your credentials.');
     } finally {

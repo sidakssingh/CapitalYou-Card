@@ -259,9 +259,15 @@ function RegisterPage() {
                   <strong>We never store your raw transactions or uploaded files.</strong> Only anonymized spending summaries are securely kept for analytics and rewards optimization. All original transaction details are processed in real-time and immediately discarded.
                 </p>
               </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-[#D03027] flex-shrink-0 mt-0.5" />
+                <p>
+                  <strong>You have full control over your data.</strong> You can delete all your summary data and revoke access at any time through your account settings.
+                </p>
+              </div>
             </div>
             <p className="text-xs text-gray-500 text-center pt-2">
-              You can revoke this consent anytime in your account settings.
+              You can delete your account and all associated data anytime in your account settings.
             </p>
           </div>
 

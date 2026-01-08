@@ -1,5 +1,6 @@
 import React from 'react';
-import { Trash2, TrendingUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Trash2, TrendingUp, FileText } from 'lucide-react';
 import PropTypes from 'prop-types';
 
 function UploadCard({ summary, onDelete }) {
@@ -70,6 +71,15 @@ function UploadCard({ summary, onDelete }) {
             </p>
           </div>
         </div>
+
+        {/* View Report Button */}
+        <Link
+          to={`/report/${summary.id}`}
+          className="flex items-center justify-center gap-2 w-full mt-4 px-4 py-2 bg-[#004977] hover:bg-[#003557] text-white rounded-lg font-medium text-sm transition-colors"
+        >
+          <FileText className="w-4 h-4" />
+          View Full Report
+        </Link>
       </div>
     </div>
   );

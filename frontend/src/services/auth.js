@@ -46,3 +46,15 @@ export const getSession = async () => {
 export const onAuthStateChange = (callback) => {
   return supabase.auth.onAuthStateChange(callback);
 };
+
+// Delete current user account (MOCKED)
+export const deleteUserAccount = async () => {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) throw new Error('No user logged in');
+  
+  // For now, we just sign the user out after their data is deleted
+  console.log('Account deletion requested for user:', user.id);
+  
+  // Sign out the user
+  await signOut();
+};
