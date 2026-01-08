@@ -6,7 +6,7 @@ import CategoryDial from '../components/CategoryDial';
 import LogoutButton from '../components/LogoutButton';
 import SettingsMenu from '../components/SettingsMenu';
 import SpendPie from '../components/SpendPie';
-import { getCurrentMonthSummary, getAggregatedSummary, deleteAllSummaries } from '../services/database';
+import { getCurrentMonthSummary, getAggregatedSummary, getMonthlySpendingData, deleteAllSummaries } from '../services/database';
 import { getCurrentUser, deleteUserAccount } from '../services/auth';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
 import virtualCard from '../assets/virtual-card.png';
@@ -46,6 +46,8 @@ const TEST_DATA = {
   ]
 };
 
+const HISTOGRAM_COLORS = ['#0ea5e9','#14b8a6','#2563eb','#c084fc','#fb7185','#f59e0b','#10b981','#22d3ee','#f97316','#a855f7'];
+
 const computeMultipliers = (categories = []) => {
   if (!categories || categories.length === 0) {
     return [];
@@ -68,6 +70,76 @@ const computeMultipliers = (categories = []) => {
     ...entry,
     points_multiplier: Math.max(1, Math.round((5 * (entry.percentage_of_spend / maxPercentage)) * 10) / 10),
   }));
+};
+
+const SegmentedHistogram = ({ months }) => {
+  const [hoverInfo, setHoverInfo] = useState(null);
+  if (!months || months.length === 0) return null;
+  return (
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-8">
+      <div className="relative mb-4 min-h-[24px]">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <motion.div
+            key={hoverInfo ? hoverInfo.category : 'default'}
+            className="bg-white/90 border border-slate-200 rounded-full px-4 py-2 shadow-lg text-center text-sm text-slate-600 backdrop-blur"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 8 }}
+          >
+            {hoverInfo ? (
+              <>
+                <p className="font-semibold text-slate-900">{hoverInfo.category}</p>
+                <p className="text-xs text-slate-500">
+                  {hoverInfo.percentage.toFixed(1)}% • ${hoverInfo.amount?.toFixed(2) ?? '0.00'}
+                </p>
+              </>
+            ) : (
+              <p className="text-sm font-semibold text-slate-600">Hover to explore</p>
+            )}
+          </motion.div>
+        </div>
+      </div>
+      <div className="space-y-5">
+        {months.map((month) => (
+          <div key={month.monthKey} className="space-y-2">
+            <div className="flex justify-between text-sm text-gray-600">
+              <span>{month.monthName} {month.year}</span>
+              <span>${month.total_spent.toFixed(2)}</span>
+            </div>
+            <div className="h-10 rounded-full overflow-hidden bg-slate-100 flex">
+              {month.categories.map((category, index) => {
+                const width = Math.max(0, Math.min(100, category.percentage_of_spend || 0));
+                if (width === 0) return null;
+                return (
+                  <motion.div
+                    key={`${month.monthKey}-${category.category}`}
+                    className="h-full"
+                    style={{
+                      width: `${width}%`,
+                      backgroundColor: HISTOGRAM_COLORS[index % HISTOGRAM_COLORS.length],
+                    }}
+                    onMouseEnter={() =>
+                      setHoverInfo({
+                        category: category.category,
+                        percentage: category.percentage_of_spend || 0,
+                        amount: category.total_spent || 0,
+                      })
+                    }
+                    onMouseLeave={() => setHoverInfo(null)}
+                    title={`${category.category}: ${category.percentage_of_spend?.toFixed(1) ?? '0.0'}%`}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                    whileHover={{ scale: 1.03 }}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 // Reusable Header Component
@@ -120,6 +192,8 @@ function DashboardPage() {
   const [testMode, setTestMode] = useState(false);
   const [showCategoryGrid, setShowCategoryGrid] = useState(false);
   const [isDemoUser, setIsDemoUser] = useState(false);
+  const [monthlyData, setMonthlyData] = useState([]);
+  const [showMonthlyDetails, setShowMonthlyDetails] = useState(false);
 
   // Handle account deletion
   const handleDeleteAccount = async () => {
@@ -178,8 +252,10 @@ function DashboardPage() {
         
         const currentMonthData = await getCurrentMonthSummary(user.id);
         const aggregatedData = await getAggregatedSummary(user.id);
+        const monthly = await getMonthlySpendingData(user.id);
         setData(currentMonthData);
         setAllTimeData(aggregatedData);
+        setMonthlyData(monthly);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -365,7 +441,7 @@ function DashboardPage() {
                 Bonus Rewards Categories
               </h3>
               <p className="text-gray-500 text-sm mb-6">
-                Categories earning more than 1x points
+                Categories earning more than 1x points. Points are based on your spending this month.
               </p>
               <div className="space-y-3">
                 {categoriesToShow
@@ -413,6 +489,37 @@ function DashboardPage() {
           </div>
         </motion.div>
 
+        {monthlyData.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mb-6"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h2 className="text-2xl font-bold text-[#004977]">Monthly Category Mix</h2>
+                <p className="text-sm text-gray-500 mt-1">Each bar represents the percent of monthly spend per category.</p>
+              </div>
+              <button
+                type="button"
+                aria-label="Toggle monthly detail breakdown"
+                onClick={() => setShowMonthlyDetails((prev) => !prev)}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 bg-white shadow-sm hover:bg-gray-50 transition-colors"
+              >
+                <span className="text-sm font-medium text-gray-700">
+                  {showMonthlyDetails ? 'Hide' : 'Show'}
+                </span>
+                <ChevronDown
+                  className="w-5 h-5 text-[#004977] transition-transform duration-200"
+                  style={{ transform: showMonthlyDetails ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                />
+              </button>
+            </div>
+            {showMonthlyDetails && <SegmentedHistogram months={monthlyData} />}
+          </motion.div>
+        )}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -421,7 +528,7 @@ function DashboardPage() {
         >
           <div>
             <h2 className="text-2xl font-bold text-[#004977]">Lifetime Spending</h2>
-            <p className="text-sm text-gray-500 mt-1">All-time spending across all statements since the opening of your card</p>
+            <p className="text-sm text-gray-500 mt-1">All-time spending across all statements since the opening of your card.</p>
           </div>
           <button
             type="button"
