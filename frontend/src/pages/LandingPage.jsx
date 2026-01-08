@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronRight, Shield, TrendingUp, CreditCard } from 'lucide-react';
+import { ChevronRight, Shield, TrendingUp, Star } from 'lucide-react';
 import { testApi } from '../services/api';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
 
@@ -32,9 +32,9 @@ function LandingPage() {
       description: "Get up to 5x points on your top spending categories, automatically optimized for you."
     },
     {
-      icon: <CreditCard className="w-8 h-8" />,
-      title: "No Annual Fee",
-      description: "Enjoy all the benefits without the cost. Your rewards, your way."
+      icon: <Star className="w-8 h-8" />,
+      title: "Choose Your Tier",
+      description: "Pick the card that fits your lifestyle — from no annual fee to premium rewards."
     }
   ];
 
