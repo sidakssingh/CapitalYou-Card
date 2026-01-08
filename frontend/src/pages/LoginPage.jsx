@@ -27,6 +27,20 @@ function LoginPage() {
     }
   };
 
+  const handleCapitalOneLogin = async () => {
+    setError('');
+    setLoading(true);
+    
+    try {
+      await signIn('janedoe@capitalone.com', '123456');
+      navigate('/dashboard');
+    } catch (err) {
+      setError(err.message || 'Failed to sign in with Capital One demo account.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#004977] to-[#003557] flex flex-col">
       {/* Header */}
@@ -123,6 +137,26 @@ function LoginPage() {
               >
                 <LogIn className="w-5 h-5" />
                 {loading ? 'Signing In...' : 'Sign In'}
+              </button>
+
+              {/* Divider */}
+              <div className="relative my-6">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-gray-200"></div>
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="px-4 bg-white text-gray-500">or</span>
+                </div>
+              </div>
+
+              {/* Capital One Demo Login */}
+              <button
+                type="button"
+                onClick={handleCapitalOneLogin}
+                disabled={loading}
+                className="w-full bg-[#D03027] hover:bg-[#B02820] text-white py-3 rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Log in with Capital One
               </button>
             </form>
 

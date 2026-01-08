@@ -11,7 +11,10 @@ import { getCurrentUser, deleteUserAccount } from '../services/auth';
 import capitalYouLogo from '../assets/CapitalYou_logo.png';
 import virtualCard from '../assets/virtual-card.png';
 
-// Sample test data
+// Demo user UID for Capital One login
+const DEMO_USER_UID = 'bf75c74b-e9ae-490c-9fe8-14a1313cda4e';
+
+// Sample test data (used for demo user)
 const TEST_DATA = {
   "user_id": 1,
   "total_spent": 648.31,
@@ -68,7 +71,7 @@ const computeMultipliers = (categories = []) => {
 };
 
 // Reusable Header Component
-const Header = ({ testMode, setTestMode, showToggle = true, onDeleteAccount }) => (
+const Header = ({ testMode, setTestMode, showToggle = true, onDeleteAccount, isDemoUser = false }) => (
   <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
     <div className="container mx-auto px-6 py-2">
       <motion.div 
@@ -88,13 +91,15 @@ const Header = ({ testMode, setTestMode, showToggle = true, onDeleteAccount }) =
         </div>
         
         <div className="flex items-center gap-3">
-          <Link
-            to="/upload"
-            className="flex items-center gap-2 px-4 py-2 bg-[#D03027] hover:bg-[#B02820] text-white rounded-full font-medium text-sm transition-all"
-          >
-            <Upload className="w-4 h-4" />
-            <span className="hidden sm:inline">Upload Data</span>
-          </Link>
+          {!isDemoUser && (
+            <Link
+              to="/upload"
+              className="flex items-center gap-2 px-4 py-2 bg-[#D03027] hover:bg-[#B02820] text-white rounded-full font-medium text-sm transition-all"
+            >
+              <Upload className="w-4 h-4" />
+              <span className="hidden sm:inline">Upload Data</span>
+            </Link>
+          )}
           
           <SettingsMenu onDeleteAccount={onDeleteAccount} />
           
@@ -114,6 +119,7 @@ function DashboardPage() {
   const [error, setError] = useState(null);
   const [testMode, setTestMode] = useState(false);
   const [showCategoryGrid, setShowCategoryGrid] = useState(false);
+  const [isDemoUser, setIsDemoUser] = useState(false);
 
   // Handle account deletion
   const handleDeleteAccount = async () => {
@@ -167,6 +173,9 @@ function DashboardPage() {
           return;
         }
         
+        // Check if this is the demo user (hide upload/manage buttons but still fetch real data)
+        setIsDemoUser(user.id === DEMO_USER_UID);
+        
         const currentMonthData = await getCurrentMonthSummary(user.id);
         const aggregatedData = await getAggregatedSummary(user.id);
         setData(currentMonthData);
@@ -183,7 +192,7 @@ function DashboardPage() {
   if (loading && !testMode) {
     return (
       <div className="min-h-screen bg-gray-50 font-sans">
-        <Header testMode={testMode} setTestMode={setTestMode} onDeleteAccount={handleDeleteAccount} />
+        <Header testMode={testMode} setTestMode={setTestMode} onDeleteAccount={handleDeleteAccount} isDemoUser={isDemoUser} />
         <div className="flex items-center justify-center min-h-[70vh]">
           <div className="flex flex-col items-center gap-4">
             <Loader2 className="w-10 h-10 animate-spin text-[#D03027]" />
@@ -197,7 +206,7 @@ function DashboardPage() {
   if (error && !testMode) {
     return (
       <div className="min-h-screen bg-gray-50 font-sans">
-        <Header testMode={testMode} setTestMode={setTestMode} onDeleteAccount={handleDeleteAccount} />
+        <Header testMode={testMode} setTestMode={setTestMode} onDeleteAccount={handleDeleteAccount} isDemoUser={isDemoUser} />
         <div className="flex items-center justify-center min-h-[70vh]">
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 max-w-md mx-6 text-center">
             <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -217,7 +226,7 @@ function DashboardPage() {
   if (!data || !data.categories || data.categories.length === 0) {
     return (
       <div className="min-h-screen bg-gray-50 font-sans">
-        <Header testMode={testMode} setTestMode={setTestMode} onDeleteAccount={handleDeleteAccount} />
+        <Header testMode={testMode} setTestMode={setTestMode} onDeleteAccount={handleDeleteAccount} isDemoUser={isDemoUser} />
         <div className="flex items-center justify-center min-h-[70vh]">
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 max-w-md mx-6 text-center">
             <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -227,21 +236,23 @@ function DashboardPage() {
             <p className="text-gray-600 mb-6">
               Upload your transaction data to see personalized spending insights and rewards.
             </p>
-            <div className="flex flex-col gap-3">
-              <Link
-                to="/upload"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#D03027] hover:bg-[#B02820] text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-xl"
-              >
-                <Upload className="w-5 h-5" />
-                Upload Data
-              </Link>
-              <Link
-                to="/manage"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-[#004977] border-2 border-[#004977] rounded-full font-semibold transition-all"
-              >
-                Manage Uploads
-              </Link>
-            </div>
+            {!isDemoUser && (
+              <div className="flex flex-col gap-3">
+                <Link
+                  to="/upload"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#D03027] hover:bg-[#B02820] text-white rounded-full font-semibold transition-all shadow-lg hover:shadow-xl"
+                >
+                  <Upload className="w-5 h-5" />
+                  Upload Data
+                </Link>
+                <Link
+                  to="/manage"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-gray-50 text-[#004977] border-2 border-[#004977] rounded-full font-semibold transition-all"
+                >
+                  Manage Uploads
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -250,7 +261,7 @@ function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
-      <Header testMode={testMode} setTestMode={setTestMode} onDeleteAccount={handleDeleteAccount} />
+      <Header testMode={testMode} setTestMode={setTestMode} onDeleteAccount={handleDeleteAccount} isDemoUser={isDemoUser} />
 
       {/* Combined Dashboard Header with Card */}
       <div className="bg-gradient-to-br from-[#004977] to-[#003557] text-white py-8 md:py-12">
@@ -332,12 +343,14 @@ function DashboardPage() {
               <h2 className="text-2xl font-bold text-[#004977]">Spending Overview</h2>
               <p className="text-sm text-gray-500 mt-1">{new Date().toLocaleString('default', { month: 'long', year: 'numeric' })}</p>
             </div>
-            <Link
-              to="/manage"
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white hover:bg-gray-50 text-[#004977] border-2 border-[#004977] rounded-full font-semibold transition-all whitespace-nowrap"
-            >
-              Manage Uploads
-            </Link>
+            {!isDemoUser && (
+              <Link
+                to="/manage"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white hover:bg-gray-50 text-[#004977] border-2 border-[#004977] rounded-full font-semibold transition-all whitespace-nowrap"
+              >
+                Manage Uploads
+              </Link>
+            )}
           </div>
           
           <div className="flex flex-col lg:flex-row gap-8 items-start">
