@@ -131,6 +131,15 @@ def load_transaction_data(
     return pd.read_csv(path)
 
 
+def _calculate_multiplier(percentage: float, max_percentage: float) -> float:
+    """Scale multiplier linearly so the top percentage hits 5x and others are floored at 1x."""
+    if max_percentage <= 0:
+        return 0.0
+    multiplier = 5 * (percentage / max_percentage)
+    multiplier = round(multiplier, 1)
+    return max(multiplier, 1.0)
+
+
 def summarize_user_spending(
     user_id: Union[str, int],
     model,
@@ -157,18 +166,12 @@ def summarize_user_spending(
 
     categories = []
     for entry in summary["by_category"]:
-        percentage = entry["percentage_of_total"]
-        if max_percentage <= 0:
-            multiplier = 0.0
-        else:
-            multiplier = 5 * (percentage / max_percentage)
-        multiplier = round(multiplier, 1)
-
+        multiplier = _calculate_multiplier(entry["percentage_of_total"], max_percentage)
         categories.append(
             {
                 "category": entry["category"],
                 "total_spent": entry["total_spent"],
-                "percentage_of_spend": percentage,
+                "percentage_of_spend": entry["percentage_of_total"],
                 "points_multiplier": multiplier,
             }
         )

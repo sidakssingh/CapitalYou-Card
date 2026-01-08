@@ -5,7 +5,20 @@ from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, conlist
 
-from ml_pipeline import load_category_model, summarize_transactions, summarize_user_spending
+try:
+    from backend.ml_pipeline import (
+        load_category_model,
+        summarize_transactions,
+        summarize_user_spending,
+        load_transaction_data,
+    )
+except ModuleNotFoundError:
+    from ml_pipeline import (
+        load_category_model,
+        summarize_transactions,
+        summarize_user_spending,
+        load_transaction_data,
+    )
 
 # In-memory storage for uploaded transaction data (more secure than file storage)
 _uploaded_data: Optional[pd.DataFrame] = None
@@ -135,8 +148,7 @@ async def upload_transactions(file: UploadFile = File(...)):
         # Parse the file using load_transaction_data which handles both CSV and PDF
         from pathlib import Path
         import tempfile
-        from ml_pipeline import load_transaction_data
-        
+
         # Save temporarily and use load_transaction_data to handle it
         with tempfile.NamedTemporaryFile(suffix=Path(file.filename).suffix, delete=False) as tmp:
             tmp.write(contents)
