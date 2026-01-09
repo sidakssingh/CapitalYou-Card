@@ -4,7 +4,7 @@ import { Settings, LogOut, Trash2 } from 'lucide-react';
 import { signOut } from '../services/auth';
 import Modal from './Modal';
 
-function SettingsMenu({ onDeleteAccount }) {
+function SettingsMenu({ onDeleteAccount, isDemoUser = false }) {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
@@ -78,13 +78,15 @@ function SettingsMenu({ onDeleteAccount }) {
             <LogOut className="w-4 h-4" />
             <span>Log Out</span>
           </button>
-          <button
-            onClick={handleDeleteAccount}
-            className="w-full px-4 py-2 text-left text-red-600 hover:bg-red-50 flex items-center gap-3 transition-colors"
-          >
-            <Trash2 className="w-4 h-4" />
-            <span>Delete Account</span>
-          </button>
+          {!isDemoUser && (
+            <button
+              onClick={handleDeleteAccount}
+              className="w-full px-4 py-2 text-left text-red-600 hover:bg-red-50 flex items-center gap-3 transition-colors"
+            >
+              <Trash2 className="w-4 h-4" />
+              <span>Delete Account</span>
+            </button>
+          )}
         </div>
       )}
 

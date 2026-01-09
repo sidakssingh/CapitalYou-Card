@@ -163,7 +163,7 @@ const Header = ({ testMode, setTestMode, showToggle = true, onDeleteAccount, isD
         </div>
         
         <div className="flex items-center gap-3">
-          <SettingsMenu onDeleteAccount={onDeleteAccount} />
+          <SettingsMenu onDeleteAccount={onDeleteAccount} isDemoUser={isDemoUser} />
         </div>
       </motion.div>
     </div>
